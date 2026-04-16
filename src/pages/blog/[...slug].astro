@@ -21,6 +21,7 @@ const { Content } = await post.render();
   updatedDate={post.data.updatedDate}
   tags={post.data.tags}
   rawContent={post.body}
+  originalUrl={post.data.originalUrl}
 >
   <Content />
 </BlogPostLayout>

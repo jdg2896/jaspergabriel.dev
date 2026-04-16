@@ -1,5 +1,5 @@
 ---
-title: "Why I Started This Blog"
+title: "Why I Started This Blog [PLACEHOLDER]"
 description: "On the reasoning behind putting thoughts on the internet — and what I plan to write about."
 pubDate: 2026-04-16
 tags: ["personal", "writing"]

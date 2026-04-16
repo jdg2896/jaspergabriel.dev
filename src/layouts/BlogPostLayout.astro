@@ -9,9 +9,10 @@ interface Props {
   updatedDate?: Date;
   tags: string[];
   rawContent: string;
+  originalUrl?: string;
 }
 
-const { title, description, pubDate, updatedDate, tags, rawContent } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, rawContent, originalUrl } = Astro.props;
 
 const readingTime = getReadingTime(rawContent);
 
@@ -43,6 +44,12 @@ const formatDate = (date: Date) =>
           </div>
         )}
       </header>
+
+      {originalUrl && (
+        <p class="originally-published">
+          Originally published on <a href={originalUrl} target="_blank" rel="noopener noreferrer">dev.to</a>
+        </p>
+      )}
 
       <div class="prose">
         <slot />

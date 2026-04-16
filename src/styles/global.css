@@ -369,6 +369,23 @@ p {
   margin-top: 0.75rem;
 }
 
+.originally-published {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.originally-published a {
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.originally-published a:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
 /* ---- Home page ---- */
 .hero {
   padding: 4rem 0 3rem;
