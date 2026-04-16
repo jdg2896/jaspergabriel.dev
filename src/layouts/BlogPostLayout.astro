@@ -1,0 +1,52 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { getReadingTime } from '../utils/readingTime';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  tags: string[];
+  rawContent: string;
+}
+
+const { title, description, pubDate, updatedDate, tags, rawContent } = Astro.props;
+
+const readingTime = getReadingTime(rawContent);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title={`${title} — Jasper Gabriel`} description={description}>
+  <div class="container">
+    <article>
+      <header class="post-header">
+        <h1>{title}</h1>
+        <div class="post-header__meta">
+          <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+          <span aria-hidden="true">&middot;</span>
+          <span>{readingTime} min read</span>
+          {updatedDate && (
+            <>
+              <span aria-hidden="true">&middot;</span>
+              <span>Updated {formatDate(updatedDate)}</span>
+            </>
+          )}
+        </div>
+        {tags.length > 0 && (
+          <div class="post-header__tags">
+            {tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <div class="prose">
+        <slot />
+      </div>
+    </article>
+  </div>
+</BaseLayout>

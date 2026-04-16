@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { getReadingTime } from '../utils/readingTime';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const recentPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+<BaseLayout
+  title="Jasper Gabriel"
+  description="Software engineer. Writing about tech, building things, and whatever else is on my mind."
+>
+  <div class="container">
+    <section class="hero">
+      <p class="hero__greeting">Hello, I'm</p>
+      <h1 class="hero__name">Jasper Gabriel</h1>
+      <p class="hero__bio">
+        Software engineer based in the Philippines. I build things for the web and occasionally write
+        about what I'm learning, working on, or thinking about.
+      </p>
+      <div class="hero__links">
+        <a href="/blog" class="btn btn--primary">Read the blog</a>
+        <a href="/about" class="btn btn--ghost">About me</a>
+      </div>
+    </section>
+
+    {recentPosts.length > 0 && (
+      <section>
+        <div class="section-header">
+          <h2>Recent posts</h2>
+          <a href="/blog">All posts &rarr;</a>
+        </div>
+        <ul class="post-list">
+          {recentPosts.map(async (post) => {
+            const { remarkPluginFrontmatter } = await post.render();
+            const readingTime = getReadingTime(post.body);
+            return (
+              <li class="post-card">
+                <div class="post-card__meta">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {formatDate(post.data.pubDate)}
+                  </time>
+                  <span aria-hidden="true">&middot;</span>
+                  <span>{readingTime} min read</span>
+                </div>
+                <h3 class="post-card__title">
+                  <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+                </h3>
+                <p class="post-card__description">{post.data.description}</p>
+                {post.data.tags.length > 0 && (
+                  <div class="post-card__tags">
+                    {post.data.tags.map((tag) => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    )}
+  </div>
+</BaseLayout>

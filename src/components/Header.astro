@@ -1,0 +1,29 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/about', label: 'About' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="site-logo">Jasper Gabriel</a>
+    <nav>
+      <ul class="site-nav">
+        {navLinks.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              aria-current={currentPath === href || (href !== '/' && currentPath.startsWith(href)) ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

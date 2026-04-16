@@ -1,0 +1,10 @@
+# Cache static assets aggressively (Astro hashes filenames)
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Don't cache HTML pages
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate

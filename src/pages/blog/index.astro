@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { getReadingTime } from '../../utils/readingTime';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+<BaseLayout
+  title="Blog — Jasper Gabriel"
+  description="Thoughts on software engineering, side projects, and whatever else is on my mind."
+>
+  <div class="container">
+    <h1>Blog</h1>
+    <p style="color: var(--color-text-muted); margin-top: 0.5rem; margin-bottom: 2.5rem; font-size: 0.95rem;">
+      {posts.length} post{posts.length !== 1 ? 's' : ''}
+    </p>
+
+    {posts.length === 0 ? (
+      <p style="color: var(--color-text-muted);">No posts yet. Check back soon.</p>
+    ) : (
+      <ul class="post-list">
+        {posts.map((post) => {
+          const readingTime = getReadingTime(post.body);
+          return (
+            <li class="post-card">
+              <div class="post-card__meta">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {formatDate(post.data.pubDate)}
+                </time>
+                <span aria-hidden="true">&middot;</span>
+                <span>{readingTime} min read</span>
+              </div>
+              <h2 class="post-card__title">
+                <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+              </h2>
+              <p class="post-card__description">{post.data.description}</p>
+              {post.data.tags.length > 0 && (
+                <div class="post-card__tags">
+                  {post.data.tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    )}
+  </div>
+</BaseLayout>
