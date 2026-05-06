@@ -3,7 +3,7 @@ title: "How to Create Real-Time Alerts for Blockchain Events with AWS and QuickN
 description: "Create real-time blockchain event notifications using AWS Lambda webhooks and QuickNode alerts for Ethereum transactions."
 pubDate: 2023-12-23
 tags: ["tech", "blockchain", "aws"]
-originalUrl: "https://dev.to/kshyun28/how-to-create-real-time-alerts-for-blockchain-events-with-aws-and-quicknode-23oe"
+originalUrl: "https://dev.to/jdg2896/how-to-create-real-time-alerts-for-blockchain-events-with-aws-and-quicknode-23oe"
 ---
 
 
@@ -62,7 +62,7 @@ After you've verified AWS SAM CLI, it's time to create your webhook with AWS.
 
 ### Deploying the sample application
 
-I have provided a sample application in [GitHub](https://github.com/kshyun28/aws-lambda-sns-poc) to help you get started.
+I have provided a sample application in [GitHub](https://github.com/jdg2896/aws-lambda-sns-poc) to help you get started.
 
 The application uses [AWS SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started.html) to deploy the following resources:
 
@@ -74,7 +74,7 @@ The application uses [AWS SAM](https://docs.aws.amazon.com/serverless-applicatio
 
 Then to setup the project:
 
-1. Clone the [sample application](https://github.com/kshyun28/aws-lambda-sns-poc).
+1. Clone the [sample application](https://github.com/jdg2896/aws-lambda-sns-poc).
 2. Install Node.js dependencies by running `npm install`.
 3. Add your email to the SNS Topic subscription in the `template.yaml` file.
     ```yaml
@@ -257,10 +257,10 @@ To recap, you've successfully created a QuickAlert notification that sends an em
 
 I hope this can help you with integrating real-time blockchain event notifications into your applications.
 
-Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/kshyun28). 
+Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/jdg2896). 
 
 ## Resources
-- [Sample Application: aws-lambda-sns-poc](https://github.com/kshyun28/aws-lambda-sns-poc)
+- [Sample Application: aws-lambda-sns-poc](https://github.com/jdg2896/aws-lambda-sns-poc)
 - [AWS](https://aws.amazon.com/)
 - [Amazon API Gateway](https://aws.amazon.com/api-gateway/)
 - [AWS Lambda](https://aws.amazon.com/lambda/)

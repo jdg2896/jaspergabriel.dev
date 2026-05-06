@@ -3,7 +3,7 @@ title: "6 Takeaways from Hashnode Bootcamp 2023 as a Beginner Writer"
 description: "Key lessons on consistency, cross-platform posting, and building writing habits from Hashnode's 2023 technical writing bootcamp."
 pubDate: 2023-05-06
 tags: ["personal", "writing"]
-originalUrl: "https://dev.to/kshyun28/my-6-takeaways-from-hashnode-bootcamp-2023-as-a-beginner-writer-6al"
+originalUrl: "https://dev.to/jdg2896/my-6-takeaways-from-hashnode-bootcamp-2023-as-a-beginner-writer-6al"
 ---
 
 
@@ -95,4 +95,4 @@ To summarize, here are the 6 takeaways:
 
 If you've actually read this and have made it this far, I hope you also had some takeaways here that can help in your technical writing journey. I mainly made this for myself so I can reflect on the bootcamp and on my writing in general. 
 
-If you have any feedback or suggestions, feel free to comment. I'm also available through my email at jasper.d.gabriel@gmail.com, [Twitter](https://twitter.com/kshyun28), [LinkedIn](https://www.linkedin.com/in/kshyun28/), and [GitHub](https://github.com/kshyun28).
+If you have any feedback or suggestions, feel free to comment. I'm also available through my email at jasper.d.gabriel@gmail.com, [X](https://x.com/jdg2896), [LinkedIn](https://www.linkedin.com/in/jaspergabriel/), and [GitHub](https://github.com/jdg2896).

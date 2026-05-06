@@ -3,7 +3,7 @@ title: "How to Reliably Read QR Codes in Node.js"
 description: "Implement a production-ready QR code decoder in Node.js using jsQR and Jimp instead of unmaintained alternatives."
 pubDate: 2023-11-04
 tags: ["tech", "nodejs"]
-originalUrl: "https://dev.to/kshyun28/how-to-reliably-read-qr-codes-in-nodejs-502i"
+originalUrl: "https://dev.to/jdg2896/how-to-reliably-read-qr-codes-in-nodejs-502i"
 ---
 
 
@@ -23,7 +23,7 @@ The `qrcode-reader` package is [no longer maintained](https://github.com/edi9999
 
 ## QR Code Reader Solution
 
-Now let's walk through the solution for reading QR codes in Node.js. You can follow along or check the sample repository [here](https://github.com/kshyun28/qrcode-decoder-nodejs).
+Now let's walk through the solution for reading QR codes in Node.js. You can follow along or check the sample repository [here](https://github.com/jdg2896/qrcode-decoder-nodejs).
 
 ### Installing Jimp and jsQR
 
@@ -33,7 +33,7 @@ For the npm packages, we'll be using [jimp](https://www.npmjs.com/package/jimp) 
 
 ### TypeScript Code (src/app.ts)
 
-The sample QR code `src/qr.png` is in the [sample repository](https://github.com/kshyun28/qrcode-decoder-nodejs). You can also replace `src/qr.png` and use any QR code image if you want. 
+The sample QR code `src/qr.png` is in the [sample repository](https://github.com/jdg2896/qrcode-decoder-nodejs). You can also replace `src/qr.png` and use any QR code image if you want. 
 ```ts
 import Jimp from 'jimp';
 import jsQR from 'jsqr';
@@ -95,9 +95,9 @@ As you can see, we decoded the data and received `"Sample QR code data for testi
 
 ## Conclusion
 
-To recap, we implemented a QR code reader in Node.js using [jimp](https://www.npmjs.com/package/jimp) and [jsqr](https://www.npmjs.com/package/jsqr). We also tested the `decodeQR()` function, which decoded the sample QR image. Also, here's the [sample repository](https://github.com/kshyun28/qrcode-decoder-nodejs) with the code shown in this guide if you've missed it.
+To recap, we implemented a QR code reader in Node.js using [jimp](https://www.npmjs.com/package/jimp) and [jsqr](https://www.npmjs.com/package/jsqr). We also tested the `decodeQR()` function, which decoded the sample QR image. Also, here's the [sample repository](https://github.com/jdg2896/qrcode-decoder-nodejs) with the code shown in this guide if you've missed it.
 
-I hope this helped you with implementing a QR code reader in Node.js. Thank you for reading, and feel free to connect with me on [Twitter](https://twitter.com/kshyun28) and [LinkedIn](https://www.linkedin.com/in/kshyun28/).
+I hope this helped you with implementing a QR code reader in Node.js. Thank you for reading, and feel free to connect with me on [X](https://x.com/jdg2896) and [LinkedIn](https://www.linkedin.com/in/jaspergabriel/).
 
 
 

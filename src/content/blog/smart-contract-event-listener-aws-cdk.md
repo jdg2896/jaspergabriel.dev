@@ -3,7 +3,7 @@ title: "How to Implement and Deploy a Smart Contract Event Listener with AWS CDK
 description: "Deploy Ethereum smart contract event listeners to AWS using CDK, with WebSocket connections and CloudWatch logging."
 pubDate: 2023-11-20
 tags: ["tech", "blockchain", "aws"]
-originalUrl: "https://dev.to/kshyun28/how-to-implement-and-deploy-a-smart-contract-event-listener-with-aws-cdk-b1"
+originalUrl: "https://dev.to/jdg2896/how-to-implement-and-deploy-a-smart-contract-event-listener-with-aws-cdk-b1"
 ---
 
 
@@ -36,7 +36,7 @@ With that out of the way, let's start with setting up the smart contract event l
 
 ## Setting up the smart contract event listener
 
-Before we start, make sure to check or clone the [sample repository](https://github.com/kshyun28/smart-contract-event-listener), which contains all the necessary code and files for the smart contract event listener. We'll refer to this repository throughout the guide.
+Before we start, make sure to check or clone the [sample repository](https://github.com/jdg2896/smart-contract-event-listener), which contains all the necessary code and files for the smart contract event listener. We'll refer to this repository throughout the guide.
 
 By the end of this section, you'll have a working smart contract event listener that is ready for deployment. 
 
@@ -198,7 +198,7 @@ The code can be divided into several parts:
 
 Here is the full snippet of the smart contract event listener code. 
 
-[src/app.ts](https://github.com/kshyun28/smart-contract-event-listener/blob/main/src/app.ts)
+[src/app.ts](https://github.com/jdg2896/smart-contract-event-listener/blob/main/src/app.ts)
 ```ts
 import 'dotenv/config';
 import * as erc20abi from './abi.json';
@@ -318,7 +318,7 @@ Ethereum USDT 'Approval' {"event":{"address":"0xdac17f958d2ee523a2206206994597c1
 
 Now that you have a working smart contract event listener, we'll deploy the resources to AWS using [AWS CDK](https://aws.amazon.com/cdk/), which is an Infrastructure as Code (IaC) tool. AWS CDK allows you to configure, deploy, and manage AWS cloud resources using popular programming languages such as TypeScript. 
 
-The [sample repository](https://github.com/kshyun28/smart-contract-event-listener) I shared with you earlier is generated with AWS CDK. The smart contract listener code and cloud resources are added after. 
+The [sample repository](https://github.com/jdg2896/smart-contract-event-listener) I shared with you earlier is generated with AWS CDK. The smart contract listener code and cloud resources are added after. 
 > For more info on generating your own AWS CDK TypeScript boilerplate, check this [AWS documentation](https://docs.aws.amazon.com/cdk/v2/guide/work-with-cdk-typescript.html#typescript-newproject).
 
 ### Installing the AWS CLI
@@ -363,7 +363,7 @@ The first file `bin/smart-contract-event-listener.ts` imports the `SmartContract
 
 If you noticed in the comments, you can also configure your AWS account and region in the properties. But since you've already configured your AWS CLI credentials earlier, you don't need to uncomment these. 
 
-[bin/smart-contract-event-listener.ts](https://github.com/kshyun28/smart-contract-event-listener/blob/main/bin/smart-contract-event-listener.ts)
+[bin/smart-contract-event-listener.ts](https://github.com/jdg2896/smart-contract-event-listener/blob/main/bin/smart-contract-event-listener.ts)
 ```ts
 #!/usr/bin/env node
 import 'source-map-support/register';
@@ -394,7 +394,7 @@ The `SmartContractEventListenerStack` will deploy the following resources:
 
 ![SmartContractEventListenerStack Diagram](https://res.cloudinary.com/dlieqpdfd/image/upload/v1700360758/Smart%20Contract%20Event%20Listener/ecs_kr5yio.svg)
 
-[lib/smart-contract-event-listener-stack.ts](https://github.com/kshyun28/smart-contract-event-listener/blob/main/lib/smart-contract-event-listener-stack.ts)
+[lib/smart-contract-event-listener-stack.ts](https://github.com/jdg2896/smart-contract-event-listener/blob/main/lib/smart-contract-event-listener-stack.ts)
 ```ts
 import 'dotenv/config';
 import * as cdk from 'aws-cdk-lib';
@@ -554,4 +554,4 @@ I've also shared some caveats and improvements to consider as you build on top o
 
 Listening to smart contract events enables developers to integrate smart contracts into different APIs and enable real-time updates. AWS CDK allows you to deploy reliable cloud infrastructure with just a few lines of code, giving you more confidence in your deployments, and allowing you to focus on solving real-world problems. 
 
-If you've made it this far, thank you for reading! If you have any questions, feel free to comment or contact me [here](https://linktr.ee/kshyun28). 
+If you've made it this far, thank you for reading! If you have any questions, feel free to comment or contact me [here](https://linktr.ee/jdg2896). 

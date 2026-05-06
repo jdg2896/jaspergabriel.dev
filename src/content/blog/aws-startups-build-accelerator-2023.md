@@ -3,7 +3,7 @@ title: "5 Things I've Learned from the AWS Startups Build Accelerator 2023"
 description: "Key startup lessons: focus on customers, scope MVPs properly, leverage existing solutions, and iterate toward MLP."
 pubDate: 2023-12-17
 tags: ["personal"]
-originalUrl: "https://dev.to/kshyun28/5-things-ive-learned-from-the-aws-startups-build-accelerator-2023-5dml"
+originalUrl: "https://dev.to/jdg2896/5-things-ive-learned-from-the-aws-startups-build-accelerator-2023-5dml"
 ---
 
 
@@ -148,7 +148,7 @@ Luckily, [MetaMask's Gas API was recently released to the public](https://metama
 
 Then after the crypto is deposited to the smart contract, we are using smart contract events to start the process of sending fiat to the customer.
 
-We originally implemented our own solution to listen and send smart contract events, which I documented [here](https://dev.to/kshyun28/how-to-implement-and-deploy-a-smart-contract-event-listener-with-aws-cdk-b1). Later, we found out that it was causing problems and was harder to maintain at this early stage, so we switched to a 3rd-party solution with [QuickNode](https://www.quicknode.com/).
+We originally implemented our own solution to listen and send smart contract events, which I documented [here](https://dev.to/jdg2896/how-to-implement-and-deploy-a-smart-contract-event-listener-with-aws-cdk-b1). Later, we found out that it was causing problems and was harder to maintain at this early stage, so we switched to a 3rd-party solution with [QuickNode](https://www.quicknode.com/).
 
 In hindsight, we should've done this from the start, but that's what happens when you reflect on your experiences. You discover better ways to approach a problem or improve an existing solution.  
 
@@ -240,7 +240,7 @@ To recap, I shared what I've learned in the AWS Startups Build Accelerator 2023,
 
 I hope you've picked up an idea or two from the lessons I shared, and may it help you in your own startup journey. 
 
-Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/kshyun28).
+Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/jdg2896).
 
 ## Resources
 - [Grow the Puzzle Around You - Jessica Livingston (Y Combinator)](https://foundersatwork.posthaven.com/grow-the-puzzle-around-you/)

@@ -3,7 +3,7 @@ title: "Starting My AWS Certification Journey as a Certified Cloud Practitioner"
 description: "How I prepared for and passed the AWS Certified Cloud Practitioner exam, including study strategies and exam tips."
 pubDate: 2023-12-10
 tags: ["tech", "aws"]
-originalUrl: "https://dev.to/kshyun28/starting-my-aws-certification-journey-as-a-certified-cloud-practitioner-5cec"
+originalUrl: "https://dev.to/jdg2896/starting-my-aws-certification-journey-as-a-certified-cloud-practitioner-5cec"
 ---
 
 
@@ -201,7 +201,7 @@ Then I'd also want to take the [AWS Certified Security - Specialty](https://aws.
 
 I hope my experience can help and give you ideas for your own AWS certification journey. 
 
-Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/kshyun28).
+Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/jdg2896).
 
 ## Resources
 

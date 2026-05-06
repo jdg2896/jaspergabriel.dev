@@ -3,7 +3,7 @@ title: "My First Open Source Contribution: How I Did It"
 description: "A walkthrough of making your first open source contribution — finding the right project, following guidelines, and navigating PRs."
 pubDate: 2023-08-12
 tags: ["tech", "open-source"]
-originalUrl: "https://dev.to/kshyun28/my-first-open-source-contribution-how-i-did-it-1jh6"
+originalUrl: "https://dev.to/jdg2896/my-first-open-source-contribution-how-i-did-it-1jh6"
 ---
 
 
@@ -166,4 +166,4 @@ And here's a summary of what I did:
 
 I won't stop there. I'm excited on the journey ahead and looking forward to be a more consistent open source contributor. One contribution at a time. 
 
-Thank you for reading and as always, I'm open to suggestions, feedback, and comments. Also feel free to contact me at my email (jasper.d.gabriel@gmail.com), and I'm available on [Twitter](https://twitter.com/kshyun28), [LinkedIn](https://www.linkedin.com/in/kshyun28/), and [GitHub](https://github.com/kshyun28).
+Thank you for reading and as always, I'm open to suggestions, feedback, and comments. Also feel free to contact me at my email (jasper.d.gabriel@gmail.com), and I'm available on [X](https://x.com/jdg2896), [LinkedIn](https://www.linkedin.com/in/jaspergabriel/), and [GitHub](https://github.com/jdg2896).

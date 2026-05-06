@@ -3,7 +3,7 @@ title: "Reflections and Goal Setting as a Software Engineer"
 description: "A framework for reflecting on the year and setting SMART goals with checkpoint milestones and daily habits."
 pubDate: 2023-12-31
 tags: ["personal"]
-originalUrl: "https://dev.to/kshyun28/reflections-and-goal-setting-as-a-software-engineer-4ddg"
+originalUrl: "https://dev.to/jdg2896/reflections-and-goal-setting-as-a-software-engineer-4ddg"
 ---
 
 
@@ -61,7 +61,7 @@ During 2023, I've managed to achieve the following:
 
 Then here's what I learned from these experiences:
 - Writing is not just about writing itself, but all the pre-writing that comes with it. (I'm practicing [Mise en Place Writing](https://www.swyx.io/writing-mise-en-place).)
-- You can contribute to open-source projects, even if it's just [one line of code](https://dev.to/kshyun28/how-i-contributed-one-line-of-code-to-ethereum-3poh).
+- You can contribute to open-source projects, even if it's just [one line of code](https://dev.to/jdg2896/how-i-contributed-one-line-of-code-to-ethereum-3poh).
 - I should prepare more when meeting up with professionals to lessen the awkward moments.
 - If I can buy something instead of building it, then I should buy it. (Using existing solutions for your app's login and authentication.)
 - When learning new technologies, make it a habit to take notes as you learn. (Writing helps you learn faster, while also having valuable notes that you can share with others.)
@@ -122,4 +122,4 @@ To recap, we've walked through the process of reflecting on your past experience
 
 I hope this inspires you to take a pause and go on your journey of reflection and planning.
 
-Thank you for reading and if you have any questions or feedback, I'd love to hear from you. Feel free to comment or connect with me [here](https://linktr.ee/kshyun28).
+Thank you for reading and if you have any questions or feedback, I'd love to hear from you. Feel free to comment or connect with me [here](https://linktr.ee/jdg2896).

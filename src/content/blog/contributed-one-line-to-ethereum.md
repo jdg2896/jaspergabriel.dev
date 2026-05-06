@@ -3,13 +3,13 @@ title: "How I Contributed One Line of Code to Ethereum"
 description: "Story of fixing a broken Discord link in Ethereum.org docs — proof that small open source contributions still matter."
 pubDate: 2023-11-26
 tags: ["tech", "blockchain", "open-source"]
-originalUrl: "https://dev.to/kshyun28/how-i-contributed-one-line-of-code-to-ethereum-3poh"
+originalUrl: "https://dev.to/jdg2896/how-i-contributed-one-line-of-code-to-ethereum-3poh"
 ---
 
 
 ## Introduction
 
-As a software engineer who has never contributed to [open-source](https://opensource.com/resources/what-open-source) before 2023, I've been looking for ways to contribute. Being passionate about [Web3](https://ethereum.org/en/web3/), I looked for interesting projects in this space. It was not hard to find one where I could contribute since Web3 is about **openness** and **decentralization**. Eventually, I found a project where I made my first [open-source contribution](https://dev.to/kshyun28/my-first-open-source-contribution-how-i-did-it-1jh6) which is [Taiko](https://taiko.xyz/), a [type 1 ZK-EVM](https://taiko.mirror.xyz/w7NSKDeKfJoEy0p89I9feixKfdK-20JgWF9HZzxfeBo). 
+As a software engineer who has never contributed to [open-source](https://opensource.com/resources/what-open-source) before 2023, I've been looking for ways to contribute. Being passionate about [Web3](https://ethereum.org/en/web3/), I looked for interesting projects in this space. It was not hard to find one where I could contribute since Web3 is about **openness** and **decentralization**. Eventually, I found a project where I made my first [open-source contribution](https://dev.to/jdg2896/my-first-open-source-contribution-how-i-did-it-1jh6) which is [Taiko](https://taiko.xyz/), a [type 1 ZK-EVM](https://taiko.mirror.xyz/w7NSKDeKfJoEy0p89I9feixKfdK-20JgWF9HZzxfeBo). 
 
 After my first open-source contribution, I looked for other projects where I could contribute. One of those projects was [Ethereum](https://ethereum.org/en/), which is a blockchain network that enables [Decentralized Finance](https://ethereum.org/en/defi/), [tokenization of assets](https://ethereum.org/en/nft/), and an [open internet](https://ethereum.org/en/dapps/?category=technology). While reading through their contributing guidelines, I found an issue in their documentation and ended up fixing it, making my second open-source contribution.
 
@@ -66,7 +66,7 @@ Creating an issue was easy since there are templates for different types of issu
 
 ## Forking Ethereum.org's repository and testing the fix
 
-After creating the issue, I [forked Ethereum.org's GitHub repository](https://github.com/kshyun28/ethereum-org-website) and followed their [local environment setup guide](https://github.com/ethereum/ethereum-org-website#3-set-up-your-local-environment-optional). Once I've set up my local environment, I started working on the fix. 
+After creating the issue, I [forked Ethereum.org's GitHub repository](https://github.com/jdg2896/ethereum-org-website) and followed their [local environment setup guide](https://github.com/ethereum/ethereum-org-website#3-set-up-your-local-environment-optional). Once I've set up my local environment, I started working on the fix. 
 
 The fix was easy since I only needed to replace the Discord invite link with a working one. 
 
@@ -104,5 +104,5 @@ As the scouts' saying goes, "Always leave the campground cleaner than you found 
 
 If you're looking to make open-source contributions yourself, I hope my story has inspired you to do the same.
 
-Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/kshyun28). 
+Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/jdg2896). 
 

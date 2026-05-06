@@ -3,7 +3,7 @@ title: "Step-by-Step Guide: Setting Up CI/CD for AWS SAM Applications with GitHu
 description: "How to set up GitHub Actions CI/CD for AWS SAM serverless apps with IAM roles and automated multi-environment deployments."
 pubDate: 2023-04-28
 tags: ["tech", "aws", "devops"]
-originalUrl: "https://dev.to/kshyun28/step-by-step-guide-setting-up-cicd-for-aws-sam-applications-with-github-actions-1869"
+originalUrl: "https://dev.to/jdg2896/step-by-step-guide-setting-up-cicd-for-aws-sam-applications-with-github-actions-1869"
 ---
 
 ## Introduction
@@ -24,7 +24,7 @@ So without further ado, let's get right on it!
 
 ## Setting up our AWS SAM Application.
 
-Here's the sample [AWS SAM Application](https://github.com/kshyun28/aws-sam-template-node-ts) using Node.js and TypeScript for the purposes of demonstration.
+Here's the sample [AWS SAM Application](https://github.com/jdg2896/aws-sam-template-node-ts) using Node.js and TypeScript for the purposes of demonstration.
 
 Feel free to clone/fork the repo and set it up for yourself. Setup instructions are in the README file.
 
@@ -151,9 +151,9 @@ Before we can configure GitHub Actions to our repo, first we will need an AWS IA
            "StringEquals": {
              "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
              "token.actions.githubusercontent.com:sub": [
-               "repo:kshyun28/aws-sam-template-node-ts:ref:refs/heads/develop",
-               "repo:kshyun28/aws-sam-template-node-ts:ref:refs/heads/staging",
-               "repo:kshyun28/aws-sam-template-node-ts:ref:refs/heads/production"
+               "repo:jdg2896/aws-sam-template-node-ts:ref:refs/heads/develop",
+               "repo:jdg2896/aws-sam-template-node-ts:ref:refs/heads/staging",
+               "repo:jdg2896/aws-sam-template-node-ts:ref:refs/heads/production"
              ]
            }
          }
@@ -266,7 +266,7 @@ There are also other options for other CI/CD tools, most notably AWS CodePipelin
 
 If you have any feedback, feel free to comment. As this is my first time writing a blog post, there's probably some rough edges here and there.
 
-I'm also available through my email at jasper.d.gabriel@gmail.com, [Twitter](https://twitter.com/kshyun28), [LinkedIn](https://www.linkedin.com/in/kshyun28/), and [GitHub](https://github.com/kshyun28).
+I'm also available through my email at jasper.d.gabriel@gmail.com, [X](https://x.com/jdg2896), [LinkedIn](https://www.linkedin.com/in/jaspergabriel/), and [GitHub](https://github.com/jdg2896).
 
 Thank you for reading and cheers!
 

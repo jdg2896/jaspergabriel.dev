@@ -3,7 +3,7 @@ title: "A Developer's Journal: Simplifying the Twelve-Factor App"
 description: "A simplified breakdown of the 12-factor app methodology — codebase, config, processes, and deployment best practices."
 pubDate: 2023-12-03
 tags: ["tech"]
-originalUrl: "https://dev.to/kshyun28/a-developers-journal-simplifying-the-twelve-factor-app-25o"
+originalUrl: "https://dev.to/jdg2896/a-developers-journal-simplifying-the-twelve-factor-app-25o"
 ---
 
 
@@ -257,7 +257,7 @@ The Twelve-Factor App consists of:
 
 I recommend reading through the [Twelve-Factor App](https://12factor.net/) since it's always a good thing to read through the source material. It should take you about an hour or two to finish reading the entire document. 
 
-Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/kshyun28).
+Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/jdg2896).
 
 ## Further reading
 - [The Twelve-Factor App](https://12factor.net/)

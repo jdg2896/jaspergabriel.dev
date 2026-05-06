@@ -3,7 +3,7 @@ title: "How I Contributed to Open-Source While Learning Svelte"
 description: "How I found and fixed documentation inconsistencies in Svelte's interactive tutorial while learning frontend development."
 pubDate: 2024-01-21
 tags: ["tech", "open-source"]
-originalUrl: "https://dev.to/kshyun28/how-i-contributed-to-open-source-while-learning-svelte-1b1j"
+originalUrl: "https://dev.to/jdg2896/how-i-contributed-to-open-source-while-learning-svelte-1b1j"
 ---
 
 
@@ -31,7 +31,7 @@ Now that I've chosen to learn Svelte for building my website, the first I did wa
 
 The tutorial is composed of four parts, covering both [Svelte](https://svelte.dev/) and [SvelteKit](https://kit.svelte.dev/), which is a UI framework for Svelte.
 
-> 💡 **Note:** Here's my [notes on GitHub](https://github.com/kshyun28/learning-notes/blob/main/notes/learning-svelte-and%20-sveltekit.md) while learning Svelte and SvelteKit.
+> 💡 **Note:** Here's my [notes on GitHub](https://github.com/jdg2896/learning-notes/blob/main/notes/learning-svelte-and%20-sveltekit.md) while learning Svelte and SvelteKit.
 
 ## Finding possible improvements in the tutorial
 
@@ -137,7 +137,7 @@ Hopefully, my story shows that sometimes, you can contribute to open-source even
 
 When you see issues in documentation, you can improve it as long as it's open-source. Even if it's not open-source, you can still contact the project's support team or message the author directly.
 
-Thank you for reading and I would love to hear your open-source experiences. Feel free to comment or message me [here](https://linktr.ee/kshyun28).
+Thank you for reading and I would love to hear your open-source experiences. Feel free to comment or message me [here](https://linktr.ee/jdg2896).
 
 Good luck on your open-source journey!
 
