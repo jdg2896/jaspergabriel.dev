@@ -417,46 +417,6 @@ p {
   margin-bottom: 1.5rem;
 }
 
-.hero__links {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem 1.1rem;
-  border-radius: 6px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background-color 0.15s, color 0.15s;
-}
-
-.btn--primary {
-  background-color: var(--color-accent);
-  color: #fff;
-}
-
-.btn--primary:hover {
-  background-color: var(--color-accent-hover);
-  color: #fff;
-  text-decoration: none;
-}
-
-.btn--ghost {
-  background-color: var(--color-tag-bg);
-  color: var(--color-text);
-}
-
-.btn--ghost:hover {
-  background-color: var(--color-border);
-  color: var(--color-text);
-  text-decoration: none;
-}
-
 /* ---- Section headers ---- */
 .section-header {
   display: flex;
