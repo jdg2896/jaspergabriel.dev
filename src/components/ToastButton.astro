@@ -1,0 +1,131 @@
+---
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+---
+
+<div class="toast-widget">
+  <button class="toast-button" data-slug={slug} aria-pressed="false" aria-label="Upvote this post">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m17 11-5-5-5 5"></path>
+      <path d="m17 18-5-5-5 5"></path>
+    </svg>
+    <span class="toast-count" aria-live="polite"></span>
+  </button>
+</div>
+
+<style>
+  .toast-widget {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .toast-button {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--color-text-muted);
+    font: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.15s ease;
+  }
+
+  .toast-button:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .toast-button:active svg {
+    transform: translateY(-2px);
+  }
+
+  .toast-button--active {
+    color: var(--color-accent);
+  }
+
+  .toast-button svg {
+    transition: transform 0.1s ease;
+  }
+
+  .toast-count {
+    min-height: 1.3em;
+  }
+</style>
+
+<script>
+  // Re-init on every navigation: ClientRouter swaps the DOM without
+  // re-running this module, so listeners must attach to the new button.
+  const init = () => {
+    const button = document.querySelector<HTMLButtonElement>('.toast-button');
+    if (!button || button.dataset.toastInit) return;
+    button.dataset.toastInit = 'true';
+
+    const slug = button.dataset.slug;
+    const countEl = button.querySelector('.toast-count')!;
+    const storageKey = `toasted:${slug}`;
+    let count: number | null = null;
+
+    let toasted = false;
+    try {
+      toasted = localStorage.getItem(storageKey) === '1';
+    } catch {
+      // localStorage unavailable; button still works as a session toggle
+    }
+
+    const render = () => {
+      button.classList.toggle('toast-button--active', toasted);
+      button.setAttribute('aria-pressed', String(toasted));
+      countEl.textContent = count === null ? '' : String(count);
+    };
+
+    render();
+
+    fetch(`/api/toast/${slug}`)
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((data) => {
+        count = data.count;
+        render();
+      })
+      .catch(() => {});
+
+    button.addEventListener('click', async () => {
+      toasted = !toasted;
+      if (count !== null) count = Math.max(0, count + (toasted ? 1 : -1));
+      render();
+
+      try {
+        localStorage.setItem(storageKey, toasted ? '1' : '0');
+      } catch {}
+
+      try {
+        const res = await fetch(`/api/toast/${slug}`, {
+          method: toasted ? 'POST' : 'DELETE',
+        });
+        if (res.ok) {
+          const data = await res.json();
+          count = data.count;
+          render();
+        }
+      } catch {}
+    });
+  };
+
+  document.addEventListener('astro:page-load', init);
+</script>

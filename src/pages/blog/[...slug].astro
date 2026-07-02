@@ -22,6 +22,7 @@ const { Content } = await render(post);
   tags={post.data.tags}
   rawContent={post.body ?? ""}
   originalUrl={post.data.originalUrl}
+  slug={post.id}
 >
   <Content />
 </BlogPostLayout>

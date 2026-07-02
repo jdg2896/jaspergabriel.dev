@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import ToastButton from '../components/ToastButton.astro';
 import { getReadingTime } from '../utils/readingTime';
 
 interface Props {
@@ -10,9 +11,10 @@ interface Props {
   tags: string[];
   rawContent: string;
   originalUrl?: string;
+  slug: string;
 }
 
-const { title, description, pubDate, updatedDate, tags, rawContent, originalUrl } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, rawContent, originalUrl, slug } = Astro.props;
 
 const readingTime = getReadingTime(rawContent);
 
@@ -54,6 +56,8 @@ const formatDate = (date: Date) =>
       <div class="prose">
         <slot />
       </div>
+
+      <ToastButton slug={slug} />
     </article>
   </div>
 </BaseLayout>
