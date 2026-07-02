@@ -9,4 +9,4 @@ run_worker_first = ["/api/*"]
 [[d1_databases]]
 binding = "DB"
 database_name = "toasts"
-database_id = "REPLACE_WITH_ID_FROM_wrangler_d1_create"
+database_id = "711c7434-7309-49c4-ab48-5e3b1e08d954"
