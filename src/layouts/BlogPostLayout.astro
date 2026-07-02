@@ -8,13 +8,12 @@ interface Props {
   description: string;
   pubDate: Date;
   updatedDate?: Date;
-  tags: string[];
   rawContent: string;
   originalUrl?: string;
   slug: string;
 }
 
-const { title, description, pubDate, updatedDate, tags, rawContent, originalUrl, slug } = Astro.props;
+const { title, description, pubDate, updatedDate, rawContent, originalUrl, slug } = Astro.props;
 
 const readingTime = getReadingTime(rawContent);
 
@@ -38,13 +37,6 @@ const formatDate = (date: Date) =>
             </>
           )}
         </div>
-        {tags.length > 0 && (
-          <div class="post-header__tags">
-            {tags.map((tag) => (
-              <span class="tag">{tag}</span>
-            ))}
-          </div>
-        )}
       </header>
 
       {originalUrl && (

@@ -15,8 +15,7 @@
   --color-border: #27272a;
   --color-accent: #60a5fa;
   --color-accent-hover: #93c5fd;
-  --color-tag-bg: #27272a;
-  --color-tag-text: #a1a1aa;
+  --color-code-bg: #27272a;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: 'Lora', Georgia, serif;
@@ -34,8 +33,7 @@
     --color-border: #e5e7eb;
     --color-accent: #2563eb;
     --color-accent-hover: #1d4ed8;
-    --color-tag-bg: #f3f4f6;
-    --color-tag-text: #374151;
+    --color-code-bg: #f3f4f6;
   }
 }
 
@@ -244,7 +242,7 @@ p {
 .prose code {
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   font-size: 0.875em;
-  background-color: var(--color-tag-bg);
+  background-color: var(--color-code-bg);
   padding: 0.15em 0.4em;
   border-radius: 4px;
 }
@@ -279,40 +277,12 @@ p {
   margin: 2.5rem 0;
 }
 
-/* ---- Tags ---- */
-.tag {
-  display: inline-block;
-  background-color: var(--color-tag-bg);
-  color: var(--color-tag-text);
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 0.2em 0.65em;
-  border-radius: 99px;
-  text-decoration: none;
-  transition: background-color 0.15s;
-}
-
-.tag:hover {
-  background-color: var(--color-border);
-  color: var(--color-tag-text);
-  text-decoration: none;
-}
-
-/* ---- Blog post card ---- */
+/* ---- Blog post list ---- */
 .post-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-}
-
-.post-card {
-  border-bottom: 1px solid var(--color-border);
-  padding-bottom: 2.5rem;
-}
-
-.post-card:last-child {
-  border-bottom: none;
+  gap: 1.75rem;
 }
 
 .post-card__meta {
@@ -321,13 +291,12 @@ p {
   gap: 0.75rem;
   font-size: 0.8rem;
   color: var(--color-text-muted);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .post-card__title {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
 }
 
 .post-card__title a {
@@ -338,19 +307,6 @@ p {
 .post-card__title a:hover {
   color: var(--color-accent);
   text-decoration: none;
-}
-
-.post-card__description {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
-}
-
-.post-card__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
 }
 
 /* ---- Post header ---- */
@@ -368,13 +324,6 @@ p {
   color: var(--color-text-muted);
   margin-top: 0.75rem;
   flex-wrap: wrap;
-}
-
-.post-header__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.75rem;
 }
 
 .originally-published {

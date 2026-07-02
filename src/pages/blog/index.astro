@@ -49,14 +49,6 @@ const formatDate = (date: Date) =>
                 <h2 class="post-card__title">
                   <a href={`/blog/${post.id}`}>{post.data.title}</a>
                 </h2>
-                <p class="post-card__description">{post.data.description}</p>
-                {post.data.tags.length > 0 && (
-                  <div class="post-card__tags">
-                    {post.data.tags.map((tag) => (
-                      <span class="tag">{tag}</span>
-                    ))}
-                  </div>
-                )}
               </li>
             );
           })}
