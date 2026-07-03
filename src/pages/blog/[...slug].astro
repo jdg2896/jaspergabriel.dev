@@ -20,7 +20,7 @@ const { Content } = await render(post);
   pubDate={post.data.pubDate}
   updatedDate={post.data.updatedDate}
   rawContent={post.body ?? ""}
-  originalUrl={post.data.originalUrl}
+  canonicalUrl={post.data.canonicalUrl}
   slug={post.id}
 >
   <Content />
