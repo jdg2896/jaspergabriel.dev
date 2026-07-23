@@ -15,6 +15,12 @@ const canonicalURL = canonicalUrl ?? new URL(Astro.url.pathname, Astro.site);
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="canonical" href={canonicalURL} />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="Jasper Gabriel"
+  href={new URL("rss.xml", Astro.site)}
+/>
 
 <title>{title}</title>
 <meta name="description" content={description} />
