@@ -4,13 +4,20 @@ import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
-  return posts.map((post) => ({
+  posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+  return posts.map((post, i) => ({
     params: { slug: post.id },
-    props: { post },
+    props: {
+      post,
+      // Sorted newest-first, so the next index is the older post.
+      newerPost: posts[i - 1] ?? null,
+      olderPost: posts[i + 1] ?? null,
+    },
   }));
 }
 
-const { post } = Astro.props;
+const { post, newerPost, olderPost } = Astro.props;
 const { Content } = await render(post);
 ---
 
@@ -22,6 +29,8 @@ const { Content } = await render(post);
   rawContent={post.body ?? ""}
   canonicalUrl={post.data.canonicalUrl}
   slug={post.id}
+  newerPost={newerPost && { slug: newerPost.id, title: newerPost.data.title }}
+  olderPost={olderPost && { slug: olderPost.id, title: olderPost.data.title }}
 >
   <Content />
 </BlogPostLayout>

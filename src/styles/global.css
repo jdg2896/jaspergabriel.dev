@@ -207,6 +207,26 @@ p {
   font-family: var(--font-sans);
   margin-top: 2.25rem;
   margin-bottom: 0.75rem;
+  /* Keep anchored headings clear of the sticky header */
+  scroll-margin-top: 5rem;
+}
+
+.heading-anchor {
+  margin-left: 0.4em;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.prose :is(h1, h2, h3, h4):hover .heading-anchor,
+.heading-anchor:focus {
+  opacity: 1;
+}
+
+.heading-anchor:hover {
+  color: var(--color-accent);
+  text-decoration: none;
 }
 
 .prose h2 { font-size: 1.4rem; }
@@ -343,6 +363,46 @@ p {
   text-decoration: none;
 }
 
+/* ---- Prev/next post navigation ---- */
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.post-nav__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-decoration: none;
+}
+
+.post-nav__link--next {
+  text-align: right;
+}
+
+.post-nav__label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.post-nav__title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.post-nav__link:hover {
+  text-decoration: none;
+}
+
+.post-nav__link:hover .post-nav__title {
+  color: var(--color-accent);
+}
+
 /* ---- Home page ---- */
 .hero {
   padding: 4rem 0 3rem;
@@ -438,5 +498,13 @@ p {
 
   .hero {
     padding: 2.5rem 0 2rem;
+  }
+
+  .post-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .post-nav__link--next {
+    text-align: left;
   }
 }
