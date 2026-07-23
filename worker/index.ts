@@ -9,6 +9,7 @@ interface D1Database {
 }
 interface Env {
   DB: D1Database;
+  ASSETS: { fetch(request: Request): Promise<Response> };
 }
 
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -24,7 +25,14 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
     const match = url.pathname.match(/^\/api\/toast\/([^/]+)$/);
-    if (!match) return json({ error: 'Not found' }, 404);
+    if (!match) {
+      // Unknown API routes stay JSON; anything else only reaches the
+      // Worker when no static asset matched, so serve the 404 page.
+      if (url.pathname.startsWith('/api/')) {
+        return json({ error: 'Not found' }, 404);
+      }
+      return env.ASSETS.fetch(request);
+    }
 
     const slug = match[1];
     if (slug.length > 100 || !SLUG_RE.test(slug)) {
