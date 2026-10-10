@@ -24,8 +24,9 @@
   --max-w-wide: 900px;
 }
 
+/* Light theme: follows the OS unless the toggle has set data-theme */
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([data-theme="dark"]) {
     --color-bg: #fafafa;
     --color-surface: #ffffff;
     --color-text: #1a1a1a;
@@ -35,6 +36,17 @@
     --color-accent-hover: #1d4ed8;
     --color-code-bg: #f3f4f6;
   }
+}
+
+:root[data-theme="light"] {
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-code-bg: #f3f4f6;
 }
 
 html {
@@ -155,6 +167,27 @@ main {
   color: var(--color-text);
   text-decoration: none;
 }
+
+/* ---- Theme toggle ---- */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.theme-toggle:hover {
+  color: var(--color-text);
+}
+
+/* Show the icon for the theme a click switches to */
+.theme-toggle__sun { display: none; }
+:root[data-theme="dark"] .theme-toggle__sun { display: block; }
+:root[data-theme="dark"] .theme-toggle__moon { display: none; }
 
 /* ---- Footer ---- */
 .site-footer {

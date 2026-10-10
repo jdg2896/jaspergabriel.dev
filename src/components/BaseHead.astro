@@ -13,6 +13,22 @@ const canonicalURL = canonicalUrl ?? new URL(Astro.url.pathname, Astro.site);
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script is:inline>
+  // Runs before paint to avoid a flash of the wrong theme. ClientRouter
+  // replaces <html> attributes on navigation, so reapply after each swap.
+  function applyTheme() {
+    let theme;
+    try {
+      theme = localStorage.getItem('theme');
+    } catch {}
+    if (theme !== 'light' && theme !== 'dark') {
+      theme = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    document.documentElement.dataset.theme = theme;
+  }
+  applyTheme();
+  document.addEventListener('astro:after-swap', applyTheme);
+</script>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="canonical" href={canonicalURL} />
 <link
