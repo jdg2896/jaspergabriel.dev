@@ -2,7 +2,7 @@
 title: "A Developer's Journal: Simplifying the Twelve-Factor App"
 description: "A simplified breakdown of the 12-factor app methodology — codebase, config, processes, and deployment best practices."
 pubDate: 2023-12-03
-tags: ["tech"]
+tags: ["tech", "devops"]
 originalUrl: "https://dev.to/jdg2896/a-developers-journal-simplifying-the-twelve-factor-app-25o"
 ---
 

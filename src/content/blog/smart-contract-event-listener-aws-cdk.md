@@ -2,7 +2,7 @@
 title: "How to Implement and Deploy a Smart Contract Event Listener with AWS CDK"
 description: "Deploy Ethereum smart contract event listeners to AWS using CDK, with WebSocket connections and CloudWatch logging."
 pubDate: 2023-11-20
-tags: ["tech", "blockchain", "aws"]
+tags: ["tech", "blockchain", "aws", "nodejs"]
 originalUrl: "https://dev.to/jdg2896/how-to-implement-and-deploy-a-smart-contract-event-listener-with-aws-cdk-b1"
 ---
 

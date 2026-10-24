@@ -2,7 +2,7 @@
 title: "How to Create Real-Time Alerts for Blockchain Events with AWS and QuickNode"
 description: "Create real-time blockchain event notifications using AWS Lambda webhooks and QuickNode alerts for Ethereum transactions."
 pubDate: 2023-12-23
-tags: ["tech", "blockchain", "aws"]
+tags: ["tech", "blockchain", "aws", "nodejs"]
 originalUrl: "https://dev.to/jdg2896/how-to-create-real-time-alerts-for-blockchain-events-with-aws-and-quicknode-23oe"
 ---
 

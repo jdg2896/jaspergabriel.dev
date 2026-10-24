@@ -2,7 +2,7 @@
 title: "How to Make Your Awesome GitHub Profile"
 description: "A comprehensive guide to building an impressive GitHub profile with markdown, badges, icons, and stats."
 pubDate: 2024-01-07
-tags: ["tech"]
+tags: ["tech", "github"]
 originalUrl: "https://dev.to/jdg2896/how-to-make-your-awesome-github-profile-hog"
 ---
 

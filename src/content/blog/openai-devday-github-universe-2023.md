@@ -2,7 +2,7 @@
 title: "OpenAI DevDay and GitHub Universe 2023: What It Means for Us Software Engineers"
 description: "Analysis of GPT-4 Turbo, Copilot Chat, and Assistants API — what these AI advancements mean for software engineers."
 pubDate: 2023-11-12
-tags: ["tech", "ai"]
+tags: ["tech", "ai", "github"]
 originalUrl: "https://dev.to/jdg2896/openai-devday-and-github-universe-2023-what-it-means-for-us-software-engineers-297e"
 ---
 
