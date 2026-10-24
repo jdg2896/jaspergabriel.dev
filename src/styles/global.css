@@ -5,17 +5,8 @@
   padding: 0;
 }
 
-/* Local fallbacks scaled to the web fonts' metrics, so text doesn't reflow
-   when Lora and Inter swap in. Measured in Chrome against prose samples. */
-@font-face {
-  font-family: 'Lora Fallback';
-  src: local('Georgia');
-  size-adjust: 105.53%;
-  ascent-override: 95.7%;
-  descent-override: 25.58%;
-  line-gap-override: 0%;
-}
-
+/* A local fallback scaled to Inter's metrics, so text doesn't reflow when
+   Inter swaps in. Measured in Chrome against prose samples. */
 @font-face {
   font-family: 'Inter Fallback';
   src: local('Arial');
@@ -41,7 +32,7 @@
   --color-code-block-bg: light-dark(#faf7f0, #1b1a17);
 
   --font-sans: 'Inter', 'Inter Fallback', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Lora', 'Lora Fallback', Georgia, serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 
   --max-w-content: 680px;
   --max-w-wide: 900px;
@@ -282,9 +273,8 @@ p {
 
 /* ---- Prose (blog post content) ---- */
 .prose {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-size: 1.0625rem;
+  line-height: 1.75;
   color: var(--color-text);
   /* Long URLs in link text must not force horizontal scroll at 320px */
   overflow-wrap: break-word;
@@ -359,7 +349,7 @@ p {
 }
 
 .prose code {
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: 0.875em;
   background-color: var(--color-code-bg);
   padding: 0.15em 0.4em;

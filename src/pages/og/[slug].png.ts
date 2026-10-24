@@ -14,7 +14,6 @@ const font = (file: string) => readFileSync(`./src/assets/fonts/${file}`);
 const fonts = [
   { name: 'Inter', data: font('inter-latin-400-normal.woff'), weight: 400 as const, style: 'normal' as const },
   { name: 'Inter', data: font('inter-latin-600-normal.woff'), weight: 600 as const, style: 'normal' as const },
-  { name: 'Lora', data: font('lora-latin-400-normal.woff'), weight: 400 as const, style: 'normal' as const },
 ];
 
 // Dark theme tokens from global.css
@@ -66,7 +65,7 @@ export const GET: APIRoute = async ({ props }) => {
         ),
         h(
           'div',
-          { display: 'block', fontFamily: 'Lora', fontSize: 30, lineHeight: 1.5, color: colors.muted, lineClamp: 2 },
+          { display: 'block', fontFamily: 'Inter', fontSize: 30, lineHeight: 1.5, color: colors.muted, lineClamp: 2 },
           description,
         ),
       ]),
