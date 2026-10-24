@@ -145,7 +145,7 @@ A near-monochrome graphite palette with a single cobalt pen.
 ### Named Rules
 **The One Pen Rule.** Cobalt Ink is the only hue. If something is blue, it's interactive or it's been acted on. Never use it for decoration, backgrounds, or emphasis text.
 
-**The Mirror Rule.** Every color token has a light-theme twin defined in both the `prefers-color-scheme: light` block and the `[data-theme="light"]` block. A new token must be added to all three places (`:root`, the media query, the attribute selector).
+**The Mirror Rule.** Every color token is a `light-dark(light, dark)` pair on `:root`, so light and dark are defined together in one place. `color-scheme` follows the OS, and the toggle pins it via `data-theme`. Syntax colors use the same function over Shiki's `--shiki-light` / `--shiki-dark`.
 
 **The Contrast Floor Rule.** Every text/background pairing must meet WCAG 2.2 AA (4.5:1 for body text) in both themes. Check muted text especially, because it's the pairing most likely to fall short.
 
@@ -201,7 +201,10 @@ Mostly square. Corners appear only on code and images: 4px on inline code, 8px o
 Plain Cobalt Ink with no underline in the interface. Hover shifts to the hover shade and adds an underline. Inside prose, links are always underlined with a 3px offset so they're findable when reading.
 
 ### Navigation
-Inter 0.9rem / 500 in Pencil. Hover and `aria-current="page"` both switch to Chalk with no underline. Nav links sit 1.75rem apart. A 1px vertical rule separates them from an icon cluster (GitHub, LinkedIn, Email, theme toggle), which is muted and goes to Chalk on hover with a 0.15s color transition.
+Inter 0.9rem / 500 in Pencil. Hover and `aria-current="page"` both switch to Chalk with no underline. Nav links sit 1.75rem apart. A 1px vertical rule separates them from an icon cluster (GitHub, LinkedIn, Email, theme toggle), which is muted and goes to Chalk on hover with a 0.15s color transition. Icon hit areas are padded to about 30px with a matching negative margin, so they grow without moving.
+
+### Page Lede
+The muted line under a page `h1` (the post count on the blog index, the 404 explanation): 0.75rem below the heading, 2.5rem above the content.
 
 ### Post List
 Unboxed entries stacked 1.75rem apart. Each entry is a muted 0.8rem meta line (date · reading time) above a Title-weight link in Chalk that turns Cobalt Ink on hover. The same pattern is used on the home page (3 recent posts) and the blog index.
@@ -210,13 +213,16 @@ Unboxed entries stacked 1.75rem apart. Each entry is a muted 0.8rem meta line (d
 The post title (Headline) sits above a wrapped meta line, closed off by a 1px bottom rule. At the foot of the post, prev/next is a two-column grid below a rule: a muted label ("← Older" / "Newer →") above a 0.95rem/500 title that turns Cobalt Ink on hover.
 
 ### Code
-Inline code uses the mono stack at 0.875em on the rule-color background with a 4px radius, and wraps anywhere. Inside a blockquote it keeps the full text color, because muted text on the code chip drops below 4.5:1. Fenced blocks sit on `code-block-bg` with a 1px rule, an 8px radius, 1.25rem padding, horizontal scroll, and 1.7 line-height. Shiki emits both GitHub Default palettes as custom properties, and `global.css` picks one per site theme, using the same three selectors as the color tokens.
+Inline code uses the mono stack at 0.875em on the rule-color background with a 4px radius, and wraps anywhere. Inside a blockquote it keeps the full text color, because muted text on the code chip drops below 4.5:1. Fenced blocks sit on `code-block-bg` with a 1px rule, an 8px radius, 1.25rem padding, horizontal scroll, and 1.7 line-height. Shiki emits both GitHub Default palettes as custom properties, and `global.css` picks one per site theme, through `light-dark()`, like the color tokens.
 
 ### Toast Button (signature)
 The notebook's one marginal mark, a double up-chevron with a live count below it. It's unboxed and sits below a rule at the end of each post. At rest it's Pencil; hover goes to the Cobalt Ink hover shade; once toasted it stays Cobalt Ink with `aria-pressed="true"`. Pressing nudges the icon up 2px (0.1s). The count lives in an `aria-live="polite"` region and reserves its height so the layout doesn't jump when the number loads. Toggling updates the button immediately and rolls back if the API request fails.
 
 ### Theme Toggle
 An unboxed icon button in the header's icon cluster, labelled "Dark mode" with `aria-pressed` reflecting the current theme. It shows the icon of the theme a click switches *to* (moon in light, sun in dark). An inline script applies the stored or OS theme before first paint.
+
+### Focus
+One ring for every control: a 2px solid Cobalt Ink outline with a 2px offset on `:focus-visible`. It's square like the rest of the interface. `<main>` suppresses it when it receives focus from the skip link.
 
 ### Skip Link
 "Skip to content" is the first focusable element on every page. It's hidden above the viewport until focused, then appears at the top left on the surface color with a 1px rule and moves focus to `<main>`.
@@ -225,7 +231,7 @@ An unboxed icon button in the header's icon cluster, labelled "Dark mode" with `
 
 ### Do:
 - **Do** keep Cobalt Ink for links and the toasted state only (The One Pen Rule).
-- **Do** define every new color in dark `:root`, the `prefers-color-scheme: light` block, and `[data-theme="light"]` (The Mirror Rule).
+- **Do** define every new color as a `light-dark()` pair on `:root` (The Mirror Rule).
 - **Do** use Lora only for post prose; keep headings, meta, and chrome in Inter.
 - **Do** separate sections with 1px rules and whitespace.
 - **Do** keep transitions to color and opacity at 0.1–0.15s, and gate anything larger (like smooth scrolling) behind `prefers-reduced-motion: no-preference`.

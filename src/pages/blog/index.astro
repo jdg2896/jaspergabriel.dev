@@ -22,15 +22,13 @@ const formatDate = (date: Date) =>
 >
   <div class="container">
     <h1>Blog</h1>
-    <p
-      style="color: var(--color-text-muted); margin-top: 0.5rem; margin-bottom: 2.5rem; font-size: 0.95rem;"
-    >
+    <p class="page-lede">
       {posts.length} post{posts.length !== 1 ? "s" : ""}
     </p>
 
     {
       posts.length === 0 ? (
-        <p style="color: var(--color-text-muted);">
+        <p class="muted">
           No posts yet. Check back soon.
         </p>
       ) : (

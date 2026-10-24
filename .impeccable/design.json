@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-24T14:30:00Z",
+  "generatedAt": "2026-10-24T15:00:00Z",
   "title": "Design System: Jasper Gabriel",
   "extensions": {
     "colorMeta": {
@@ -409,7 +409,7 @@
       },
       {
         "name": "The Mirror Rule",
-        "body": "Every color token has a light-theme twin defined in both the `prefers-color-scheme: light` block and the `[data-theme=\"light\"]` block. A new token must be added to all three places (`:root`, the media query, the attribute selector).",
+        "body": "Every color token is a `light-dark(light, dark)` pair on `:root`, so light and dark are defined together in one place. `color-scheme` follows the OS, and the toggle pins it via `data-theme`. Syntax colors use the same function over Shiki's `--shiki-light` / `--shiki-dark`.",
         "section": "colors"
       },
       {
@@ -440,7 +440,7 @@
     ],
     "dos": [
       "Do keep Cobalt Ink for links and the toasted state only (The One Pen Rule).",
-      "Do define every new color in dark `:root`, the `prefers-color-scheme: light` block, and `[data-theme=\"light\"]` (The Mirror Rule).",
+      "Do define every new color as a `light-dark()` pair on `:root` (The Mirror Rule).",
       "Do use Lora only for post prose; keep headings, meta, and chrome in Inter.",
       "Do separate sections with 1px rules and whitespace.",
       "Do keep transitions to color and opacity at 0.1–0.15s, and gate anything larger (like smooth scrolling) behind `prefers-reduced-motion: no-preference`.",
