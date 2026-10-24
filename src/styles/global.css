@@ -330,6 +330,7 @@ p {
 
 .prose li {
   margin-bottom: 0.4rem;
+  text-wrap: pretty;
 }
 
 .prose blockquote {

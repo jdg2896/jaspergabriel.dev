@@ -55,6 +55,30 @@ typography:
     fontSize: "0.9rem"
     fontWeight: 500
     letterSpacing: "0.08em"
+  section-label:
+    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontSize: "1.1rem"
+    fontWeight: 600
+    letterSpacing: "0.06em"
+  heading-2:
+    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontSize: "1.5rem"
+    fontWeight: 600
+    lineHeight: 1.3
+  heading-3:
+    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontSize: "1.2rem"
+    fontWeight: 600
+    lineHeight: 1.3
+  prose-heading-2:
+    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontSize: "1.4rem"
+    fontWeight: 600
+    lineHeight: 1.3
+  nav-title:
+    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontSize: "0.95rem"
+    fontWeight: 500
   mono:
     fontFamily: "SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace"
     fontSize: "0.875em"

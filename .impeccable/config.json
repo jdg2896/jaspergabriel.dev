@@ -17,6 +17,15 @@
         ],
         "createdAt": "2026-10-24T13:46:55.893Z",
         "reason": "Claude triage: the only match is the .prose blockquote 3px left rule, a standard quotation mark-up documented in DESIGN.md, not a card or callout; predates this session"
+      },
+      {
+        "rule": "kicker-above-heading",
+        "value": "*",
+        "files": [
+          "src/pages/index.astro"
+        ],
+        "createdAt": "2026-10-24T14:13:35.089Z",
+        "reason": "User confirmed: keep the 'Hello world, I'm' hero greeting; it's the site's voice, recorded in PRODUCT.md"
       }
     ]
   }
