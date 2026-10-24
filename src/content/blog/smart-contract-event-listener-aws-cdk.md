@@ -554,4 +554,4 @@ I've also shared some caveats and improvements to consider as you build on top o
 
 Listening to smart contract events enables developers to integrate smart contracts into different APIs and enable real-time updates. AWS CDK allows you to deploy reliable cloud infrastructure with just a few lines of code, giving you more confidence in your deployments, and allowing you to focus on solving real-world problems. 
 
-If you've made it this far, thank you for reading! If you have any questions, feel free to comment or contact me [here](https://linktr.ee/jdg2896). 
+If you've made it this far, thank you for reading! If you have any questions, I'd love to hear from you. 

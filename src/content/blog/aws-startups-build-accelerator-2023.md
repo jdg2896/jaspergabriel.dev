@@ -240,7 +240,7 @@ To recap, I shared what I've learned in the AWS Startups Build Accelerator 2023,
 
 I hope you've picked up an idea or two from the lessons I shared, and may it help you in your own startup journey. 
 
-Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/jdg2896).
+Thank you for reading! If you have any questions or feedback, I'd love to hear from you.
 
 ## Resources
 - [Grow the Puzzle Around You - Jessica Livingston (Y Combinator)](https://foundersatwork.posthaven.com/grow-the-puzzle-around-you/)

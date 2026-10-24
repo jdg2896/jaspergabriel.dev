@@ -104,5 +104,5 @@ As the scouts' saying goes, "Always leave the campground cleaner than you found 
 
 If you're looking to make open-source contributions yourself, I hope my story has inspired you to do the same.
 
-Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/jdg2896). 
+Thank you for reading! If you have any questions or feedback, I'd love to hear from you.
 

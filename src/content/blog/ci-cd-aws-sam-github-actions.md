@@ -264,9 +264,7 @@ If you've made it this far, hopefully you were able to follow along and have now
 
 There are also other options for other CI/CD tools, most notably AWS CodePipeline + CodeBuild. Paul Swail made a really nice article on [why he switched from AWS CodePipeline to GitHub Actions](https://serverlessfirst.com/switch-codepipeline-to-github-actions/), that's why I leaned towards learning GitHub Actions first.
 
-If you have any feedback, feel free to comment. As this is my first time writing a blog post, there's probably some rough edges here and there.
-
-I'm also available through my email at jasper.d.gabriel@gmail.com, [X](https://x.com/jdg2896), [LinkedIn](https://www.linkedin.com/in/jaspergabriel/), and [GitHub](https://github.com/jdg2896).
+As this is my first time writing a blog post, there's probably some rough edges here and there. If you have any feedback, I'd love to hear it.
 
 Thank you for reading and cheers!
 

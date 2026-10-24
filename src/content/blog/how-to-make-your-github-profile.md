@@ -180,7 +180,7 @@ To recap, we walked through how to create your GitHub profile. Then I showed how
 
 I hope this can help you in making your awesome GitHub profile. I'd love to see what you can come up with!
 
-Thank you for reading and feel free to comment or connect with me [here](https://linktr.ee/jdg2896).
+Thank you for reading!
 
 ## Resources
 

@@ -257,7 +257,7 @@ To recap, you've successfully created a QuickAlert notification that sends an em
 
 I hope this can help you with integrating real-time blockchain event notifications into your applications.
 
-Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/jdg2896). 
+Thank you for reading! If you have any questions or feedback, I'd love to hear from you.
 
 ## Resources
 - [Sample Application: aws-lambda-sns-poc](https://github.com/jdg2896/aws-lambda-sns-poc)

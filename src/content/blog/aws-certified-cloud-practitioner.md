@@ -201,7 +201,7 @@ Then I'd also want to take the [AWS Certified Security - Specialty](https://aws.
 
 I hope my experience can help and give you ideas for your own AWS certification journey. 
 
-Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/jdg2896).
+Thank you for reading! If you have any questions or feedback, I'd love to hear from you.
 
 ## Resources
 

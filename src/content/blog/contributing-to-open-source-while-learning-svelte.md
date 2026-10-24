@@ -137,7 +137,7 @@ Hopefully, my story shows that sometimes, you can contribute to open-source even
 
 When you see issues in documentation, you can improve it as long as it's open-source. Even if it's not open-source, you can still contact the project's support team or message the author directly.
 
-Thank you for reading and I would love to hear your open-source experiences. Feel free to comment or message me [here](https://linktr.ee/jdg2896).
+Thank you for reading, and I would love to hear about your own open-source experiences.
 
 Good luck on your open-source journey!
 

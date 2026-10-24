@@ -257,7 +257,7 @@ The Twelve-Factor App consists of:
 
 I recommend reading through the [Twelve-Factor App](https://12factor.net/) since it's always a good thing to read through the source material. It should take you about an hour or two to finish reading the entire document. 
 
-Thank you for reading and if you have any questions or feedback, feel free to comment or connect with me [here](https://linktr.ee/jdg2896).
+Thank you for reading! If you have any questions or feedback, I'd love to hear from you.
 
 ## Further reading
 - [The Twelve-Factor App](https://12factor.net/)

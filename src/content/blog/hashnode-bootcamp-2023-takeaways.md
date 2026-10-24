@@ -95,4 +95,4 @@ To summarize, here are the 6 takeaways:
 
 If you've actually read this and have made it this far, I hope you also had some takeaways here that can help in your technical writing journey. I mainly made this for myself so I can reflect on the bootcamp and on my writing in general. 
 
-If you have any feedback or suggestions, feel free to comment. I'm also available through my email at jasper.d.gabriel@gmail.com, [X](https://x.com/jdg2896), [LinkedIn](https://www.linkedin.com/in/jaspergabriel/), and [GitHub](https://github.com/jdg2896).
+If you have any feedback or suggestions, I'd love to hear them.

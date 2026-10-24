@@ -122,4 +122,4 @@ To recap, we've walked through the process of reflecting on your past experience
 
 I hope this inspires you to take a pause and go on your journey of reflection and planning.
 
-Thank you for reading and if you have any questions or feedback, I'd love to hear from you. Feel free to comment or connect with me [here](https://linktr.ee/jdg2896).
+Thank you for reading! If you have any questions or feedback, I'd love to hear from you.
