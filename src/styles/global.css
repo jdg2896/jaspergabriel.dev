@@ -653,11 +653,9 @@ p {
 }
 
 .hero__greeting {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
+  font-size: 0.95rem;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
   margin-bottom: 0.75rem;
 }
 
@@ -670,10 +668,26 @@ p {
 
 .hero__bio {
   font-size: 1.05rem;
-  color: var(--color-text-muted);
-  max-width: 520px;
+  max-width: 560px;
   line-height: 1.7;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
+}
+
+/* Under a section header, year rules step down from the blog index's */
+.entries .year-group__label {
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.entries .year-group + .year-group {
+  margin-top: 2.5rem;
+}
+
+.post-card__desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 0;
 }
 
 /* ---- Page lede: muted line under a page h1 ---- */
@@ -707,16 +721,9 @@ p {
   font-size: 0.875rem;
 }
 
-/* ---- About page ---- */
+/* ---- About page: the notebook's first entry, set like a post ---- */
 .about-content {
   margin-top: 2rem;
-}
-
-.about-content p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: var(--color-text);
-  margin-bottom: 1.25rem;
 }
 
 /* ---- Responsive ---- */

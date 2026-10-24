@@ -11,6 +11,8 @@ const blog = defineCollection({
     updatedDate: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    // Hand-picked for the home page's "Featured posts"
+    featured: z.boolean().default(false),
     // Historical record of the dev.to cross-post; not rendered anywhere.
     originalUrl: z.url().optional(),
     // Set only when another platform's copy is canonical (e.g. freeCodeCamp

@@ -4,6 +4,7 @@ description: "Implement a production-ready QR code decoder in Node.js using jsQR
 pubDate: 2023-11-04
 tags: ["tech", "nodejs"]
 originalUrl: "https://dev.to/jdg2896/how-to-reliably-read-qr-codes-in-nodejs-502i"
+featured: true
 ---
 
 

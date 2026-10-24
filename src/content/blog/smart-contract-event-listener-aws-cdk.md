@@ -4,6 +4,7 @@ description: "Deploy Ethereum smart contract event listeners to AWS using CDK, w
 pubDate: 2023-11-20
 tags: ["tech", "blockchain", "aws", "nodejs"]
 originalUrl: "https://dev.to/jdg2896/how-to-implement-and-deploy-a-smart-contract-event-listener-with-aws-cdk-b1"
+featured: true
 ---
 
 

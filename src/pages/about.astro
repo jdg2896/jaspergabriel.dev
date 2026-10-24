@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ExternalIcon from "../components/ExternalIcon.astro";
 ---
 
 <BaseLayout
@@ -8,7 +9,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 >
   <div class="container">
     <h1>About</h1>
-    <div class="about-content">
+    <div class="about-content prose">
       <p>
         Hello world, I'm Jasper Gabriel, a software engineer specializing in
         backend systems and cloud infrastructure. I've spent the last 4 years
@@ -32,12 +33,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         You can find me on <a
           href="https://github.com/jdg2896"
           target="_blank"
-          rel="noopener noreferrer">GitHub</a
+          rel="noopener noreferrer">GitHub<ExternalIcon /></a
         >
         or <a
           href="https://linkedin.com/in/jaspergabriel"
           target="_blank"
-          rel="noopener noreferrer">LinkedIn</a
+          rel="noopener noreferrer">LinkedIn<ExternalIcon /></a
         >, or reach me directly at <a href="mailto:jasper.d.gabriel@gmail.com"
           >jasper.d.gabriel@gmail.com</a
         >.

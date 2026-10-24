@@ -4,6 +4,7 @@ description: "Story of fixing a broken Discord link in Ethereum.org docs — pro
 pubDate: 2023-11-26
 tags: ["tech", "blockchain", "open-source"]
 originalUrl: "https://dev.to/jdg2896/how-i-contributed-one-line-of-code-to-ethereum-3poh"
+featured: true
 ---
 
 
