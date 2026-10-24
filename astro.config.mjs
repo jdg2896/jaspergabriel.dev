@@ -27,6 +27,19 @@ export default defineConfig({
           // build time so enabling it doesn't shift the page; the script in
           // BlogPostLayout wires it up, and BaseHead hides it without JS.
           root(node) {
+            // Token styles are only final here. GitHub Light's comment gray
+            // is 4.25:1 on the warm paper code block; one step darker clears 4.5:1.
+            const deepenComments = (n) => {
+              if (typeof n.properties?.style === 'string') {
+                n.properties.style = n.properties.style.replace(
+                  '--shiki-light:#6E7781',
+                  '--shiki-light:#636C76',
+                );
+              }
+              n.children?.forEach(deepenComments);
+            };
+            deepenComments(node);
+
             node.children = [
               {
                 type: 'element',

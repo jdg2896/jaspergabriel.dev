@@ -4,21 +4,21 @@ description: A working engineer's lab notebook, calm, plain, and technical.
 colors:
   cobalt-ink: "#60a5fa"
   cobalt-ink-hover: "#93c5fd"
-  cobalt-ink-light: "#2563eb"
-  cobalt-ink-light-hover: "#1d4ed8"
+  cobalt-ink-light: "#2456c7"
+  cobalt-ink-light-hover: "#1b44a3"
   graphite-night: "#111113"
   graphite-surface: "#18181b"
   graphite-rule: "#27272a"
   chalk-text: "#e4e4e7"
   pencil-muted: "#8b8b94"
-  paper-bg: "#fafafa"
-  paper-surface: "#ffffff"
-  paper-rule: "#e5e7eb"
-  paper-code: "#f3f4f6"
-  ink-text: "#1a1a1a"
-  graphite-muted: "#6b7280"
+  paper-bg: "#f5f1e8"
+  paper-surface: "#ede8dc"
+  paper-rule: "#ddd6c8"
+  paper-code: "#e8e2d4"
+  ink-text: "#2a2620"
+  paper-pencil: "#696257"
   code-block-bg: "#18181b"
-  code-block-bg-light: "#ffffff"
+  code-block-bg-light: "#faf7f0"
 typography:
   display:
     fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
@@ -140,7 +140,7 @@ The site is a working engineer's notebook: dated entries, plain margins, and a s
 
 Density is low and single-column. Content sits in a 680px reading column; only the header and footer chrome stretch to 900px. Structure comes from 1px rules and whitespace, never from cards, fills, or shadows. Color is nearly absent. Cobalt Ink is the one pen, used for links and the toasted state, so that anything blue means "you can act on this."
 
-Dark is the default world. Light mirrors it token for token and follows the OS until the reader picks a theme with the toggle.
+Dark is the default world. Light mirrors it token for token as warm paper: a cream page with warm brown-black ink, deliberately dimmer than pure white so long reads don't glare. It follows the OS until the reader picks a theme with the toggle.
 
 **Key Characteristics:**
 - Single 680px reading column; 900px chrome.
@@ -160,10 +160,10 @@ A near-monochrome graphite palette with a single cobalt pen.
 
 ### Neutral
 - **Graphite Night / Paper** (`graphite-night` / `paper-bg`): page background.
-- **Graphite Surface / Paper Surface** (`graphite-surface` / `paper-surface`): the header (sticky above 640px) and the footer. It's a barely-there lift that marks the chrome off from the page.
+- **Graphite Surface / Paper Surface** (`graphite-surface` / `paper-surface`): the header (sticky above 640px) and the footer. It's a barely-there step that marks the chrome off from the page: lighter than the page in dark, a shade deeper in light, so the chrome never outshines the paper.
 - **Graphite Rule / Paper Rule** (`graphite-rule` / `paper-rule`): every 1px divider (header, footer, hero, post header, post footer, contents-list spine, `hr`, social-cluster separator). Dark mode also uses it as the inline-code background; light uses `paper-code`.
 - **Chalk / Ink** (`chalk-text` / `ink-text`): body text, headings, the site name, active nav, post titles in lists.
-- **Pencil / Graphite Muted** (`pencil-muted` / `graphite-muted`): meta lines (dates, reading time), inactive nav, icons, section eyebrows, the hero bio, and the resting toast button.
+- **Pencil / Paper Pencil** (`pencil-muted` / `paper-pencil`): meta lines (dates, reading time), inactive nav, icons, section eyebrows, the hero bio, and the resting toast button.
 - **Code Block** (`code-block-bg` / `code-block-bg-light`): fenced code blocks, highlighted by Shiki's GitHub Dark Default / GitHub Light Default pair. They follow the theme toggle, sit on the surface color with a 1px rule, and every token clears 4.5:1 in both themes.
 
 ### Named Rules
