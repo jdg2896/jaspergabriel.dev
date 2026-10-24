@@ -2,25 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-
-// Post images are remote (Cloudinary), so Astro's image pipeline doesn't touch
-// them. Defer their loading, and let Cloudinary negotiate format and quality.
-// SVG diagrams are left as-is so they stay vector.
-function rehypePostImages() {
-  const visit = (node) => {
-    if (node.type === 'element' && node.tagName === 'img') {
-      const props = node.properties;
-      props.loading = 'lazy';
-      props.decoding = 'async';
-      const src = String(props.src ?? '');
-      if (src.includes('res.cloudinary.com/') && !/\.svg($|\?)/i.test(src)) {
-        props.src = src.replace('/image/upload/', '/image/upload/f_auto,q_auto/');
-      }
-    }
-    node.children?.forEach(visit);
-  };
-  return visit;
-}
+import rehypePostImages from './src/plugins/rehype-post-images.mjs';
 
 export default defineConfig({
   site: 'https://jaspergabriel.dev',

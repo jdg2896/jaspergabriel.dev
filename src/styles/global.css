@@ -5,6 +5,26 @@
   padding: 0;
 }
 
+/* Local fallbacks scaled to the web fonts' metrics, so text doesn't reflow
+   when Lora and Inter swap in. Measured in Chrome against prose samples. */
+@font-face {
+  font-family: 'Lora Fallback';
+  src: local('Georgia');
+  size-adjust: 105.53%;
+  ascent-override: 95.7%;
+  descent-override: 25.58%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial');
+  size-adjust: 106.86%;
+  ascent-override: 90.77%;
+  descent-override: 22.46%;
+  line-gap-override: 0%;
+}
+
 /* Theme: light-dark() resolves against color-scheme, which follows the OS
    unless the toggle has set data-theme. Each pair is (light, dark). */
 :root {
@@ -20,8 +40,8 @@
   --color-code-bg: light-dark(#f3f4f6, #27272a);
   --color-code-block-bg: light-dark(#ffffff, #18181b);
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Lora', Georgia, serif;
+  --font-sans: 'Inter', 'Inter Fallback', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Lora', 'Lora Fallback', Georgia, serif;
 
   --max-w-content: 680px;
   --max-w-wide: 900px;
@@ -362,6 +382,8 @@ p {
 
 .prose img {
   max-width: 100%;
+  /* width/height attributes reserve the aspect ratio; let it scale down */
+  height: auto;
   border-radius: 8px;
   margin: 1.5rem 0;
 }

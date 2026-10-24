@@ -21,37 +21,37 @@ colors:
   code-block-bg-light: "#ffffff"
 typography:
   display:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
     fontSize: "clamp(2rem, 5vw, 3rem)"
     fontWeight: 600
     lineHeight: 1.2
   headline:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
     fontSize: "clamp(1.75rem, 4vw, 2.25rem)"
     fontWeight: 600
     lineHeight: 1.3
   title:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
     fontSize: "1.15rem"
     fontWeight: 600
     lineHeight: 1.3
   body:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.6
   prose:
-    fontFamily: "Lora, Georgia, serif"
+    fontFamily: "Lora, Lora Fallback, Georgia, serif"
     fontSize: "1.05rem"
     fontWeight: 400
     lineHeight: 1.8
   label:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
     fontSize: "0.8rem"
     fontWeight: 400
     lineHeight: 1.6
   eyebrow:
-    fontFamily: "Inter, system-ui, -apple-system, sans-serif"
+    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
     fontSize: "0.9rem"
     fontWeight: 500
     letterSpacing: "0.08em"
@@ -156,6 +156,8 @@ A near-monochrome graphite palette with a single cobalt pen.
 **Label/Mono Font:** SFMono-Regular (with Consolas, Liberation Mono, Menlo, monospace)
 
 **Character:** A neutral grotesque for the notebook's binding and a bookish serif for its entries. The pairing tells the reader without words when they're browsing and when they're reading.
+
+**Loading:** both faces come from Google Fonts with `display=swap`. Until they arrive, metric-matched local fallbacks (`Lora Fallback` built from Georgia, `Inter Fallback` from Arial, defined in `global.css`) hold the same line boxes, so the swap doesn't move text. If you change either face or its weights, re-measure those overrides.
 
 ### Hierarchy
 - **Display** (600, clamp(2rem, 5vw, 3rem), 1.2): the name on the home hero. Used once on the site.
