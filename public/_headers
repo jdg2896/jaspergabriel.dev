@@ -2,9 +2,18 @@
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Don't cache HTML pages
+# HTML stays fresh for a minute. That's long enough for the client router's
+# fetch on click to reuse the page prefetched when its link scrolled into
+# view, and short enough that a deploy shows up almost immediately.
 /*.html
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=60, must-revalidate
 
 /
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=60, must-revalidate
+
+/about/
+  Cache-Control: public, max-age=60, must-revalidate
+
+# Also matches /blog/ itself
+/blog/*
+  Cache-Control: public, max-age=60, must-revalidate

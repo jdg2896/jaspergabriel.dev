@@ -117,7 +117,7 @@ const formatDate = (date: Date, month: 'long' | 'short' = 'long') =>
 
         <!-- Contact links live in the header, so the sign-off is just the introduction -->
         <p class="signoff">
-          I'm <a href="/about">Jasper Gabriel</a>, a software engineer. I write about my experiences and
+          I'm <a href="/about/">Jasper Gabriel</a>, a software engineer. I write about my experiences and
           the things I learn.
         </p>
       </footer>
@@ -137,7 +137,7 @@ const formatDate = (date: Date, month: 'long' | 'short' = 'long') =>
                 <span>{post.readingTime} min read</span>
               </div>
               <h3 class="post-card__title">
-                <a href={`/blog/${post.slug}`}>{post.title}</a>
+                <a href={`/blog/${post.slug}/`}>{post.title}</a>
               </h3>
             </li>
           ))}

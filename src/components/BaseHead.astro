@@ -76,7 +76,7 @@ const imageURL = image && new URL(image, Astro.site);
   <>
     <meta property="article:published_time" content={article.publishedTime.toISOString()} />
     {article.modifiedTime && <meta property="article:modified_time" content={article.modifiedTime.toISOString()} />}
-    <meta property="article:author" content={new URL('/about', Astro.site)} />
+    <meta property="article:author" content={new URL('/about/', Astro.site)} />
     {article.tags?.map((tag) => <meta property="article:tag" content={tag} />)}
   </>
 )}

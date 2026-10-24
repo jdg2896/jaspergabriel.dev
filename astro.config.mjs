@@ -86,6 +86,9 @@ export default defineConfig({
       rehypePostImages,
     ],
   },
+  // Matches how Cloudflare serves the built directories, so links never
+  // bounce through a /about -> /about/ redirect
+  trailingSlash: 'always',
   build: {
     inlineStylesheets: 'auto',
   },
