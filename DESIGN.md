@@ -98,9 +98,12 @@ components:
     padding: "0.15em 0.4em"
   code-block:
     backgroundColor: "{colors.code-block-bg}"
-    textColor: "{colors.code-block-text}"
     rounded: "{rounded.md}"
     padding: "1.25rem"
+  skip-link:
+    backgroundColor: "{colors.graphite-surface}"
+    textColor: "{colors.chalk-text}"
+    padding: "0.5rem 1rem"
 ---
 
 # Design System: Jasper Gabriel
@@ -157,7 +160,7 @@ A near-monochrome graphite palette with a single cobalt pen.
 ### Hierarchy
 - **Display** (600, clamp(2rem, 5vw, 3rem), 1.2): the name on the home hero. Used once on the site.
 - **Headline** (600, clamp(1.75rem, 4vw, 2.25rem), 1.3): page `h1`s and post titles.
-- **Title** (600, 1.15–1.5rem, 1.3): post-list titles, global `h2`/`h3`. Headings inside prose are Inter at 1.4rem (`h2`) and 1.15rem (`h3`).
+- **Title** (600, 1.15rem, 1.3): post-list titles. The rest of the heading scale steps from there: global `h2` 1.5rem and `h3` 1.2rem; inside prose, `h2` 1.4rem and `h3` 1.15rem, all Inter. Prev/next titles are 0.95rem / 500.
 - **Body** (400, 16px, 1.6): interface text, About page (at 1.05rem / 1.8).
 - **Prose** (400, 1.05rem, 1.8): post body in Lora. Paragraph spacing is 1.4rem, inside the 680px column (~70ch).
 - **Label** (400, 0.8rem): meta lines with middot separators, footer, prev/next labels.
@@ -175,6 +178,11 @@ A centered single column. `.container` is 680px max with a 1.25rem side gutter; 
 The spacing rhythm is rem-based and loose: 0.25rem for meta to title, 0.75rem for meta gaps, 1.75rem between list items and nav links, 2.5–3rem between major blocks, and 4rem above the hero. The header is sticky; anchored headings use `scroll-margin-top: 5rem` to clear it.
 
 One breakpoint, at 640px. Below it the header stacks (name above nav and social links), the footer centers, the hero tightens to 2.5rem/2rem, and prev/next post navigation collapses from two columns to one, left-aligned.
+
+Every page reflows at 320px with no horizontal scroll. Prose wraps long words (`overflow-wrap: break-word`) and inline code breaks anywhere, since addresses, URLs, and file paths have no natural break points. Only fenced code blocks scroll sideways.
+
+### Named Rules
+**The 320 Rule.** Nothing but a fenced code block may scroll horizontally at a 320px viewport.
 
 ## Elevation & Depth
 
@@ -202,13 +210,16 @@ Unboxed entries stacked 1.75rem apart. Each entry is a muted 0.8rem meta line (d
 The post title (Headline) sits above a wrapped meta line, closed off by a 1px bottom rule. At the foot of the post, prev/next is a two-column grid below a rule: a muted label ("← Older" / "Newer →") above a 0.95rem/500 title that turns Cobalt Ink on hover.
 
 ### Code
-Inline code uses the mono stack at 0.875em on the rule-color background with a 4px radius. Fenced blocks are the fixed dark slab (`code-block-bg` / `code-block-text`) with an 8px radius, 1.25rem padding, horizontal scroll, and 1.7 line-height.
+Inline code uses the mono stack at 0.875em on the rule-color background with a 4px radius, and wraps anywhere. Inside a blockquote it keeps the full text color, because muted text on the code chip drops below 4.5:1. Fenced blocks sit on `code-block-bg` with a 1px rule, an 8px radius, 1.25rem padding, horizontal scroll, and 1.7 line-height. Shiki emits both GitHub Default palettes as custom properties, and `global.css` picks one per site theme, using the same three selectors as the color tokens.
 
 ### Toast Button (signature)
-The notebook's one marginal mark, a double up-chevron with a live count below it. It's unboxed and sits below a rule at the end of each post. At rest it's Pencil; hover goes to the Cobalt Ink hover shade; once toasted it stays Cobalt Ink with `aria-pressed="true"`. Pressing nudges the icon up 2px (0.1s). The count lives in an `aria-live="polite"` region and reserves its height so the layout doesn't jump when the number loads.
+The notebook's one marginal mark, a double up-chevron with a live count below it. It's unboxed and sits below a rule at the end of each post. At rest it's Pencil; hover goes to the Cobalt Ink hover shade; once toasted it stays Cobalt Ink with `aria-pressed="true"`. Pressing nudges the icon up 2px (0.1s). The count lives in an `aria-live="polite"` region and reserves its height so the layout doesn't jump when the number loads. Toggling updates the button immediately and rolls back if the API request fails.
 
 ### Theme Toggle
-An unboxed icon button in the header's icon cluster. It shows the icon of the theme a click switches *to* (moon in light, sun in dark). An inline script applies the stored or OS theme before first paint.
+An unboxed icon button in the header's icon cluster, labelled "Dark mode" with `aria-pressed` reflecting the current theme. It shows the icon of the theme a click switches *to* (moon in light, sun in dark). An inline script applies the stored or OS theme before first paint.
+
+### Skip Link
+"Skip to content" is the first focusable element on every page. It's hidden above the viewport until focused, then appears at the top left on the surface color with a 1px rule and moves focus to `<main>`.
 
 ## Do's and Don'ts
 
@@ -217,12 +228,13 @@ An unboxed icon button in the header's icon cluster. It shows the icon of the th
 - **Do** define every new color in dark `:root`, the `prefers-color-scheme: light` block, and `[data-theme="light"]` (The Mirror Rule).
 - **Do** use Lora only for post prose; keep headings, meta, and chrome in Inter.
 - **Do** separate sections with 1px rules and whitespace.
-- **Do** keep transitions to color and opacity at 0.1–0.15s.
+- **Do** keep transitions to color and opacity at 0.1–0.15s, and gate anything larger (like smooth scrolling) behind `prefers-reduced-motion: no-preference`.
 - **Do** verify 4.5:1 text contrast in both themes before shipping a color change.
+- **Do** check new content at 320px (The 320 Rule).
 
 ### Don't:
 - **Don't** add box-shadows, cards, or filled panels to group content.
 - **Don't** introduce a second accent hue.
 - **Don't** widen the reading column past 680px; only chrome uses 900px.
 - **Don't** round buttons, links, or list items; corners are for code and images.
-- **Don't** let the code-block slab follow the theme; it stays dark in both.
+- **Don't** hard-code syntax colors; code blocks take their palette from Shiki's per-theme custom properties.
