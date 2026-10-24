@@ -23,6 +23,34 @@ export default defineConfig({
           pre(node) {
             node.properties.tabindex = '0';
           },
+          // A bar above each block holds its copy button. It's rendered at
+          // build time so enabling it doesn't shift the page; the script in
+          // BlogPostLayout wires it up, and BaseHead hides it without JS.
+          root(node) {
+            node.children = [
+              {
+                type: 'element',
+                tagName: 'div',
+                properties: { className: ['code-block'] },
+                children: [
+                  {
+                    type: 'element',
+                    tagName: 'div',
+                    properties: { className: ['code-block__bar'] },
+                    children: [
+                      {
+                        type: 'element',
+                        tagName: 'button',
+                        properties: { type: 'button', className: ['code-copy'], ariaLabel: 'Copy code' },
+                        children: [{ type: 'text', value: 'Copy' }],
+                      },
+                    ],
+                  },
+                  ...node.children,
+                ],
+              },
+            ];
+          },
         },
       ],
     },

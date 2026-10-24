@@ -16,15 +16,9 @@ export async function getStaticPaths() {
     for (const tag of post.data.tags) tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
   }
 
-  return posts.map((post, i) => {
-    // Sorted newest-first, so the next index is the older post.
-    const newerPost = posts[i - 1] ?? null;
-    const olderPost = posts[i + 1] ?? null;
-    // Prev/next already link those two, so don't repeat them here
-    const excluded = new Set([post.id, newerPost?.id, olderPost?.id]);
-
+  return posts.map((post) => {
     const relatedPosts = posts
-      .filter((other) => !excluded.has(other.id))
+      .filter((other) => other.id !== post.id)
       .map((other) => ({
         other,
         score: other.data.tags
@@ -39,12 +33,12 @@ export async function getStaticPaths() {
 
     return {
       params: { slug: post.id },
-      props: { post, newerPost, olderPost, relatedPosts },
+      props: { post, relatedPosts },
     };
   });
 }
 
-const { post, newerPost, olderPost, relatedPosts } = Astro.props;
+const { post, relatedPosts } = Astro.props;
 const { Content, headings } = await render(post);
 ---
 
@@ -58,8 +52,6 @@ const { Content, headings } = await render(post);
   canonicalUrl={post.data.canonicalUrl}
   slug={post.id}
   headings={headings}
-  newerPost={newerPost && { slug: newerPost.id, title: newerPost.data.title }}
-  olderPost={olderPost && { slug: olderPost.id, title: olderPost.data.title }}
   relatedPosts={relatedPosts.map((related) => ({
     slug: related.id,
     title: related.data.title,

@@ -5,12 +5,9 @@ import ToastButton from '../components/ToastButton.astro';
 import ExternalIcon from '../components/ExternalIcon.astro';
 import { getReadingTime } from '../utils/readingTime';
 
-interface PostLink {
+interface RelatedPost {
   slug: string;
   title: string;
-}
-
-interface RelatedPost extends PostLink {
   pubDate: Date;
   readingTime: number;
 }
@@ -25,8 +22,6 @@ interface Props {
   canonicalUrl?: string;
   slug: string;
   headings?: MarkdownHeading[];
-  newerPost?: PostLink | null;
-  olderPost?: PostLink | null;
   relatedPosts?: RelatedPost[];
 }
 
@@ -40,8 +35,6 @@ const {
   canonicalUrl,
   slug,
   headings = [],
-  newerPost,
-  olderPost,
   relatedPosts = [],
 } = Astro.props;
 
@@ -122,19 +115,11 @@ const formatDate = (date: Date, month: 'long' | 'short' = 'long') =>
       <footer class="post-footer">
         <ToastButton slug={slug} />
 
-        <section class="signoff" aria-label="About the author">
-          <p class="signoff__bio">
-            I'm <a href="/about">Jasper Gabriel</a>, a software engineer working on backend systems and
-            cloud infrastructure. Lately I'm exploring cryptography, zero-knowledge proofs, and
-            cybersecurity, and writing down what I learn here.
-          </p>
-          <ul class="signoff__links">
-            <li><a href="https://github.com/jdg2896" target="_blank" rel="noopener noreferrer">GitHub<ExternalIcon /></a></li>
-            <li><a href="https://linkedin.com/in/jaspergabriel" target="_blank" rel="noopener noreferrer">LinkedIn<ExternalIcon /></a></li>
-            <li><a href="mailto:jasper.d.gabriel@gmail.com">Email</a></li>
-            <li><a href="/rss.xml">RSS feed</a></li>
-          </ul>
-        </section>
+        <!-- Contact links live in the header, so the sign-off is just the introduction -->
+        <p class="signoff">
+          I'm <a href="/about">Jasper Gabriel</a>, a software engineer writing down what I learn about
+          backend, cloud, and cryptography.
+        </p>
       </footer>
     </article>
 
@@ -159,24 +144,46 @@ const formatDate = (date: Date, month: 'long' | 'short' = 'long') =>
         </ul>
       </section>
     )}
-
-    {
-      (olderPost || newerPost) && (
-        <nav class="post-nav" aria-label="Older and newer posts">
-          {olderPost && (
-            <a class="post-nav__link" href={`/blog/${olderPost.slug}`} rel="prev">
-              <span class="post-nav__label"><span aria-hidden="true">&larr; </span>Older post</span>
-              <span class="post-nav__title">{olderPost.title}</span>
-            </a>
-          )}
-          {newerPost && (
-            <a class="post-nav__link post-nav__link--next" href={`/blog/${newerPost.slug}`} rel="next">
-              <span class="post-nav__label">Newer post<span aria-hidden="true"> &rarr;</span></span>
-              <span class="post-nav__title">{newerPost.title}</span>
-            </a>
-          )}
-        </nav>
-      )
-    }
   </div>
+
+  <!-- One shared live region, so a copy is announced without moving focus -->
+  <p class="visually-hidden" role="status" id="code-copy-status"></p>
 </BaseLayout>
+
+<script>
+  // Delegated, so it survives ClientRouter swaps without re-binding
+  const RESET_MS = 2000;
+  const timers = new WeakMap<HTMLButtonElement, number>();
+
+  const flash = (button: HTMLButtonElement, state: 'copied' | 'failed') => {
+    const status = document.getElementById('code-copy-status');
+    button.dataset.state = state;
+    button.textContent = state === 'copied' ? 'Copied' : "Couldn't copy";
+    if (status) {
+      status.textContent =
+        state === 'copied'
+          ? 'Code copied to clipboard.'
+          : "Couldn't copy. Select the code and copy it by hand.";
+    }
+    clearTimeout(timers.get(button));
+    timers.set(
+      button,
+      window.setTimeout(() => {
+        delete button.dataset.state;
+        button.textContent = 'Copy';
+      }, RESET_MS),
+    );
+  };
+
+  document.addEventListener('click', async (event) => {
+    const button = (event.target as Element).closest<HTMLButtonElement>('.code-copy');
+    const code = button?.closest('.code-block')?.querySelector('pre code');
+    if (!button || !code) return;
+    try {
+      await navigator.clipboard.writeText(code.textContent ?? '');
+      flash(button, 'copied');
+    } catch {
+      flash(button, 'failed');
+    }
+  });
+</script>

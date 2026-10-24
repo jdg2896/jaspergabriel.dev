@@ -36,8 +36,8 @@ const imageURL = image && new URL(image, Astro.site);
   applyTheme();
   document.addEventListener('astro:after-swap', applyTheme);
 </script>
-<!-- The theme toggle needs JS; without it, hide the control rather than show a dead one -->
-<noscript><style>.theme-toggle { display: none !important; }</style></noscript>
+<!-- These controls need JS; without it, hide them rather than show dead ones -->
+<noscript><style>.theme-toggle, .code-block__bar { display: none !important; }</style></noscript>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <!-- Linked from the head (not @import-ed in CSS) so font loading starts in parallel -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />

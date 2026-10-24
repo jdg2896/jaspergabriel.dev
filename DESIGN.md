@@ -161,7 +161,7 @@ A near-monochrome graphite palette with a single cobalt pen.
 ### Neutral
 - **Graphite Night / Paper** (`graphite-night` / `paper-bg`): page background.
 - **Graphite Surface / Paper Surface** (`graphite-surface` / `paper-surface`): the header (sticky above 640px) and the footer. It's a barely-there lift that marks the chrome off from the page.
-- **Graphite Rule / Paper Rule** (`graphite-rule` / `paper-rule`): every 1px divider (header, footer, hero, post header, post footer, post nav, contents-list spine, `hr`, social-cluster separator). Dark mode also uses it as the inline-code background; light uses `paper-code`.
+- **Graphite Rule / Paper Rule** (`graphite-rule` / `paper-rule`): every 1px divider (header, footer, hero, post header, post footer, contents-list spine, `hr`, social-cluster separator). Dark mode also uses it as the inline-code background; light uses `paper-code`.
 - **Chalk / Ink** (`chalk-text` / `ink-text`): body text, headings, the site name, active nav, post titles in lists.
 - **Pencil / Graphite Muted** (`pencil-muted` / `graphite-muted`): meta lines (dates, reading time), inactive nav, icons, section eyebrows, the hero bio, and the resting toast button.
 - **Code Block** (`code-block-bg` / `code-block-bg-light`): fenced code blocks, highlighted by Shiki's GitHub Dark Default / GitHub Light Default pair. They follow the theme toggle, sit on the surface color with a 1px rule, and every token clears 4.5:1 in both themes.
@@ -186,10 +186,10 @@ A near-monochrome graphite palette with a single cobalt pen.
 ### Hierarchy
 - **Display** (600, clamp(2rem, 5vw, 3rem), 1.2): the name on the home hero. Used once on the site.
 - **Headline** (600, clamp(1.75rem, 4vw, 2.25rem), 1.3): page `h1`s and post titles.
-- **Title** (600, 1.15rem, 1.3): post-list titles. The rest of the heading scale steps from there: global `h2` 1.5rem and `h3` 1.2rem; inside prose, `h2` 1.5rem, `h3` 1.25rem and `h4` 1rem (just under body size, read as a run-in label within a section), all Inter. Prev/next titles are 0.95rem / 500.
+- **Title** (600, 1.15rem, 1.3): post-list titles. The rest of the heading scale steps from there: global `h2` 1.5rem and `h3` 1.2rem; inside prose, `h2` 1.5rem, `h3` 1.25rem and `h4` 1rem (just under body size, read as a run-in label within a section), all Inter.
 - **Body** (400, 16px, 1.6): interface text, About page (at 1.05rem / 1.8).
 - **Prose** (400, 1.05rem, 1.8): post body in Lora. Paragraph spacing is 1.4rem, inside the 680px column (~70ch).
-- **Label** (400, 0.8rem): meta lines with middot separators, footer, prev/next labels.
+- **Label** (400, 0.8rem): meta lines with middot separators, footer.
 - **Eyebrow** (500, 0.9rem, 0.08em, uppercase): the hero greeting, plus section headers ("Recent posts") at 1.1rem / 0.06em. Always muted.
 
 ### Named Rules
@@ -203,7 +203,7 @@ A centered single column. `.container` is 680px max with a 1.25rem side gutter; 
 
 The spacing rhythm is rem-based and loose: 0.25rem for meta to title, 0.75rem for meta gaps, 1.75rem between list items and nav links, 2.5–3rem between major blocks, and 4rem above the hero. The header is sticky above 640px; anchored headings use `scroll-margin-top: 5rem` to clear it.
 
-One breakpoint, at 640px. Below it the header stacks (name above nav and social links) and stops being sticky, since at ~105px it would cover too much of a phone screen (anchored headings drop to a 1.5rem offset), the footer centers, the hero tightens to 2.5rem/2rem, and prev/next post navigation collapses from two columns to one, left-aligned.
+One breakpoint, at 640px. Below it the header stacks (name above nav and social links) and stops being sticky, since at ~105px it would cover too much of a phone screen (anchored headings drop to a 1.5rem offset), the footer centers, and the hero tightens to 2.5rem/2rem.
 
 Every page reflows at 320px with no horizontal scroll. Prose wraps long words (`overflow-wrap: break-word`) and inline code breaks anywhere, since addresses, URLs, and file paths have no natural break points. Only fenced code blocks scroll sideways.
 
@@ -235,24 +235,25 @@ The muted line under a page `h1` (the post count on the blog index, the 404 expl
 ### Post List
 Unboxed entries stacked 1.75rem apart. Each entry is a muted 0.8rem meta line (date · reading time) above a Title-weight link in Chalk that turns Cobalt Ink on hover. The same pattern is used on the home page (3 recent posts) and the blog index.
 
-### Post Header and Prev/Next
-The post title (Headline) sits above the post's description as a muted 1.05rem Inter lede, then a wrapped meta line, closed off by a 1px bottom rule. There is no byline: the site name in the header already says whose notebook this is, and the sign-off at the end introduces him. Prev/next is the last thing on the page: a two-column grid below a rule, with a muted label ("← Older post" / "Newer post →", arrows hidden from screen readers) above a 0.95rem/500 title that turns Cobalt Ink on hover. Newer always takes the right column, even when there's no older post.
+### Post Header
+The post title (Headline) sits above the post's description as a muted 1.05rem Inter lede, then a wrapped meta line, closed off by a 1px bottom rule. There is no byline: the site name in the header already says whose notebook this is, and the sign-off at the end introduces him.
 
 ### Contents List
 Posts with four or more `h2`/`h3` sections and at least a 6-minute read get an "On this page" disclosure under the post header, closed by default. The summary is Inter 600 in Chalk with a drawn chevron and a muted section count, 44px tall. Open, it's an ordered list on a 1px rule spine, `h3` entries indented, links in Pencil going to Chalk on hover, like the nav. Over twelve sections, it lists `h2`s only.
 
 ### Post Footer and Keep Reading
-The end of each post is its front door for readers who arrived cold. Below a rule: the toast, then a one-paragraph author sign-off in muted Inter (the name in Chalk 600, linking to About) with a row of text links (GitHub, LinkedIn, Email, RSS feed). The name is the About link, so there's no separate "More about me". Posts end on their own thank-you line in Lora, with no comment invitation (there are no comments) and no contact links of their own; the sign-off carries those. Below that, "Keep reading" (the section-label style) lists up to three related posts in the Post List pattern. Related posts are ranked by shared tags, each tag weighted by how rare it is, and leave out the prev/next posts so nothing repeats.
+The end of each post is its front door for readers who arrived cold. It stays minimal, one line per job. Below a rule: the toast, then a one-sentence author sign-off in muted Inter (the name in Chalk 600, linking to About). It carries no contact links, because the header's icon cluster already does. Posts end on their own thank-you line in Lora, with no comment invitation (there are no comments) and no contact links of their own. Below that, "Keep reading" (the section-label style) lists up to three related posts in the Post List pattern, and it's the last thing on the page. There's no older/newer pair: a chronological neighbour is rarely what a cold reader wants next, and two lists of posts competed. Related posts are ranked by shared tags, each tag weighted by how rare it is.
 
 ### Heading Anchors
 A `#` appended to each prose heading, labelled "Link to section: <heading text>" so they're distinguishable in a screen reader's link list. It's muted and invisible until the heading is hovered or the anchor gets keyboard focus.
 
 ### Code
-Inline code uses the mono stack at 0.875em on the rule-color background with a 4px radius, and wraps anywhere. Inside a blockquote it keeps the full text color, because muted text on the code chip drops below 4.5:1. Fenced blocks sit on `code-block-bg` with a 1px rule, an 8px radius, 1.25rem padding, horizontal scroll, and 1.7 line-height. They take `tabindex="0"` (a Shiki transformer) so keyboard users can focus and scroll them. Shiki emits both GitHub Default palettes as custom properties, and `global.css` picks one per site theme, through `light-dark()`, like the color tokens.
+Inline code uses the mono stack at 0.875em on the rule-color background with a 4px radius, and wraps anywhere. It always takes the full text color, even inside a muted blockquote, because muted text on the code chip drops below 4.5:1. Fenced blocks sit on `code-block-bg` with a 1px rule, an 8px radius, 1.25rem padding, horizontal scroll, and 1.7 line-height. They take `tabindex="0"` (a Shiki transformer) so keyboard users can focus and scroll them.
+
+Each fenced block has a "Copy" button in the margin above its top-right corner, like a note beside the entry: unboxed Inter 0.8rem / 500 in Pencil, Chalk on hover, with a 32px hit area. It's rendered at build time by a Shiki `root` transformer (so it doesn't shift the page), wired up by a delegated script in the post layout, and hidden without JS. Copying swaps the text to "Copied" (or "Couldn't copy") for two seconds and announces it through one shared, visually hidden `role="status"` line. It isn't blue, because copying isn't a state that persists. Shiki emits both GitHub Default palettes as custom properties, and `global.css` picks one per site theme, through `light-dark()`, like the color tokens.
 
 ### Toast Button (signature)
 The notebook's one marginal mark: a double up-chevron with the label "Raise a toast" (Inter 0.9rem / 500), and a muted count beside it ("7 toasts", or "8 toasts, including yours" once toasted). A count of zero shows nothing rather than "0 toasts". It's unboxed, 44px tall, and opens the post footer. At rest it's Pencil; hover goes to Chalk; once toasted it stays Cobalt Ink with `aria-pressed="true"`, so blue only ever means toasted. Pressing nudges the icon up 2px (0.1s), only without reduced motion. The count becomes an `aria-live="polite"` region only after the first count loads, so loading it isn't announced mid-read.
-
 The button ships `disabled` and is enabled by its script, so it never looks live without JS. Toggling updates immediately; clicks are ignored while a request is in flight. If the request fails, the toggle rolls back and a muted `role="status"` line explains it, telling a network failure ("Check your connection and try again.") apart from a server error ("something went wrong on the server. Try again in a bit."). A 0.5rem row gap keeps the button's focus ring clear of that line. If the count can't load, the button still works and simply shows no number.
 
 ### Theme Toggle

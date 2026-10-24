@@ -364,13 +364,47 @@ p {
   background-color: var(--color-code-bg);
   padding: 0.15em 0.4em;
   border-radius: 4px;
+  /* Muted text on the chip falls under 4.5:1, so code always takes the
+     full text color, even inside a blockquote */
+  color: var(--color-text);
   /* Addresses, URLs, and file paths have no natural break points */
   overflow-wrap: anywhere;
 }
 
-/* Muted blockquote text on the code chip falls under 4.5:1 */
-.prose blockquote code {
+/* The copy bar sits in the margin above the block, like a note on the page.
+   The negative top margin tucks it into the previous paragraph's spacing. */
+.code-block {
+  margin-bottom: 1.4rem;
+}
+
+.code-block__bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -0.75rem;
+}
+
+.code-copy {
+  /* 32px hit area; the negative margin keeps the text on the column edge */
+  min-height: 32px;
+  padding: 0 0.5rem;
+  margin-right: -0.5rem;
+  border: none;
+  background: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.code-copy:hover,
+.code-copy[data-state] {
   color: var(--color-text);
+}
+
+.prose .code-block pre {
+  margin-bottom: 0;
 }
 
 .prose pre {
@@ -578,24 +612,14 @@ p {
   border-top: 1px solid var(--color-border);
 }
 
-.signoff__bio {
-  margin-bottom: 0.75rem;
+.signoff {
+  margin-bottom: 0;
   color: var(--color-text-muted);
 }
 
-.signoff__bio a {
+.signoff a {
   color: var(--color-text);
   font-weight: 600;
-}
-
-.signoff__links {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 1.25rem;
-  row-gap: 0.25rem;
-  list-style: none;
-  font-size: 0.9rem;
-  font-weight: 500;
 }
 
 /* ---- Related posts ---- */
@@ -605,48 +629,6 @@ p {
 
 .related .section-header {
   margin-bottom: 1.5rem;
-}
-
-/* ---- Prev/next post navigation ---- */
-.post-nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 3.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--color-border);
-}
-
-.post-nav__link {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  text-decoration: none;
-}
-
-.post-nav__link--next {
-  /* Newer always sits in the right column, even when there's no older post */
-  grid-column: 2;
-  text-align: right;
-}
-
-.post-nav__label {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-}
-
-.post-nav__title {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--color-text);
-}
-
-.post-nav__link:hover {
-  text-decoration: none;
-}
-
-.post-nav__link:hover .post-nav__title {
-  color: var(--color-accent);
 }
 
 /* ---- Home page ---- */
@@ -765,14 +747,5 @@ p {
 
   .hero {
     padding: 2.5rem 0 2rem;
-  }
-
-  .post-nav {
-    grid-template-columns: 1fr;
-  }
-
-  .post-nav__link--next {
-    grid-column: auto;
-    text-align: left;
   }
 }
