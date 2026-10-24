@@ -6,18 +6,18 @@ colors:
   cobalt-ink-hover: "#93c5fd"
   cobalt-ink-light: "#2456c7"
   cobalt-ink-light-hover: "#1b44a3"
-  graphite-night: "#111113"
-  graphite-surface: "#18181b"
-  graphite-rule: "#27272a"
-  chalk-text: "#e4e4e7"
-  pencil-muted: "#8b8b94"
+  graphite-night: "#131210"
+  graphite-surface: "#1b1a17"
+  graphite-rule: "#2a2824"
+  chalk-text: "#e8e4dc"
+  pencil-muted: "#938c80"
   paper-bg: "#f5f1e8"
   paper-surface: "#ede8dc"
   paper-rule: "#ddd6c8"
   paper-code: "#e8e2d4"
   ink-text: "#2a2620"
   paper-pencil: "#696257"
-  code-block-bg: "#18181b"
+  code-block-bg: "#1b1a17"
   code-block-bg-light: "#faf7f0"
 typography:
   display:
@@ -140,7 +140,7 @@ The site is a working engineer's notebook: dated entries, plain margins, and a s
 
 Density is low and single-column. Content sits in a 680px reading column; only the header and footer chrome stretch to 900px. Structure comes from 1px rules and whitespace, never from cards, fills, or shadows. Color is nearly absent. Cobalt Ink is the one pen, used for links and the toasted state, so that anything blue means "you can act on this."
 
-Dark is the default world. Light mirrors it token for token as warm paper: a cream page with warm brown-black ink, deliberately dimmer than pure white so long reads don't glare. It follows the OS until the reader picks a theme with the toggle.
+Dark is the default world: warm graphite, a brown-black page with off-white text, like the same notebook read at night rather than a blue-black screen. Light mirrors it token for token as warm paper: a cream page with warm brown-black ink, deliberately dimmer than pure white so long reads don't glare. It follows the OS until the reader picks a theme with the toggle.
 
 **Key Characteristics:**
 - Single 680px reading column; 900px chrome.
@@ -152,7 +152,7 @@ Dark is the default world. Light mirrors it token for token as warm paper: a cre
 
 ## Colors
 
-A near-monochrome graphite palette with a single cobalt pen.
+A near-monochrome palette of warm neutrals (warm graphite at night, cream paper by day) with a single cobalt pen. Both themes lean the same few degrees toward brown, so toggling feels like one notebook.
 
 ### Primary
 - **Cobalt Ink** (`cobalt-ink` dark / `cobalt-ink-light` light): every link, the toasted state of the toast button, heading-anchor hover, and the blockquote rule. It's the only hue on the page.

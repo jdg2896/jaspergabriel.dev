@@ -30,15 +30,15 @@
 :root {
   color-scheme: light dark;
 
-  --color-bg: light-dark(#f5f1e8, #111113);
-  --color-surface: light-dark(#ede8dc, #18181b);
-  --color-text: light-dark(#2a2620, #e4e4e7);
-  --color-text-muted: light-dark(#696257, #8b8b94);
-  --color-border: light-dark(#ddd6c8, #27272a);
+  --color-bg: light-dark(#f5f1e8, #131210);
+  --color-surface: light-dark(#ede8dc, #1b1a17);
+  --color-text: light-dark(#2a2620, #e8e4dc);
+  --color-text-muted: light-dark(#696257, #938c80);
+  --color-border: light-dark(#ddd6c8, #2a2824);
   --color-accent: light-dark(#2456c7, #60a5fa);
   --color-accent-hover: light-dark(#1b44a3, #93c5fd);
-  --color-code-bg: light-dark(#e8e2d4, #27272a);
-  --color-code-block-bg: light-dark(#faf7f0, #18181b);
+  --color-code-bg: light-dark(#e8e2d4, #2a2824);
+  --color-code-block-bg: light-dark(#faf7f0, #1b1a17);
 
   --font-sans: 'Inter', 'Inter Fallback', system-ui, -apple-system, sans-serif;
   --font-serif: 'Lora', 'Lora Fallback', Georgia, serif;

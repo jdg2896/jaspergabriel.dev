@@ -19,10 +19,10 @@ const fonts = [
 
 // Dark theme tokens from global.css
 const colors = {
-  bg: '#111113',
-  text: '#e4e4e7',
-  muted: '#8b8b94',
-  border: '#27272a',
+  bg: '#131210',
+  text: '#e8e4dc',
+  muted: '#938c80',
+  border: '#2a2824',
 };
 
 export const getStaticPaths = (async () => {
