@@ -233,7 +233,9 @@ Inter 0.9rem / 500 in Pencil. Hover and `aria-current="page"` both switch to Cha
 The muted line under a page `h1` (the post count on the blog index, the 404 explanation): 0.75rem below the heading, 2.5rem above the content.
 
 ### Post List
-Unboxed entries stacked 1.75rem apart. Each entry is a muted 0.8rem meta line (date · reading time) above a Title-weight link in Chalk that turns Cobalt Ink on hover. The same pattern is used on the home page (3 recent posts) and the blog index.
+Unboxed entries stacked 1.75rem apart. Each entry is a muted 0.8rem meta line (date · reading time) above a Title-weight link in Chalk that turns Cobalt Ink on hover. The same pattern is used on the home page (3 recent posts), the blog index, and "Keep reading".
+
+On the blog index, entries are grouped by year, like dated pages in a notebook. Each year is an `h2` in the section-label style (1.1rem / 600 / 0.06em, muted, tabular numerals) followed by a 1px rule running to the column edge, 3rem between years. Since the heading carries the year, entry dates there show only month and day.
 
 ### Post Header
 The post title (Headline) sits above the post's description as a muted 1.05rem Inter lede, then a wrapped meta line, closed off by a 1px bottom rule. There is no byline: the site name in the header already says whose notebook this is, and the sign-off at the end introduces him.
