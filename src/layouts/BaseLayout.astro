@@ -9,15 +9,21 @@ interface Props {
   title: string;
   description: string;
   canonicalUrl?: string;
+  image?: string;
+  article?: {
+    publishedTime: Date;
+    modifiedTime?: Date;
+    tags?: string[];
+  };
 }
 
-const { title, description, canonicalUrl } = Astro.props;
+const { title, description, canonicalUrl, image, article } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" transition:animate="none">
   <head>
-    <BaseHead title={title} description={description} canonicalUrl={canonicalUrl} />
+    <BaseHead title={title} description={description} canonicalUrl={canonicalUrl} image={image} article={article} />
     <ClientRouter />
   </head>
   <body>

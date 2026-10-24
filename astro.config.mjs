@@ -4,6 +4,10 @@ import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePostImages from './src/plugins/rehype-post-images.mjs';
 
+// Plain text of a hast node, minus anything already appended (the anchor)
+const textOf = (node) =>
+  node.type === 'text' ? node.value : (node.children ?? []).map(textOf).join('');
+
 export default defineConfig({
   site: 'https://jaspergabriel.dev',
   integrations: [sitemap()],
@@ -13,6 +17,14 @@ export default defineConfig({
     shikiConfig: {
       themes: { light: 'github-light-default', dark: 'github-dark-default' },
       defaultColor: false,
+      // Code blocks scroll sideways, so keyboard users need to focus them
+      transformers: [
+        {
+          pre(node) {
+            node.properties.tabindex = '0';
+          },
+        },
+      ],
     },
     rehypePlugins: [
       // Astro normally injects heading IDs after user plugins run, so they
@@ -22,11 +34,11 @@ export default defineConfig({
         rehypeAutolinkHeadings,
         {
           behavior: 'append',
-          properties: {
+          // Named per heading so a screen reader's link list tells them apart
+          properties: (heading) => ({
             className: ['heading-anchor'],
-            ariaHidden: 'true',
-            tabIndex: -1,
-          },
+            ariaLabel: `Link to section: ${textOf(heading).trim()}`,
+          }),
           content: { type: 'text', value: '#' },
         },
       ],

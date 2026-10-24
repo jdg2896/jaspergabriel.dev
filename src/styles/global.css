@@ -108,6 +108,15 @@ main:focus {
   outline: none;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /* ---- Skip link: hidden until keyboard focus ---- */
 .skip-link {
   position: absolute;
@@ -292,6 +301,14 @@ p {
   scroll-margin-top: 5rem;
 }
 
+/* h4 is the smallest step: same voice and weight as the headings above it,
+   just under body size, so it reads as a run-in label within a section */
+.prose h4 {
+  font-size: 1rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
 .heading-anchor {
   margin-left: 0.4em;
   color: var(--color-text-muted);
@@ -301,7 +318,7 @@ p {
 }
 
 .prose :is(h1, h2, h3, h4):hover .heading-anchor,
-.heading-anchor:focus {
+.heading-anchor:focus-visible {
   opacity: 1;
 }
 
@@ -310,8 +327,8 @@ p {
   text-decoration: none;
 }
 
-.prose h2 { font-size: 1.4rem; }
-.prose h3 { font-size: 1.15rem; }
+.prose h2 { font-size: 1.5rem; }
+.prose h3 { font-size: 1.25rem; }
 
 .prose p {
   margin-bottom: 1.4rem;
@@ -415,6 +432,8 @@ p {
 .post-card__title {
   font-size: 1.15rem;
   font-weight: 600;
+  /* balance forces short titles onto extra lines in narrow columns */
+  text-wrap: pretty;
 }
 
 .post-card__title a {
@@ -429,9 +448,22 @@ p {
 
 /* ---- Post header ---- */
 .post-header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--color-border);
+}
+
+.post-header__lede {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* The post header and contents list already open the page */
+.prose > :first-child {
+  margin-top: 0;
 }
 
 .post-header__meta {
@@ -451,14 +483,128 @@ p {
 }
 
 .originally-published a {
-  color: var(--color-text-muted);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.originally-published a:hover {
+.external-icon {
+  margin-left: 0.15em;
+  vertical-align: -0.05em;
+}
+
+/* ---- Post contents list ---- */
+.post-toc {
+  margin-top: -0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.post-toc summary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: fit-content;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+  list-style: none;
+}
+
+.post-toc summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Drawn chevron, rotated open; it's the disclosure's only state cue */
+.post-toc summary::before {
+  content: '';
+  flex: none;
+  width: 0.5em;
+  height: 0.5em;
+  margin: 0 0.1em 0 0.15em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+}
+
+.post-toc[open] summary::before {
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .post-toc summary::before {
+    transition: transform 0.15s ease;
+  }
+}
+
+.post-toc__count {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.post-toc ol {
+  list-style: none;
+  margin-top: 0.5rem;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--color-border);
+}
+
+.post-toc li {
+  margin-bottom: 0.4rem;
+}
+
+.post-toc__sub {
+  padding-left: 1rem;
+}
+
+.post-toc a {
+  color: var(--color-text-muted);
+  text-wrap: pretty;
+}
+
+.post-toc a:hover {
   color: var(--color-text);
   text-decoration: none;
+}
+
+/* ---- Post footer: toast + author sign-off ---- */
+.post-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.signoff__bio {
+  margin-bottom: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.signoff__bio a {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.signoff__links {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.25rem;
+  row-gap: 0.25rem;
+  list-style: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ---- Related posts ---- */
+.related {
+  margin-top: 3.5rem;
+}
+
+.related .section-header {
+  margin-bottom: 1.5rem;
 }
 
 /* ---- Prev/next post navigation ---- */
@@ -466,7 +612,7 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--color-border);
 }
@@ -479,6 +625,8 @@ p {
 }
 
 .post-nav__link--next {
+  /* Newer always sits in the right column, even when there's no older post */
+  grid-column: 2;
   text-align: right;
 }
 
@@ -577,6 +725,16 @@ p {
 
 /* ---- Responsive ---- */
 @media (max-width: 640px) {
+  /* Stacked, the header is ~105px: too much to pin over a phone-sized
+     reading column, and taller than the anchor offset below */
+  .site-header {
+    position: static;
+  }
+
+  .prose :is(h1, h2, h3, h4) {
+    scroll-margin-top: 1.5rem;
+  }
+
   .site-header .container {
     flex-direction: column;
     align-items: center;
@@ -614,6 +772,7 @@ p {
   }
 
   .post-nav__link--next {
+    grid-column: auto;
     text-align: left;
   }
 }

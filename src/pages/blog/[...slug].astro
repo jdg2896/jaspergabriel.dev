@@ -1,24 +1,51 @@
 ---
 import { getCollection, render } from "astro:content";
 import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+import { getReadingTime } from "../../utils/readingTime";
 
 export async function getStaticPaths() {
+  // getStaticPaths is hoisted out of the frontmatter, so constants live here
+  const RELATED_LIMIT = 3;
   const posts = await getCollection("blog", ({ data }) => !data.draft);
   posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-  return posts.map((post, i) => ({
-    params: { slug: post.id },
-    props: {
-      post,
-      // Sorted newest-first, so the next index is the older post.
-      newerPost: posts[i - 1] ?? null,
-      olderPost: posts[i + 1] ?? null,
-    },
-  }));
+  // Rare tags say more about a post than "tech" does, so a shared tag
+  // counts for less the more posts carry it.
+  const tagCounts = new Map<string, number>();
+  for (const post of posts) {
+    for (const tag of post.data.tags) tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+  }
+
+  return posts.map((post, i) => {
+    // Sorted newest-first, so the next index is the older post.
+    const newerPost = posts[i - 1] ?? null;
+    const olderPost = posts[i + 1] ?? null;
+    // Prev/next already link those two, so don't repeat them here
+    const excluded = new Set([post.id, newerPost?.id, olderPost?.id]);
+
+    const relatedPosts = posts
+      .filter((other) => !excluded.has(other.id))
+      .map((other) => ({
+        other,
+        score: other.data.tags
+          .filter((tag) => post.data.tags.includes(tag))
+          .reduce((sum, tag) => sum + 1 / tagCounts.get(tag)!, 0),
+      }))
+      .filter(({ score }) => score > 0)
+      // Stable sort keeps newest-first among equal scores
+      .sort((a, b) => b.score - a.score)
+      .slice(0, RELATED_LIMIT)
+      .map(({ other }) => other);
+
+    return {
+      params: { slug: post.id },
+      props: { post, newerPost, olderPost, relatedPosts },
+    };
+  });
 }
 
-const { post, newerPost, olderPost } = Astro.props;
-const { Content } = await render(post);
+const { post, newerPost, olderPost, relatedPosts } = Astro.props;
+const { Content, headings } = await render(post);
 ---
 
 <BlogPostLayout
@@ -26,11 +53,19 @@ const { Content } = await render(post);
   description={post.data.description}
   pubDate={post.data.pubDate}
   updatedDate={post.data.updatedDate}
+  tags={post.data.tags}
   rawContent={post.body ?? ""}
   canonicalUrl={post.data.canonicalUrl}
   slug={post.id}
+  headings={headings}
   newerPost={newerPost && { slug: newerPost.id, title: newerPost.data.title }}
   olderPost={olderPost && { slug: olderPost.id, title: olderPost.data.title }}
+  relatedPosts={relatedPosts.map((related) => ({
+    slug: related.id,
+    title: related.data.title,
+    pubDate: related.data.pubDate,
+    readingTime: getReadingTime(related.body ?? ""),
+  }))}
 >
   <Content />
 </BlogPostLayout>

@@ -1,6 +1,8 @@
 ---
+import type { MarkdownHeading } from 'astro';
 import BaseLayout from './BaseLayout.astro';
 import ToastButton from '../components/ToastButton.astro';
+import ExternalIcon from '../components/ExternalIcon.astro';
 import { getReadingTime } from '../utils/readingTime';
 
 interface PostLink {
@@ -8,32 +10,71 @@ interface PostLink {
   title: string;
 }
 
+interface RelatedPost extends PostLink {
+  pubDate: Date;
+  readingTime: number;
+}
+
 interface Props {
   title: string;
   description: string;
   pubDate: Date;
   updatedDate?: Date;
+  tags?: string[];
   rawContent: string;
   canonicalUrl?: string;
   slug: string;
+  headings?: MarkdownHeading[];
   newerPost?: PostLink | null;
   olderPost?: PostLink | null;
+  relatedPosts?: RelatedPost[];
 }
 
-const { title, description, pubDate, updatedDate, rawContent, canonicalUrl, slug, newerPost, olderPost } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  tags = [],
+  rawContent,
+  canonicalUrl,
+  slug,
+  headings = [],
+  newerPost,
+  olderPost,
+  relatedPosts = [],
+} = Astro.props;
 
 const readingTime = getReadingTime(rawContent);
 const canonicalHost = canonicalUrl && new URL(canonicalUrl).hostname.replace(/^www\./, '');
 
-const formatDate = (date: Date) =>
-  date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+// Contents list for posts long enough to need one. Deep posts drop to
+// top-level sections only, so the list stays a glance, not a second read.
+const TOC_MIN_SECTIONS = 4;
+const TOC_MIN_MINUTES = 6;
+const TOC_MAX = 12;
+const sections = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const toc = sections.length > TOC_MAX ? sections.filter((h) => h.depth === 2) : sections;
+const showToc = toc.length >= TOC_MIN_SECTIONS && readingTime >= TOC_MIN_MINUTES;
+
+// Content dates are coerced at UTC midnight; format them in UTC so a build
+// west of Greenwich doesn't show the day before.
+const formatDate = (date: Date, month: 'long' | 'short' = 'long') =>
+  date.toLocaleDateString('en-US', { year: 'numeric', month, day: 'numeric', timeZone: 'UTC' });
 ---
 
-<BaseLayout title={`${title} — Jasper Gabriel`} description={description} canonicalUrl={canonicalUrl}>
+<BaseLayout
+  title={`${title} — Jasper Gabriel`}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  image={`/og/${slug}.png`}
+  article={{ publishedTime: pubDate, modifiedTime: updatedDate, tags }}
+>
   <div class="container">
     <article>
       <header class="post-header">
         <h1>{title}</h1>
+        <p class="post-header__lede">{description}</p>
         <div class="post-header__meta">
           <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
           <span aria-hidden="true">&middot;</span>
@@ -49,31 +90,88 @@ const formatDate = (date: Date) =>
 
       {canonicalUrl && (
         <p class="originally-published">
-          Originally published on <a href={canonicalUrl} target="_blank" rel="noopener noreferrer">{canonicalHost}</a>
+          Originally published on{' '}
+          <a href={canonicalUrl} target="_blank" rel="noopener noreferrer">
+            {canonicalHost}<ExternalIcon />
+          </a>
         </p>
+      )}
+
+      {showToc && (
+        <details class="post-toc">
+          <summary>
+            On this page
+            <span class="post-toc__count">{toc.length} sections</span>
+          </summary>
+          <nav aria-label="On this page">
+            <ol>
+              {toc.map((heading) => (
+                <li class:list={{ 'post-toc__sub': heading.depth === 3 }}>
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </details>
       )}
 
       <div class="prose">
         <slot />
       </div>
 
-      <ToastButton slug={slug} />
+      <footer class="post-footer">
+        <ToastButton slug={slug} />
+
+        <section class="signoff" aria-label="About the author">
+          <p class="signoff__bio">
+            I'm <a href="/about">Jasper Gabriel</a>, a software engineer working on backend systems and
+            cloud infrastructure. Lately I'm exploring cryptography, zero-knowledge proofs, and
+            cybersecurity, and writing down what I learn here.
+          </p>
+          <ul class="signoff__links">
+            <li><a href="https://github.com/jdg2896" target="_blank" rel="noopener noreferrer">GitHub<ExternalIcon /></a></li>
+            <li><a href="https://linkedin.com/in/jaspergabriel" target="_blank" rel="noopener noreferrer">LinkedIn<ExternalIcon /></a></li>
+            <li><a href="mailto:jasper.d.gabriel@gmail.com">Email</a></li>
+            <li><a href="/rss.xml">RSS feed</a></li>
+          </ul>
+        </section>
+      </footer>
     </article>
+
+    {relatedPosts.length > 0 && (
+      <section class="related" aria-labelledby="related-heading">
+        <div class="section-header">
+          <h2 id="related-heading">Keep reading</h2>
+        </div>
+        <ul class="post-list">
+          {relatedPosts.map((post) => (
+            <li class="post-card">
+              <div class="post-card__meta">
+                <time datetime={post.pubDate.toISOString()}>{formatDate(post.pubDate, 'short')}</time>
+                <span aria-hidden="true">&middot;</span>
+                <span>{post.readingTime} min read</span>
+              </div>
+              <h3 class="post-card__title">
+                <a href={`/blog/${post.slug}`}>{post.title}</a>
+              </h3>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
 
     {
       (olderPost || newerPost) && (
-        <nav class="post-nav" aria-label="Post navigation">
-          {olderPost ? (
+        <nav class="post-nav" aria-label="Older and newer posts">
+          {olderPost && (
             <a class="post-nav__link" href={`/blog/${olderPost.slug}`} rel="prev">
-              <span class="post-nav__label">&larr; Older</span>
+              <span class="post-nav__label"><span aria-hidden="true">&larr; </span>Older post</span>
               <span class="post-nav__title">{olderPost.title}</span>
             </a>
-          ) : (
-            <span />
           )}
           {newerPost && (
             <a class="post-nav__link post-nav__link--next" href={`/blog/${newerPost.slug}`} rel="next">
-              <span class="post-nav__label">Newer &rarr;</span>
+              <span class="post-nav__label">Newer post<span aria-hidden="true"> &rarr;</span></span>
               <span class="post-nav__title">{newerPost.title}</span>
             </a>
           )}

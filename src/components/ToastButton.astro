@@ -7,7 +7,8 @@ const { slug } = Astro.props;
 ---
 
 <div class="toast-widget">
-  <button class="toast-button" data-slug={slug} aria-pressed="false" aria-label="Toast this post">
+  <!-- Disabled until the script wires it up, so it never looks live without JS -->
+  <button type="button" class="toast-button" data-slug={slug} aria-pressed="false" disabled>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -23,49 +24,85 @@ const { slug } = Astro.props;
       <path d="m17 11-5-5-5 5"></path>
       <path d="m17 18-5-5-5 5"></path>
     </svg>
-    <span class="toast-count" aria-live="polite"></span>
+    <span>Raise a toast</span>
   </button>
+  <!-- aria-live is set once the first count is in, so loading it isn't announced -->
+  <span class="toast-count"></span>
+  <p class="toast-status" role="status"></p>
 </div>
 
 <style>
   .toast-widget {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-border);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 1rem;
+    /* Room for the button's focus ring above the status line */
+    row-gap: 0.5rem;
   }
 
   .toast-button {
     display: inline-flex;
-    flex-direction: column;
     align-items: center;
-    padding: 0;
+    gap: 0.5rem;
+    /* 44px tall hit area; the negative margin keeps the icon on the column edge */
+    min-height: 44px;
+    padding: 0 0.5rem;
+    margin-left: -0.5rem;
     border: none;
     background: none;
     color: var(--color-text-muted);
     font: inherit;
     font-size: 0.9rem;
+    font-weight: 500;
     cursor: pointer;
     transition: color 0.15s ease;
   }
 
+  /* Hover previews interactivity in the text color; blue is kept for "toasted" */
   .toast-button:hover {
-    color: var(--color-accent-hover);
+    color: var(--color-text);
   }
 
-  .toast-button:active svg {
-    transform: translateY(-2px);
-  }
-
-  .toast-button--active {
+  .toast-button--active,
+  .toast-button--active:hover {
     color: var(--color-accent);
   }
 
-  .toast-button svg {
-    transition: transform 0.1s ease;
+  .toast-button:disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  .toast-button:disabled:hover {
+    color: var(--color-text-muted);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .toast-button svg {
+      transition: transform 0.1s ease;
+    }
+
+    .toast-button:active svg {
+      transform: translateY(-2px);
+    }
   }
 
   .toast-count {
-    min-height: 1.3em;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .toast-status {
+    flex-basis: 100%;
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .toast-status:empty {
+    display: none;
   }
 </style>
 
@@ -78,9 +115,11 @@ const { slug } = Astro.props;
     button.dataset.toastInit = 'true';
 
     const slug = button.dataset.slug;
-    const countEl = button.querySelector('.toast-count')!;
+    const countEl = document.querySelector('.toast-count')!;
+    const statusEl = document.querySelector('.toast-status')!;
     const storageKey = `toasted:${slug}`;
     let count: number | null = null;
+    let pending = false;
 
     let toasted = false;
     try {
@@ -89,21 +128,31 @@ const { slug } = Astro.props;
       // localStorage unavailable; button still works as a session toggle
     }
 
+    const describeCount = () => {
+      // A bare "0 toasts" reads as a verdict on the post, so show nothing
+      if (count === null || count === 0) return '';
+      const noun = count === 1 ? 'toast' : 'toasts';
+      return toasted && count > 0 ? `${count} ${noun}, including yours` : `${count} ${noun}`;
+    };
+
     const render = () => {
       button.classList.toggle('toast-button--active', toasted);
       button.setAttribute('aria-pressed', String(toasted));
-      countEl.textContent = count === null ? '' : String(count);
+      countEl.textContent = describeCount();
     };
 
     render();
+    button.disabled = false;
 
+    // If the count can't load, the button still works; it just shows no number
     fetch(`/api/toast/${slug}`)
       .then((res) => (res.ok ? res.json() : Promise.reject()))
       .then((data) => {
         count = data.count;
         render();
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => countEl.setAttribute('aria-live', 'polite'));
 
     const persist = () => {
       try {
@@ -112,6 +161,11 @@ const { slug } = Astro.props;
     };
 
     button.addEventListener('click', async () => {
+      // Overlapping POST/DELETE requests could leave the count off by one
+      if (pending) return;
+      pending = true;
+      statusEl.textContent = '';
+
       const prevToasted = toasted;
       const prevCount = count;
 
@@ -120,10 +174,12 @@ const { slug } = Astro.props;
       render();
       persist();
 
+      let reachedServer = false;
       try {
         const res = await fetch(`/api/toast/${slug}`, {
           method: toasted ? 'POST' : 'DELETE',
         });
+        reachedServer = true;
         if (!res.ok) throw new Error();
         const data = await res.json();
         count = data.count;
@@ -134,6 +190,12 @@ const { slug } = Astro.props;
         count = prevCount;
         render();
         persist();
+        const action = prevToasted ? 'remove' : 'save';
+        statusEl.textContent = reachedServer
+          ? `Couldn't ${action} your toast because something went wrong on the server. Try again in a bit.`
+          : `Couldn't ${action} your toast. Check your connection and try again.`;
+      } finally {
+        pending = false;
       }
     });
   };
