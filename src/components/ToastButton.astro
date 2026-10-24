@@ -105,25 +105,36 @@ const { slug } = Astro.props;
       })
       .catch(() => {});
 
-    button.addEventListener('click', async () => {
-      toasted = !toasted;
-      if (count !== null) count = Math.max(0, count + (toasted ? 1 : -1));
-      render();
-
+    const persist = () => {
       try {
         localStorage.setItem(storageKey, toasted ? '1' : '0');
       } catch {}
+    };
+
+    button.addEventListener('click', async () => {
+      const prevToasted = toasted;
+      const prevCount = count;
+
+      toasted = !toasted;
+      if (count !== null) count = Math.max(0, count + (toasted ? 1 : -1));
+      render();
+      persist();
 
       try {
         const res = await fetch(`/api/toast/${slug}`, {
           method: toasted ? 'POST' : 'DELETE',
         });
-        if (res.ok) {
-          const data = await res.json();
-          count = data.count;
-          render();
-        }
-      } catch {}
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        count = data.count;
+        render();
+      } catch {
+        // The server never recorded it, so undo the optimistic update
+        toasted = prevToasted;
+        count = prevCount;
+        render();
+        persist();
+      }
     });
   };
 

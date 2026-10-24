@@ -50,7 +50,7 @@ const currentPath = Astro.url.pathname;
           </a>
         </li>
         <li>
-          <button type="button" class="theme-toggle" aria-label="Toggle dark mode">
+          <button type="button" class="theme-toggle" aria-label="Dark mode" aria-pressed="false">
             <svg class="theme-toggle__moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
             </svg>
@@ -67,9 +67,18 @@ const currentPath = Astro.url.pathname;
 
 <script>
   function bindThemeToggle() {
-    document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+    const toggle = document.querySelector('.theme-toggle');
+    if (!toggle) return;
+
+    // Expose the current theme to assistive tech as the toggle's pressed state
+    const syncPressed = () =>
+      toggle.setAttribute('aria-pressed', String(document.documentElement.dataset.theme === 'dark'));
+    syncPressed();
+
+    toggle.addEventListener('click', () => {
       const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
       document.documentElement.dataset.theme = next;
+      syncPressed();
       try {
         localStorage.setItem('theme', next);
       } catch {}

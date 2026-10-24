@@ -30,6 +30,13 @@ const canonicalURL = canonicalUrl ?? new URL(Astro.url.pathname, Astro.site);
   document.addEventListener('astro:after-swap', applyTheme);
 </script>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<!-- Linked from the head (not @import-ed in CSS) so font loading starts in parallel -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+/>
 <link rel="canonical" href={canonicalURL} />
 <link
   rel="alternate"

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
-
 /* ---- Reset & Base ---- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -11,11 +9,12 @@
   --color-bg: #111113;
   --color-surface: #18181b;
   --color-text: #e4e4e7;
-  --color-text-muted: #71717a;
+  --color-text-muted: #8b8b94;
   --color-border: #27272a;
   --color-accent: #60a5fa;
   --color-accent-hover: #93c5fd;
   --color-code-bg: #27272a;
+  --color-code-block-bg: #18181b;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: 'Lora', Georgia, serif;
@@ -35,6 +34,7 @@
     --color-accent: #2563eb;
     --color-accent-hover: #1d4ed8;
     --color-code-bg: #f3f4f6;
+    --color-code-block-bg: #ffffff;
   }
 }
 
@@ -47,11 +47,17 @@
   --color-accent: #2563eb;
   --color-accent-hover: #1d4ed8;
   --color-code-bg: #f3f4f6;
+  --color-code-block-bg: #ffffff;
 }
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -90,6 +96,31 @@ a:hover {
 main {
   flex: 1;
   padding: 3rem 0;
+}
+
+main:focus {
+  outline: none;
+}
+
+/* ---- Skip link: hidden until keyboard focus ---- */
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 200;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+  color: var(--color-text);
+  text-decoration: none;
 }
 
 /* ---- Header ---- */
@@ -231,6 +262,8 @@ p {
   font-size: 1.05rem;
   line-height: 1.8;
   color: var(--color-text);
+  /* Long URLs in link text must not force horizontal scroll at 320px */
+  overflow-wrap: break-word;
 }
 
 .prose h1,
@@ -298,11 +331,18 @@ p {
   background-color: var(--color-code-bg);
   padding: 0.15em 0.4em;
   border-radius: 4px;
+  /* Addresses, URLs, and file paths have no natural break points */
+  overflow-wrap: anywhere;
+}
+
+/* Muted blockquote text on the code chip falls under 4.5:1 */
+.prose blockquote code {
+  color: var(--color-text);
 }
 
 .prose pre {
-  background-color: #1e1e2e;
-  color: #cdd6f4;
+  background-color: var(--color-code-block-bg);
+  border: 1px solid var(--color-border);
   padding: 1.25rem;
   border-radius: 8px;
   overflow-x: auto;
@@ -316,6 +356,31 @@ p {
   padding: 0;
   font-size: inherit;
   color: inherit;
+  overflow-wrap: normal;
+}
+
+/* Shiki emits both palettes as custom properties (defaultColor: false) */
+.astro-code,
+.astro-code span {
+  color: var(--shiki-dark);
+  font-style: var(--shiki-dark-font-style);
+  font-weight: var(--shiki-dark-font-weight);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .astro-code,
+  :root:not([data-theme="dark"]) .astro-code span {
+    color: var(--shiki-light);
+    font-style: var(--shiki-light-font-style);
+    font-weight: var(--shiki-light-font-weight);
+  }
+}
+
+:root[data-theme="light"] .astro-code,
+:root[data-theme="light"] .astro-code span {
+  color: var(--shiki-light);
+  font-style: var(--shiki-light-font-style);
+  font-weight: var(--shiki-light-font-weight);
 }
 
 .prose img {

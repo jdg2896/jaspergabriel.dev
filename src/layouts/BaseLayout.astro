@@ -21,8 +21,9 @@ const { title, description, canonicalUrl } = Astro.props;
     <ClientRouter />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <Header />
-    <main>
+    <main id="main" tabindex="-1">
       <slot />
     </main>
     <Footer />
