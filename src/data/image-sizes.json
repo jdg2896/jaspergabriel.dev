@@ -1,68 +1,4 @@
 {
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/13n0kcxrv8hq8uuk7gmb.png": {
-    "width": 1416,
-    "height": 324
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4rzg06s7uliuhxzoc2no.png": {
-    "width": 938,
-    "height": 626
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5m0oy8rmyc5ndx8uqt2l.png": {
-    "width": 942,
-    "height": 541
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/76fx5tj1785d193g6hs1.png": {
-    "width": 2058,
-    "height": 802
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8q5mv6kx0i0wzzab23fi.png": {
-    "width": 667,
-    "height": 620
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a5r30uqjq9q7aiu1g19m.png": {
-    "width": 1386,
-    "height": 611
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/k7wgaplzpedmfjqpziih.png": {
-    "width": 908,
-    "height": 300
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/knws6xr4i3ycfiy6pfmz.png": {
-    "width": 1396,
-    "height": 518
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kpm0jo6pucq1fheoiith.png": {
-    "width": 1212,
-    "height": 612
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mtjfl9ihtsgixv1k9w09.png": {
-    "width": 1184,
-    "height": 640
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/p3uilwvr9gb38hum1p0x.png": {
-    "width": 1407,
-    "height": 467
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ppzstx7ft8ki15d448km.png": {
-    "width": 1427,
-    "height": 331
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q4fjw1y6nqowopp0w9b9.png": {
-    "width": 788,
-    "height": 567
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/t43ohucb6y3l60kf60q7.png": {
-    "width": 1642,
-    "height": 561
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/w99tzh3q0erfl59k9gp1.png": {
-    "width": 1435,
-    "height": 327
-  },
-  "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/wnp6xhokt8y4eou4uq60.png": {
-    "width": 1477,
-    "height": 626
-  },
   "https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474892/First%20Open%20Source/branches_rnq9pt.png": {
     "width": 2484,
     "height": 1482
@@ -470,5 +406,69 @@
   "https://res.cloudinary.com/dlieqpdfd/image/upload/v1705810063/svelte-open-source/7-github-compare-changes_khkdgh.png": {
     "width": 2048,
     "height": 1125
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851851/ci-cd-aws-sam-github-actions/5m0oy8rmyc5ndx8uqt2l.png": {
+    "width": 942,
+    "height": 541
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851852/ci-cd-aws-sam-github-actions/w99tzh3q0erfl59k9gp1.png": {
+    "width": 1435,
+    "height": 327
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851853/ci-cd-aws-sam-github-actions/q4fjw1y6nqowopp0w9b9.png": {
+    "width": 788,
+    "height": 567
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851854/ci-cd-aws-sam-github-actions/8q5mv6kx0i0wzzab23fi.png": {
+    "width": 667,
+    "height": 620
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851855/ci-cd-aws-sam-github-actions/ppzstx7ft8ki15d448km.png": {
+    "width": 1427,
+    "height": 331
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851856/ci-cd-aws-sam-github-actions/knws6xr4i3ycfiy6pfmz.png": {
+    "width": 1396,
+    "height": 518
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851857/ci-cd-aws-sam-github-actions/p3uilwvr9gb38hum1p0x.png": {
+    "width": 1407,
+    "height": 467
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851858/ci-cd-aws-sam-github-actions/a5r30uqjq9q7aiu1g19m.png": {
+    "width": 1386,
+    "height": 611
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851859/ci-cd-aws-sam-github-actions/mtjfl9ihtsgixv1k9w09.png": {
+    "width": 1184,
+    "height": 640
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851860/ci-cd-aws-sam-github-actions/13n0kcxrv8hq8uuk7gmb.png": {
+    "width": 1416,
+    "height": 324
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851861/ci-cd-aws-sam-github-actions/76fx5tj1785d193g6hs1.png": {
+    "width": 2058,
+    "height": 802
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851862/ci-cd-aws-sam-github-actions/4rzg06s7uliuhxzoc2no.png": {
+    "width": 938,
+    "height": 626
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851863/ci-cd-aws-sam-github-actions/k7wgaplzpedmfjqpziih.png": {
+    "width": 908,
+    "height": 300
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851864/ci-cd-aws-sam-github-actions/kpm0jo6pucq1fheoiith.png": {
+    "width": 1212,
+    "height": 612
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851865/ci-cd-aws-sam-github-actions/wnp6xhokt8y4eou4uq60.png": {
+    "width": 1477,
+    "height": 626
+  },
+  "https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851866/ci-cd-aws-sam-github-actions/t43ohucb6y3l60kf60q7.png": {
+    "width": 1642,
+    "height": 561
   }
 }

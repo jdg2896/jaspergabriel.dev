@@ -46,36 +46,36 @@ Before we can configure GitHub Actions to our repo, first we will need an AWS IA
 
 1. First in the AWS console, go to **IAM**.
 
-   ![AWS console IAM](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5m0oy8rmyc5ndx8uqt2l.png)
+   ![AWS console IAM](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851851/ci-cd-aws-sam-github-actions/5m0oy8rmyc5ndx8uqt2l.png)
 
 2. Next, go to **Identity providers**, then click **Add provider**.
 
-   ![AWS console IAM add identity provider](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/w99tzh3q0erfl59k9gp1.png)
+   ![AWS console IAM add identity provider](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851852/ci-cd-aws-sam-github-actions/w99tzh3q0erfl59k9gp1.png)
 
 3. Then let's configure the identity provider. Use the following configs below.
    - For the **Provider type**, choose **OpenID Connect**.
    - Then for the **Provider URL**, use **[https://token.actions.githubusercontent.com](https://token.actions.githubusercontent.com/)**.
    - Lastly, for the **Audience**, use **[sts.amazonaws.com](http://sts.amazonaws.com/)**.
 
-   ![AWS console IAM configure identity provider](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q4fjw1y6nqowopp0w9b9.png)
+   ![AWS console IAM configure identity provider](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851853/ci-cd-aws-sam-github-actions/q4fjw1y6nqowopp0w9b9.png)
 
 4. Optionally, we can also click **Get Thumbprint** besides the **Provider URL** field to verify the certificate of the OIDC provider.
 
    Then once you're done reviewing, click **Add provider**.
 
-   ![AWS console IAM save identity provider](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8q5mv6kx0i0wzzab23fi.png)
+   ![AWS console IAM save identity provider](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851854/ci-cd-aws-sam-github-actions/8q5mv6kx0i0wzzab23fi.png)
 
 #### Add AWS IAM Role for GitHub Actions
 
 1. Go to **Roles** while still in the IAM page in AWS console, then click **Create role**.
 
-   ![AWS console IAM create role](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ppzstx7ft8ki15d448km.png)
+   ![AWS console IAM create role](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851855/ci-cd-aws-sam-github-actions/ppzstx7ft8ki15d448km.png)
 
 2. Then, choose **Web Identity** for the **Trusted entity type**.
 
 3. Choose the **Identity provider** and **Audience** we created earlier, which is **[token.actions.githubusercontent.com](http://token.actions.githubusercontent.com/)** and **[sts.amazonaws.com](http://sts.amazonaws.com/)** respectively.
 
-   ![AWS console IAM role select trusted entity type](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/knws6xr4i3ycfiy6pfmz.png)
+   ![AWS console IAM role select trusted entity type](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851856/ci-cd-aws-sam-github-actions/knws6xr4i3ycfiy6pfmz.png)
 
 4. Then, let's choose the permissions needed to deploy our AWS SAM application with GitHub Actions.
 
@@ -91,13 +91,13 @@ Before we can configure GitHub Actions to our repo, first we will need an AWS IA
 
    Then click **Next**.
 
-   ![AWS console IAM add role permissions](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/p3uilwvr9gb38hum1p0x.png)
+   ![AWS console IAM add role permissions](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851857/ci-cd-aws-sam-github-actions/p3uilwvr9gb38hum1p0x.png)
 
 5. Then add a **Role name** and **Description**. The changes should look similar below.
 
    Once you're done reviewing the changes, click **Create role**.
 
-   ![AWS console IAM role details](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a5r30uqjq9q7aiu1g19m.png)![AWS console IAM role review permissions](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mtjfl9ihtsgixv1k9w09.png)
+   ![AWS console IAM role details](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851858/ci-cd-aws-sam-github-actions/a5r30uqjq9q7aiu1g19m.png)![AWS console IAM role review permissions](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851859/ci-cd-aws-sam-github-actions/mtjfl9ihtsgixv1k9w09.png)
 
    Now we've created our IAM role for GitHub actions, but we're not quite done yet. We'll also need to configure the trust policy in our newly created IAM role.
 
@@ -107,11 +107,11 @@ Before we can configure GitHub Actions to our repo, first we will need an AWS IA
 
 1. First, go to **Roles**, then select our newly created IAM role **GitHubActionsRole** (or whatever role name you chose).
 
-   ![AWS console IAM role select](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/13n0kcxrv8hq8uuk7gmb.png)
+   ![AWS console IAM role select](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851860/ci-cd-aws-sam-github-actions/13n0kcxrv8hq8uuk7gmb.png)
 
 2. Next, go to **Trust relationships**, then click **Edit trust policy**.
 
-   ![AWS console IAM role edit trust policy](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/76fx5tj1785d193g6hs1.png)
+   ![AWS console IAM role edit trust policy](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851861/ci-cd-aws-sam-github-actions/76fx5tj1785d193g6hs1.png)
 
 3. Now your trust policy should look something like this.
 
@@ -164,13 +164,13 @@ Before we can configure GitHub Actions to our repo, first we will need an AWS IA
 
    After making the changes, click **Update policy**.
 
-   ![AWS console IAM role update trust policy](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4rzg06s7uliuhxzoc2no.png)
+   ![AWS console IAM role update trust policy](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851862/ci-cd-aws-sam-github-actions/4rzg06s7uliuhxzoc2no.png)
 
    This policy change ensures that our IAM role can only be triggered from repositories and branches that we specify.
 
    Now we've configured our IAM role's trust policy, we will now need the IAM role ARN for configuring GitHub actions next, so let's copy it now.
 
-   ![Copy GitHub Actions IAM role ARN](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/k7wgaplzpedmfjqpziih.png)
+   ![Copy GitHub Actions IAM role ARN](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851863/ci-cd-aws-sam-github-actions/k7wgaplzpedmfjqpziih.png)
 
 ### Step 2: Adding a GitHub Workflow YAML file
 
@@ -178,7 +178,7 @@ In order to configure GitHub Actions in our repository, first we will need to cr
 
 1.  In your GitHub repository, click **Actions**, then click **setup a workflow yourself**.
 
-    ![GitHub Actions setup workflow](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kpm0jo6pucq1fheoiith.png)
+    ![GitHub Actions setup workflow](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851864/ci-cd-aws-sam-github-actions/kpm0jo6pucq1fheoiith.png)
 
 2.  Copy the GitHub Actions workflow YAML file contents, like in the example below. Then update with the IAM role ARN we copied earlier.
 
@@ -243,13 +243,13 @@ In order to configure GitHub Actions in our repository, first we will need to cr
 
     Then click **Start commit** and commit the changes.
 
-    ![GitHub Actions commit workflow YAML file](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/wnp6xhokt8y4eou4uq60.png)
+    ![GitHub Actions commit workflow YAML file](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851865/ci-cd-aws-sam-github-actions/wnp6xhokt8y4eou4uq60.png)
 
 ### Testing GitHub Actions
 
 Now that we've finally configured GitHub Actions to deploy to AWS every time we push changes, we can test it out by pushing any changes to the repository and branch we configured earlier.
 
-![Test GitHub Actions](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/t43ohucb6y3l60kf60q7.png)
+![Test GitHub Actions](https://res.cloudinary.com/dlieqpdfd/image/upload/v1792851866/ci-cd-aws-sam-github-actions/t43ohucb6y3l60kf60q7.png)
 
 ## Conclusion
 
