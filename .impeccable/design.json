@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-24T00:00:00Z",
+  "title": "Design System: Jasper Gabriel",
+  "extensions": {
+    "colorMeta": {
+      "cobalt-ink": { "role": "primary", "displayName": "Cobalt Ink", "canonical": "#60a5fa", "tonalRamp": ["#1e3a8a", "#1e40af", "#1d4ed8", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd", "#dbeafe"] },
+      "cobalt-ink-hover": { "role": "primary", "displayName": "Cobalt Ink (hover, dark)", "canonical": "#93c5fd", "tonalRamp": ["#1e3a8a", "#1e40af", "#1d4ed8", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd", "#dbeafe"] },
+      "cobalt-ink-light": { "role": "primary", "displayName": "Cobalt Ink (light theme)", "canonical": "#2563eb", "tonalRamp": ["#1e3a8a", "#1e40af", "#1d4ed8", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd", "#dbeafe"] },
+      "cobalt-ink-light-hover": { "role": "primary", "displayName": "Cobalt Ink (hover, light)", "canonical": "#1d4ed8", "tonalRamp": ["#1e3a8a", "#1e40af", "#1d4ed8", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd", "#dbeafe"] },
+      "graphite-night": { "role": "neutral", "displayName": "Graphite Night", "canonical": "#111113", "tonalRamp": ["#09090b", "#111113", "#18181b", "#27272a", "#3f3f46", "#71717a", "#a1a1aa", "#e4e4e7"] },
+      "graphite-surface": { "role": "neutral", "displayName": "Graphite Surface", "canonical": "#18181b", "tonalRamp": ["#09090b", "#111113", "#18181b", "#27272a", "#3f3f46", "#71717a", "#a1a1aa", "#e4e4e7"] },
+      "graphite-rule": { "role": "neutral", "displayName": "Graphite Rule", "canonical": "#27272a", "tonalRamp": ["#09090b", "#111113", "#18181b", "#27272a", "#3f3f46", "#71717a", "#a1a1aa", "#e4e4e7"] },
+      "chalk-text": { "role": "neutral", "displayName": "Chalk", "canonical": "#e4e4e7", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#71717a", "#a1a1aa", "#e4e4e7", "#fafafa"] },
+      "pencil-muted": { "role": "neutral", "displayName": "Pencil", "canonical": "#71717a", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#71717a", "#a1a1aa", "#e4e4e7", "#fafafa"] },
+      "paper-bg": { "role": "neutral", "displayName": "Paper", "canonical": "#fafafa", "tonalRamp": ["#111827", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#e5e7eb", "#fafafa"] },
+      "paper-surface": { "role": "neutral", "displayName": "Paper Surface", "canonical": "#ffffff", "tonalRamp": ["#111827", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#f3f4f6", "#ffffff"] },
+      "paper-rule": { "role": "neutral", "displayName": "Paper Rule", "canonical": "#e5e7eb", "tonalRamp": ["#111827", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#e5e7eb", "#f3f4f6"] },
+      "paper-code": { "role": "neutral", "displayName": "Paper Code", "canonical": "#f3f4f6", "tonalRamp": ["#111827", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#e5e7eb", "#f3f4f6"] },
+      "ink-text": { "role": "neutral", "displayName": "Ink", "canonical": "#1a1a1a", "tonalRamp": ["#0a0a0a", "#1a1a1a", "#262626", "#404040", "#525252", "#737373", "#a3a3a3", "#e5e5e5"] },
+      "graphite-muted": { "role": "neutral", "displayName": "Graphite Muted", "canonical": "#6b7280", "tonalRamp": ["#111827", "#1f2937", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#f3f4f6"] },
+      "code-block-bg": { "role": "neutral", "displayName": "Code Slab", "canonical": "#1e1e2e", "tonalRamp": ["#11111b", "#181825", "#1e1e2e", "#313244", "#45475a", "#585b70", "#6c7086", "#a6adc8"] },
+      "code-block-text": { "role": "neutral", "displayName": "Code Slab Text", "canonical": "#cdd6f4", "tonalRamp": ["#313244", "#45475a", "#585b70", "#6c7086", "#9399b2", "#a6adc8", "#bac2de", "#cdd6f4"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The name on the home hero; used once." },
+      "headline": { "displayName": "Headline", "purpose": "Page h1s and post titles." },
+      "title": { "displayName": "Title", "purpose": "Post-list titles and section-level headings." },
+      "body": { "displayName": "Body", "purpose": "Interface text in Inter." },
+      "prose": { "displayName": "Prose", "purpose": "Blog post body in Lora; only inside .prose." },
+      "label": { "displayName": "Label", "purpose": "Muted meta lines: dates, reading time, footer." },
+      "eyebrow": { "displayName": "Eyebrow", "purpose": "Uppercase letterspaced muted labels: hero greeting, section headers." },
+      "mono": { "displayName": "Mono", "purpose": "Inline and block code." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "color-fade", "value": "color 0.15s", "purpose": "Hover color shift on nav, icons, toast button." },
+      { "name": "anchor-fade", "value": "opacity 0.15s", "purpose": "Heading anchor reveal on hover/focus." },
+      { "name": "toast-nudge", "value": "transform 0.1s ease; translateY(-2px)", "purpose": "Toast icon lift on press." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "Cobalt Ink link; underline appears on hover (always underlined inside prose).",
+      "html": "<a href=\"#\" class=\"ds-link\">All posts &rarr;</a>",
+      "css": ".ds-link { color: var(--color-accent); text-decoration: none; font-family: var(--font-sans); } .ds-link:hover { color: var(--color-accent-hover); text-decoration: underline; } .ds-link:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }"
+    },
+    {
+      "name": "Site Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Muted Inter nav links; active and hover go to full text color.",
+      "html": "<nav><ul class=\"ds-nav\"><li><a href=\"#\">Home</a></li><li><a href=\"#\" aria-current=\"page\">Blog</a></li><li><a href=\"#\">About</a></li></ul></nav>",
+      "css": ".ds-nav { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; } .ds-nav a { color: var(--color-text-muted); font-family: var(--font-sans); font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: color 0.15s; } .ds-nav a:hover, .ds-nav a[aria-current=\"page\"] { color: var(--color-text); } .ds-nav a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }"
+    },
+    {
+      "name": "Post List Item",
+      "kind": "card",
+      "refersTo": "post-card-title",
+      "description": "Unboxed entry: muted meta line above a title link that turns Cobalt Ink on hover.",
+      "html": "<div class=\"ds-post\"><div class=\"ds-post__meta\"><time>Jan 21, 2024</time><span aria-hidden=\"true\">&middot;</span><span>6 min read</span></div><h3 class=\"ds-post__title\"><a href=\"#\">How I Contributed to Open-Source While Learning Svelte</a></h3></div>",
+      "css": ".ds-post { font-family: var(--font-sans); } .ds-post__meta { display: flex; align-items: center; gap: 0.75rem; font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 0.25rem; } .ds-post__title { font-size: 1.15rem; font-weight: 600; line-height: 1.3; margin: 0; } .ds-post__title a { color: var(--color-text); text-decoration: none; } .ds-post__title a:hover { color: var(--color-accent); } .ds-post__title a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }"
+    },
+    {
+      "name": "Toast Button",
+      "kind": "button",
+      "refersTo": "toast-button",
+      "description": "Signature reaction: unboxed double chevron with live count; Cobalt Ink when toasted.",
+      "html": "<button class=\"ds-toast\" aria-pressed=\"false\" aria-label=\"Upvote this post\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m17 11-5-5-5 5\"></path><path d=\"m17 18-5-5-5 5\"></path></svg><span class=\"ds-toast__count\">12</span></button>",
+      "css": ".ds-toast { display: inline-flex; flex-direction: column; align-items: center; padding: 0; border: none; background: none; color: var(--color-text-muted); font-family: var(--font-sans); font-size: 0.9rem; cursor: pointer; transition: color 0.15s ease; } .ds-toast:hover { color: var(--color-accent-hover); } .ds-toast[aria-pressed=\"true\"] { color: var(--color-accent); } .ds-toast svg { transition: transform 0.1s ease; } .ds-toast:active svg { transform: translateY(-2px); } .ds-toast:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; } .ds-toast__count { min-height: 1.3em; }"
+    },
+    {
+      "name": "Theme Toggle",
+      "kind": "button",
+      "refersTo": "nav-link",
+      "description": "Unboxed icon button showing the theme a click switches to.",
+      "html": "<button type=\"button\" class=\"ds-theme-toggle\" aria-label=\"Toggle dark mode\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41\"/></svg></button>",
+      "css": ".ds-theme-toggle { display: flex; align-items: center; padding: 0; border: none; background: none; color: var(--color-text-muted); cursor: pointer; transition: color 0.15s; } .ds-theme-toggle:hover { color: var(--color-text); } .ds-theme-toggle:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }"
+    },
+    {
+      "name": "Inline Code",
+      "kind": "custom",
+      "refersTo": "code-inline",
+      "description": "Mono at 0.875em on the rule-colored chip, 4px radius.",
+      "html": "<p class=\"ds-prose-sample\">Run <code class=\"ds-code\">sam deploy --guided</code> once.</p>",
+      "css": ".ds-prose-sample { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.8; color: var(--color-text); } .ds-code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.875em; background-color: var(--color-code-bg); padding: 0.15em 0.4em; border-radius: 4px; }"
+    },
+    {
+      "name": "Code Block",
+      "kind": "custom",
+      "refersTo": "code-block",
+      "description": "Fixed dark slab in both themes, 8px radius.",
+      "html": "<pre class=\"ds-pre\"><code>const count = await env.DB.prepare(sql).first();</code></pre>",
+      "css": ".ds-pre { background-color: #1e1e2e; color: #cdd6f4; padding: 1.25rem; border-radius: 8px; overflow-x: auto; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.875rem; line-height: 1.7; margin: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Lab Notebook",
+    "overview": "The site is a working engineer's notebook: dated entries, plain margins, and a single pen color. Calm, plain, technical. The interface (header, meta lines, lists, navigation) is set in Inter and stays quiet in graphite neutrals so the entries themselves carry the page. Inside a post, the voice switches to Lora: the serif is where the thinking happens, the sans is the binding and the ruled lines around it.\n\nDensity is low and single-column. Content sits in a 680px reading column; only the header and footer chrome stretch to 900px. Structure comes from 1px rules and whitespace, never from cards, fills, or shadows. Color is nearly absent. Cobalt Ink is the one pen, used for links and the toasted state, so that anything blue means \"you can act on this.\"\n\nDark is the default world. Light mirrors it token for token and follows the OS until the reader picks a theme with the toggle.",
+    "keyCharacteristics": [
+      "Single 680px reading column; 900px chrome.",
+      "Two typefaces with distinct jobs: Inter for interface, Lora for prose.",
+      "One accent (Cobalt Ink); everything else is graphite neutrals.",
+      "Flat: 1px hairline rules and whitespace instead of elevation.",
+      "Dark-first, with a full light mirror and a manual toggle.",
+      "Motion is limited to 0.1–0.15s color and opacity transitions."
+    ],
+    "rules": [
+      { "name": "The One Pen Rule", "body": "Cobalt Ink is the only hue. If something is blue, it's interactive or it's been acted on. Never use it for decoration, backgrounds, or emphasis text.", "section": "colors" },
+      { "name": "The Mirror Rule", "body": "Every color token has a light-theme twin defined in both the `prefers-color-scheme: light` block and the `[data-theme=\"light\"]` block. A new token must be added to all three places (`:root`, the media query, the attribute selector).", "section": "colors" },
+      { "name": "The Contrast Floor Rule", "body": "Every text/background pairing must meet WCAG 2.2 AA (4.5:1 for body text) in both themes. Check muted text especially, because it's the pairing most likely to fall short.", "section": "colors" },
+      { "name": "The Two Voices Rule", "body": "Lora appears only inside `.prose` (post bodies). Everything around it, including headings inside a post, is Inter. Headings stay sans so the reader can scan.", "section": "typography" },
+      { "name": "The Small Caps-Lock Rule", "body": "Uppercase letterspaced text is reserved for eyebrows and section labels, always in the muted color, and never more than one line.", "section": "typography" },
+      { "name": "The Ruled Page Rule", "body": "Separate sections with a 1px `graphite-rule` line and whitespace. Don't add cards, panels, or shadows to group content.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Cobalt Ink for links and the toasted state only (The One Pen Rule).",
+      "Do define every new color in dark `:root`, the `prefers-color-scheme: light` block, and `[data-theme=\"light\"]` (The Mirror Rule).",
+      "Do use Lora only for post prose; keep headings, meta, and chrome in Inter.",
+      "Do separate sections with 1px rules and whitespace.",
+      "Do keep transitions to color and opacity at 0.1–0.15s.",
+      "Do verify 4.5:1 text contrast in both themes before shipping a color change."
+    ],
+    "donts": [
+      "Don't add box-shadows, cards, or filled panels to group content.",
+      "Don't introduce a second accent hue.",
+      "Don't widen the reading column past 680px; only chrome uses 900px.",
+      "Don't round buttons, links, or list items; corners are for code and images.",
+      "Don't let the code-block slab follow the theme; it stays dark in both."
+    ]
+  }
+}

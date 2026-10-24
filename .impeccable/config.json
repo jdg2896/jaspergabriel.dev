@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-10-24T13:46:55.874Z",
+        "reason": "Claude triage: Inter is the incumbent interface face documented in DESIGN.md (Two Voices Rule); this session only moved its import from CSS @import to a <link>"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/styles/global.css"
+        ],
+        "createdAt": "2026-10-24T13:46:55.893Z",
+        "reason": "Claude triage: the only match is the .prose blockquote 3px left rule, a standard quotation mark-up documented in DESIGN.md, not a card or callout; predates this session"
+      }
+    ]
+  }
+}
