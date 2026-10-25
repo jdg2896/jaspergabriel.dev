@@ -83,7 +83,11 @@ const imageURL = image && new URL(image, Astro.site);
 </script>
 <!-- These controls need JS; without it, hide them rather than show dead ones -->
 <noscript><style>.theme-toggle, .code-block__bar { display: none !important; }</style></noscript>
+<!-- SVG for browsers; the .ico is what crawlers (and Google's results) fetch
+     by default, and iOS wants a square PNG it rounds itself -->
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <!-- Inter is variable, so one upright file covers every weight; italic is
      rare enough to load on demand -->
 <Font cssVariable="--font-inter" preload={[{ style: 'normal' }]} />
