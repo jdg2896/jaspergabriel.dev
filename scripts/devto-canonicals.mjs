@@ -31,6 +31,7 @@ if (!res.ok) {
 const articles = await res.json();
 
 let changes = 0;
+let failed = 0;
 for (const article of articles) {
   const canonical = expected.get(article.url);
   if (!canonical || article.canonical_url === canonical) continue;
@@ -49,10 +50,17 @@ for (const article of articles) {
     headers,
     body: JSON.stringify({ article: update }),
   });
-  console.log(put.ok ? '  updated' : `  failed: ${put.status} ${await put.text()}`);
+  if (put.ok) {
+    console.log('  updated');
+  } else {
+    failed++;
+    console.log(`  failed: ${put.status} ${await put.text()}`);
+  }
   // dev.to rate-limits article updates
   await new Promise((r) => setTimeout(r, 1500));
 }
 
 const matched = articles.filter((a) => expected.has(a.url)).length;
-console.log(`\n${matched} of ${expected.size} posts found on dev.to; ${changes} ${apply ? 'changed' : 'to change (re-run with --apply)'}`);
+const summary = apply ? `${changes - failed} changed, ${failed} failed` : `${changes} to change (re-run with --apply)`;
+console.log(`\n${matched} of ${expected.size} posts found on dev.to; ${summary}`);
+if (failed) process.exitCode = 1;
