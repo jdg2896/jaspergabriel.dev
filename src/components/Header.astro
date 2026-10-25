@@ -50,9 +50,16 @@ const currentPath = Astro.url.pathname;
     syncPressed();
 
     toggle.addEventListener('click', () => {
-      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-      document.documentElement.dataset.theme = next;
+      const root = document.documentElement;
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      // Switch every color at once, then restore transitions after the
+      // new theme has painted
+      root.classList.add('theme-switching');
+      root.dataset.theme = next;
       syncPressed();
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => root.classList.remove('theme-switching'))
+      );
       try {
         localStorage.setItem('theme', next);
       } catch {}

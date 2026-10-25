@@ -48,6 +48,15 @@
 
 html {
   font-size: 16px;
+  /* Controls have their own hover and pressed states; the browser's gray
+     tap flash would paint over the 44px hit areas on phones */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Set for one frame while the theme flips, so hover color fades don't lag
+   behind the instant background change */
+.theme-switching * {
+  transition: none !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {
