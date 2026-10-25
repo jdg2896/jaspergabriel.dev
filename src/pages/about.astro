@@ -2,21 +2,19 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ExternalIcon from "../components/ExternalIcon.astro";
 import { person, toJsonLd } from "../utils/schema";
-import { Image } from "astro:assets";
-import photo from "../assets/jasper-gabriel.jpg";
 import { readFileSync } from "node:fs";
 import sharp from "sharp";
 
-// The photo is mostly white, so the dark theme's placeholder panel showed
-// as a black square until it loaded. A tiny blurred copy, inlined as the
-// background, shows the photo's own colors instead. Resolved from the
-// project root, as in the OG route.
-const placeholder = await sharp(readFileSync("./src/assets/jasper-gabriel.jpg"))
-  .resize(16, 16)
-  .blur()
-  .webp({ quality: 50 })
+// Inlined into the page (about 14KB) so the photo arrives with the HTML and
+// paints with the text, whether the page is opened directly or swapped in by
+// the client router, which prefetches HTML but not images. As a separate
+// file it popped in after the text. Resolved from the project root, as in
+// the OG route.
+const photo = await sharp(readFileSync("./src/assets/jasper-gabriel.jpg"))
+  .resize(360, 360)
+  .webp({ quality: 80 })
   .toBuffer();
-const placeholderStyle = `background-image: url(data:image/webp;base64,${placeholder.toString("base64")})`;
+const photoSrc = `data:image/webp;base64,${photo.toString("base64")}`;
 ---
 
 <BaseLayout
@@ -27,15 +25,13 @@ const placeholderStyle = `background-image: url(data:image/webp;base64,${placeho
   <div class="container">
     <h1>About</h1>
     <div class="about-content prose">
-      <Image
+      <img
         class="about-photo"
-        src={photo}
+        src={photoSrc}
         alt="Jasper Gabriel"
-        width={360}
-        height={360}
-        loading="eager"
-        fetchpriority="high"
-        style={placeholderStyle}
+        width="360"
+        height="360"
+        decoding="sync"
       />
       <p>
         Hello world, I'm Jasper Gabriel, a software engineer specializing in
