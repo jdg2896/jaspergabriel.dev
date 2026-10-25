@@ -4,6 +4,19 @@ import ExternalIcon from "../components/ExternalIcon.astro";
 import { person, toJsonLd } from "../utils/schema";
 import { Image } from "astro:assets";
 import photo from "../assets/jasper-gabriel.jpg";
+import { readFileSync } from "node:fs";
+import sharp from "sharp";
+
+// The photo is mostly white, so the dark theme's placeholder panel showed
+// as a black square until it loaded. A tiny blurred copy, inlined as the
+// background, shows the photo's own colors instead. Resolved from the
+// project root, as in the OG route.
+const placeholder = await sharp(readFileSync("./src/assets/jasper-gabriel.jpg"))
+  .resize(16, 16)
+  .blur()
+  .webp({ quality: 50 })
+  .toBuffer();
+const placeholderStyle = `background-image: url(data:image/webp;base64,${placeholder.toString("base64")})`;
 ---
 
 <BaseLayout
@@ -21,6 +34,8 @@ import photo from "../assets/jasper-gabriel.jpg";
         width={360}
         height={360}
         loading="eager"
+        fetchpriority="high"
+        style={placeholderStyle}
       />
       <p>
         Hello world, I'm Jasper Gabriel, a software engineer specializing in

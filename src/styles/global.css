@@ -902,8 +902,11 @@ a:has(> .external-icon) {
   float: right;
   width: 11rem;
   height: auto;
-  border-radius: 8px;
+  /* Square corners, unlike the rounded images in posts */
+  border-radius: 0;
   margin: 0.4rem 0 1rem 2rem;
+  /* Stretches the inline blurred placeholder under the photo as it loads */
+  background-size: cover;
 }
 
 /* Too narrow to wrap text beside it, so it sits above, kept small enough
