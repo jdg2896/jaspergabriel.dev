@@ -10,6 +10,7 @@ target_fingerprint: "sha256:17e01463b03001ed0bf32ad6913602f203e995e788f4522834e1
 target_path: /Users/jaspergabriel/Workspace/personal/jaspergabriel.dev/src/pages/about.astro
 timestamp: 2026-10-24T17-03-47Z
 slug: src-pages-about-astro
+closed: true
 ---
 Method: dual-agent
 

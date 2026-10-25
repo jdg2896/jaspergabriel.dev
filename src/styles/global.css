@@ -712,6 +712,15 @@ a:has(> .external-icon) {
   font-size: 0.875rem;
 }
 
+/* Standalone links get a ~44px hit area like the header and footer; the
+   negative margin cancels the padding so spacing on the page is unchanged */
+.section-header a,
+.hero__more a {
+  display: inline-block;
+  padding-block: 0.75rem;
+  margin-block: -0.75rem;
+}
+
 /* ---- About page: the notebook's first entry, set like a post ---- */
 .about-content {
   margin-top: 2rem;

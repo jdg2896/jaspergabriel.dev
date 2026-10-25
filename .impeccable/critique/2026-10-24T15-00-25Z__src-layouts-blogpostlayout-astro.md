@@ -10,6 +10,7 @@ target_fingerprint: "sha256:c94c8dfe259d6f3ba83fa6747f0e4bc9a267eb8f3a3d0446ad27
 target_path: /Users/jaspergabriel/Workspace/personal/jaspergabriel.dev/src/layouts/BlogPostLayout.astro
 timestamp: 2026-10-24T15-00-25Z
 slug: src-layouts-blogpostlayout-astro
+closed: true
 ---
 Method: dual-agent
 

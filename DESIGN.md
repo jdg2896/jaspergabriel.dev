@@ -224,7 +224,7 @@ Mostly square. Corners appear only on code and images: 4px on inline code, 8px o
 ## Components
 
 ### Links
-Plain Cobalt Ink with no underline in the interface. Hover shifts to the hover shade and adds an underline. Inside prose, links are always underlined with a 3px offset so they're findable when reading.
+Plain Cobalt Ink with no underline in the interface. Hover shifts to the hover shade and adds an underline. Inside prose, links are always underlined with a 3px offset so they're findable when reading. Standalone links outside prose ("More about me →", "All N posts →") get 0.75rem of vertical padding cancelled by a matching negative margin, so their hit area is about 44px, like the header and footer, without moving anything on the page.
 
 ### Navigation
 Inter 0.9rem / 500 in Pencil. Hover and `aria-current="page"` both switch to Chalk with no underline. Nav links sit 1.75rem apart (1.5rem on phones), followed by the theme toggle, muted and going to Chalk on hover with a 0.15s color transition. The header carries navigation and the one site control only; contact links live in the footer. Every header target is 44px tall: nav links get side padding cancelled by a matching negative margin, and the toggle is a 44px square pulled right so its icon ends on the column edge.
