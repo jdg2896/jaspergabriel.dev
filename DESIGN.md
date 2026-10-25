@@ -56,7 +56,7 @@ typography:
     fontWeight: 500
   section-label:
     fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
-    fontSize: "1.1rem"
+    fontSize: "0.85rem"
     fontWeight: 600
     letterSpacing: "0.06em"
   heading-2:
@@ -190,7 +190,7 @@ A near-monochrome palette of warm neutrals (warm graphite at night, cream paper 
 - **Prose** (400, 1.0625rem, 1.75): post bodies and the About page. Paragraph spacing is 1.4rem, inside the 680px column (~70ch).
 - **Label** (400, 0.8rem): meta lines with middot separators, footer.
 - **Greeting** (500, 0.95rem, muted, sentence case): "Hello world, I'm" on the home hero, written as said rather than shouted as an uppercase label.
-- **Section label** (600, 1.1rem, 0.06em, uppercase, muted): section headers like "Featured posts" and "Keep reading".
+- **Section label** (600, 0.85rem, 0.06em, uppercase, muted): section headers like "Featured posts" and "Keep reading". Deliberately smaller than the titles below it, a margin label rather than a headline.
 
 ### Named Rules
 **The One Voice Rule.** Inter everywhere. `.prose` (post bodies and About) marks reading text with size, leading and underlined links, never with a second typeface. Monospace is only for code.
@@ -227,12 +227,12 @@ Mostly square. Corners appear only on code and images: 4px on inline code, 8px o
 Plain Cobalt Ink with no underline in the interface. Hover shifts to the hover shade and adds an underline. Inside prose, links are always underlined with a 3px offset so they're findable when reading.
 
 ### Navigation
-Inter 0.9rem / 500 in Pencil. Hover and `aria-current="page"` both switch to Chalk with no underline. Nav links sit 1.75rem apart. A 1px vertical rule separates them from an icon cluster (GitHub, LinkedIn, Email, theme toggle), which is muted and goes to Chalk on hover with a 0.15s color transition. Icon hit areas are padded to about 30px with a matching negative margin, so they grow without moving.
+Inter 0.9rem / 500 in Pencil. Hover and `aria-current="page"` both switch to Chalk with no underline. Nav links sit 1.75rem apart. A 1px vertical rule separates them from an icon cluster (the GitHub, LinkedIn and Email list, then the theme toggle outside it, so screen readers don't announce the toggle as a social link), which is muted and goes to Chalk on hover with a 0.15s color transition. Icon hit areas are padded to about 30px with a matching negative margin, so they grow without moving.
 
-### Home: the Notebook's Contents
-Home is the front of the notebook, not a hero followed by recent posts. The greeting, the name (Display), and the bio in full text color (max 560px). Then a 1px rule.
+### Home
+The greeting, the name (Display), and the bio in full text color (max 560px), then a "More about me →" link (0.9rem) so the About page, which carries the experience and startup fit, is one click from the hero. Then a 1px rule.
 
-"Featured posts" (section label, with "All N posts →") lists posts marked `featured: true` in frontmatter, grouped on the blog index's year rules (stepped down to 0.95rem here). Each entry is the Post List pattern plus its `description` as a muted 0.95rem line, so a visitor knows what an entry is before opening it. Dates stay honest: a curated list never hides when something was written.
+"Featured posts" (section label, with "All N posts →") lists the posts with a `featured` number in frontmatter, in that order (1 first), so the strongest piece leads rather than the newest. It's a flat list with no year rules: in a hand-picked five, year headings only announce how long ago the writing stopped. Each entry is the Post List pattern with the full date (year included, so dates stay honest) plus its `description` as a muted 0.95rem line, so a visitor knows what an entry is before opening it. Arrows in link text are `aria-hidden`, so screen readers don't read "right arrow".
 
 ### Page Lede
 The muted line under a page `h1` (the post count on the blog index, the 404 explanation): 0.75rem below the heading, 2.5rem above the content.
@@ -240,7 +240,7 @@ The muted line under a page `h1` (the post count on the blog index, the 404 expl
 ### Post List
 Unboxed entries stacked 1.75rem apart. Each entry is a muted 0.8rem meta line (date · reading time) above a Title-weight link in Chalk that turns Cobalt Ink on hover. The same pattern is used on the home page (featured posts, with descriptions), the blog index, and "Keep reading".
 
-On the blog index, entries are grouped by year, like dated pages in a notebook. Each year is an `h2` in the section-label style (1.1rem / 600 / 0.06em, muted, tabular numerals) followed by a 1px rule running to the column edge, 3rem between years. Since the heading carries the year, entry dates there show only month and day.
+On the blog index, entries are grouped by year, like dated pages in a notebook. Each year is an `h2` (1.1rem / 600 / 0.06em, muted, tabular numerals) followed by a 1px rule running to the column edge, 3rem between years. Since the heading carries the year, entry dates there show only month and day.
 
 ### Post Header
 The post title (Headline) sits above the post's description as a muted 1.05rem Inter lede, then a wrapped meta line, closed off by a 1px bottom rule. There is no byline: the site name in the header already says whose notebook this is, and the sign-off at the end introduces him.

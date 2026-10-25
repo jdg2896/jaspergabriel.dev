@@ -4,7 +4,7 @@ description: "How to set up GitHub Actions CI/CD for AWS SAM serverless apps wit
 pubDate: 2023-04-28
 tags: ["tech", "aws", "devops"]
 originalUrl: "https://dev.to/jdg2896/step-by-step-guide-setting-up-cicd-for-aws-sam-applications-with-github-actions-1869"
-featured: true
+featured: 3
 ---
 
 ## Introduction
