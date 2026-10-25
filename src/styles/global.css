@@ -5,17 +5,6 @@
   padding: 0;
 }
 
-/* A local fallback scaled to Inter's metrics, so text doesn't reflow when
-   Inter swaps in. Measured in Chrome against prose samples. */
-@font-face {
-  font-family: 'Inter Fallback';
-  src: local('Arial');
-  size-adjust: 106.86%;
-  ascent-override: 90.77%;
-  descent-override: 22.46%;
-  line-gap-override: 0%;
-}
-
 /* Theme: light-dark() resolves against color-scheme, which follows the OS
    unless the toggle has set data-theme. Each pair is (light, dark). */
 :root {
@@ -31,7 +20,10 @@
   --color-code-bg: light-dark(#e8e2d4, #2a2824);
   --color-code-block-bg: light-dark(#faf7f0, #1b1a17);
 
-  --font-sans: var(--font-inter);
+  /* Installed fonts only, so nothing downloads and text never changes font
+     between first paint and reload. Charter ships with macOS and iOS;
+     Windows gets Sitka Text (made for screen reading), then Cambria. */
+  --font-text: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
   --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 
   --max-w-content: 680px;
@@ -76,7 +68,10 @@ button {
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
+  /* Sizes every fallback to the same lowercase height, so Charter (0.48)
+     reads at the size Inter (0.55) did, and Cambria and Noto Serif match it */
+  font-size-adjust: 0.52;
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
@@ -320,7 +315,7 @@ p {
 .prose h2,
 .prose h3,
 .prose h4 {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   margin-top: 2.25rem;
   margin-bottom: 0.75rem;
   /* Keep anchored headings clear of the sticky header */
@@ -392,6 +387,7 @@ p {
 
 .prose code {
   font-family: var(--font-mono);
+  font-size-adjust: none;
   font-size: 0.875em;
   background-color: var(--color-code-bg);
   padding: 0.15em 0.4em;
@@ -423,7 +419,9 @@ p {
   border: none;
   background: none;
   color: var(--color-text-muted);
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
+  /* Buttons don't inherit it from body */
+  font-size-adjust: inherit;
   font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
@@ -814,7 +812,8 @@ a:has(> .external-icon) {
 
 /* ---- Home page ---- */
 .hero {
-  padding: 4rem 0 3rem;
+  /* No extra space on top: the greeting starts where every page title does */
+  padding: 0 0 3rem;
   border-bottom: 1px solid var(--color-border);
   margin-bottom: 3rem;
 }
@@ -946,6 +945,6 @@ a:has(> .external-icon) {
   }
 
   .hero {
-    padding: 2.5rem 0 2rem;
+    padding-bottom: 2rem;
   }
 }

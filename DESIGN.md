@@ -21,61 +21,61 @@ colors:
   code-block-bg-light: "#faf7f0"
 typography:
   display:
-    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontFamily: "Charter, Bitstream Charter, Sitka Text, Cambria, Georgia, serif"
     fontSize: "clamp(2rem, 5vw, 3rem)"
     fontWeight: 600
     lineHeight: 1.2
   headline:
-    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontFamily: "Charter, Bitstream Charter, Sitka Text, Cambria, Georgia, serif"
     fontSize: "clamp(1.75rem, 4vw, 2.25rem)"
     fontWeight: 600
     lineHeight: 1.3
   title:
-    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontFamily: "Charter, Bitstream Charter, Sitka Text, Cambria, Georgia, serif"
     fontSize: "1.15rem"
     fontWeight: 600
     lineHeight: 1.3
   body:
-    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontFamily: "Charter, Bitstream Charter, Sitka Text, Cambria, Georgia, serif"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.6
   prose:
-    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontFamily: "Charter, Bitstream Charter, Sitka Text, Cambria, Georgia, serif"
     fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: 1.75
   label:
-    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontFamily: "Charter, Bitstream Charter, Sitka Text, Cambria, Georgia, serif"
     fontSize: "0.8rem"
     fontWeight: 400
     lineHeight: 1.6
   greeting:
-    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontFamily: "Charter, Bitstream Charter, Sitka Text, Cambria, Georgia, serif"
     fontSize: "0.95rem"
     fontWeight: 500
   section-label:
-    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontFamily: "Charter, Bitstream Charter, Sitka Text, Cambria, Georgia, serif"
     fontSize: "0.85rem"
     fontWeight: 600
     letterSpacing: "0.06em"
   heading-2:
-    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontFamily: "Charter, Bitstream Charter, Sitka Text, Cambria, Georgia, serif"
     fontSize: "1.5rem"
     fontWeight: 600
     lineHeight: 1.3
   heading-3:
-    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontFamily: "Charter, Bitstream Charter, Sitka Text, Cambria, Georgia, serif"
     fontSize: "1.2rem"
     fontWeight: 600
     lineHeight: 1.3
   prose-heading-2:
-    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontFamily: "Charter, Bitstream Charter, Sitka Text, Cambria, Georgia, serif"
     fontSize: "1.5rem"
     fontWeight: 600
     lineHeight: 1.3
   nav-title:
-    fontFamily: "Inter, Inter Fallback, system-ui, -apple-system, sans-serif"
+    fontFamily: "Charter, Bitstream Charter, Sitka Text, Cambria, Georgia, serif"
     fontSize: "0.95rem"
     fontWeight: 500
   mono:
@@ -135,7 +135,7 @@ components:
 
 **Creative North Star: "The Lab Notebook"**
 
-The site is a working engineer's notebook: dated entries, plain margins, and a single pen color. Calm, plain, technical. Everything is set in Inter, one screen-first typeface for the interface and the writing alike. The interface (header, meta lines, lists, navigation) stays quiet in graphite neutrals so the entries themselves carry the page; reading text steps up in size and leading rather than switching typeface.
+The site is a working engineer's notebook: dated entries, plain margins, and a single pen color. Calm, plain, technical. Everything is set in Charter, one sturdy reading serif for the interface and the writing alike. The interface (header, meta lines, lists, navigation) stays quiet in graphite neutrals so the entries themselves carry the page; reading text steps up in size and leading rather than switching typeface.
 
 Density is low and single-column. Everything sits in one 680px column, header and footer included, so the site name lines up with every page's heading. Structure comes from 1px rules and whitespace, never from cards, fills, or shadows. Color is nearly absent. Cobalt Ink is the one pen, used for links and the toasted state, so that anything blue means "you can act on this."
 
@@ -143,7 +143,7 @@ Dark is the default world: warm graphite, a brown-black page with off-white text
 
 **Key Characteristics:**
 - One 680px column for content and chrome alike.
-- One typeface, Inter, with size, weight and leading doing the work a second face would.
+- One typeface, Charter, with size, weight and leading doing the work a second face would.
 - One accent (Cobalt Ink); everything else is graphite neutrals.
 - Flat: 1px hairline rules and whitespace instead of elevation.
 - Dark-first, with a full light mirror and a manual toggle.
@@ -174,18 +174,18 @@ A near-monochrome palette of warm neutrals (warm graphite at night, cream paper 
 
 ## Typography
 
-**Display Font:** Inter (with system-ui, -apple-system, sans-serif)
-**Body Font:** Inter, for interface and prose alike
+**Display Font:** Charter (with Bitstream Charter, Sitka Text, Cambria, Georgia, serif)
+**Body Font:** Charter, for interface and prose alike
 **Label/Mono Font:** SFMono-Regular (with Consolas, Liberation Mono, Menlo, monospace)
 
-**Character:** A neutral grotesque drawn for screens. Serifs (Lora, then Literata) were tried for post bodies and dropped: on the dark default they rendered soft and crowded, and a second face made pages feel inconsistent. Reading text is told apart by its larger size and looser leading instead.
+**Character:** A sturdy transitional serif, drawn by Matthew Carter to stay clear at low resolution: large x-height, open shapes, firm serifs that hold up on the dark default. Earlier, Lora and then Literata were tried for post bodies only, beside Inter, and dropped: they rendered soft and crowded on dark, and a second face made pages feel inconsistent. Charter replaced Inter everywhere instead, so there's still one face. Reading text is told apart by its larger size and looser leading.
 
-**Loading:** Inter (one variable upright file covering 400–600) is downloaded from Google Fonts at build time, served from this site, preloaded, and set to `font-display: optional`, so text never changes font in front of the reader. On a normal connection Inter is there from the first paint. On a first visit too slow for that, the page stays in a metric-matched local fallback (`Inter Fallback`, built from Arial in `global.css`), and a check in `BaseHead` makes the next navigation a full load so it gets the now-cached Inter. There is no italic file: `<em>` and blockquotes use the browser's slant of the upright, which is near-identical to Inter's italic and avoids a second download that would arrive too late for `optional`. If you change the face, re-measure those overrides. The share-card generator renders with the committed Inter files in `src/assets/fonts`.
+**Loading:** Nothing is downloaded. The stack uses only installed fonts, so text is in its final face from the first paint, on first visits and reloads alike. The trade-off is that it varies by platform: Charter on macOS and iOS, Sitka Text on Windows 10 and 11 (a serif made for screen reading), Cambria on older Windows, and the default serif (usually Noto Serif) on Android. Each reader only sees their own device, so it reads as consistent. Don't add a web font for the text: any download brings back either a swap or a first-visit fallback. Size: `font-size-adjust: 0.52` on `body` scales whichever font is used to the same lowercase height (Charter's own is 0.48, Inter's was 0.55), so the type scale below keeps reading at the size it did in Inter and the platforms match; code opts out. Weights: Charter has regular and bold only, so 500 renders as regular and 600 as bold on Apple devices; italics are real. The share-card generator still renders with the committed Inter files in `src/assets/fonts`, since Satori needs font files and Apple's Charter can't be redistributed.
 
 ### Hierarchy
 - **Display** (600, clamp(2rem, 5vw, 3rem), 1.2): the name on the home hero. Used once on the site.
 - **Headline** (600, clamp(1.75rem, 4vw, 2.25rem), 1.3): page `h1`s and post titles.
-- **Title** (600, 1.15rem, 1.3): post-list titles. The rest of the heading scale steps from there: global `h2` 1.5rem and `h3` 1.2rem; inside prose, `h2` 1.5rem, `h3` 1.25rem and `h4` 1rem (just under body size, read as a run-in label within a section), all Inter.
+- **Title** (600, 1.15rem, 1.3): post-list titles. The rest of the heading scale steps from there: global `h2` 1.5rem and `h3` 1.2rem; inside prose, `h2` 1.5rem, `h3` 1.25rem and `h4` 1rem (just under body size, read as a run-in label within a section), all Charter.
 - **Body** (400, 16px, 1.6): interface text, the home bio (1.05rem / 1.7).
 - **Prose** (400, 1.0625rem, 1.75): post bodies and the About page. Paragraph spacing is 1.4rem, inside the 680px column (~70ch).
 - **Label** (400, 0.8rem): meta lines with middot separators, the footer copyright.
@@ -193,7 +193,7 @@ A near-monochrome palette of warm neutrals (warm graphite at night, cream paper 
 - **Section label** (600, 0.85rem, 0.06em, uppercase, muted): section headers like "Featured posts" and "Keep reading". Deliberately smaller than the titles below it, a margin label rather than a headline.
 
 ### Named Rules
-**The One Voice Rule.** Inter everywhere. `.prose` (post bodies and About) marks reading text with size, leading and underlined links, never with a second typeface. Monospace is only for code.
+**The One Voice Rule.** Charter everywhere. `.prose` (post bodies and About) marks reading text with size, leading and underlined links, never with a second typeface. Monospace is only for code.
 
 **The Small Caps-Lock Rule.** Uppercase letterspaced text is reserved for section labels, always in the muted color, and never more than one line.
 
@@ -201,9 +201,9 @@ A near-monochrome palette of warm neutrals (warm graphite at night, cream paper 
 
 A centered single column. `.container` is 680px max with a 1.25rem side gutter, and the header and footer use it too: there is no wider chrome width, so nothing on the page has a second left edge. `main` gets 3rem vertical padding (2rem under 640px). The body is a flex column so the footer sits at the bottom on short pages.
 
-The spacing rhythm is rem-based and loose: 0.25rem for meta to title, 0.75rem for meta gaps, 1.75rem between list items and nav links, 2.5–3rem between major blocks, and 4rem above the hero. The header is sticky above 640px; anchored headings use `scroll-margin-top: 5rem` to clear it.
+The spacing rhythm is rem-based and loose: 0.25rem for meta to title, 0.75rem for meta gaps, 1.75rem between list items and nav links, 2.5–3rem between major blocks, and nothing extra above the hero, so its greeting starts at the same 3rem below the header as every page title. The header is sticky above 640px; anchored headings use `scroll-margin-top: 5rem` to clear it.
 
-One breakpoint, at 640px. Below it the header becomes two left-aligned rows (the name, then the nav with the theme toggle at the far end) and stops being sticky, since at ~88px it would cover too much of a phone screen (anchored headings drop to a 1.5rem offset), and the hero tightens to 2.5rem/2rem. Nav wraps rather than scrolling at large text sizes.
+One breakpoint, at 640px. Below it the header becomes two left-aligned rows (the name, then the nav with the theme toggle at the far end) and stops being sticky, since at ~88px it would cover too much of a phone screen (anchored headings drop to a 1.5rem offset), and the space under the hero tightens to 2rem. Nav wraps rather than scrolling at large text sizes.
 
 Every page reflows at 320px with no horizontal scroll. Prose wraps long words (`overflow-wrap: break-word`) and inline code breaks anywhere, since addresses, URLs, and file paths have no natural break points. Only fenced code blocks scroll sideways.
 
@@ -227,15 +227,15 @@ Mostly square. Corners appear only on code and images: 4px on inline code, 8px o
 Plain Cobalt Ink with no underline in the interface. Hover shifts to the hover shade and adds an underline. Inside prose, links are always underlined with a 3px offset so they're findable when reading. Standalone links outside prose ("More about me →", "All N posts →") get 0.75rem of vertical padding cancelled by a matching negative margin, so their hit area is about 44px, like the header and footer, without moving anything on the page.
 
 ### Navigation
-Inter 0.9rem / 500 in Pencil. Hover and `aria-current="page"` both switch to Chalk with no underline. Nav links sit 1.75rem apart (1.5rem on phones), followed by the theme toggle, muted and going to Chalk on hover with a 0.15s color transition. The header carries navigation and the one site control only; contact links live in the footer. Every header target is 44px tall: nav links get side padding cancelled by a matching negative margin, and the toggle is a 44px square pulled right so its icon ends on the column edge.
+Charter 0.9rem / 500 in Pencil. Hover and `aria-current="page"` both switch to Chalk with no underline. Nav links sit 1.75rem apart (1.5rem on phones), followed by the theme toggle, muted and going to Chalk on hover with a 0.15s color transition. The header carries navigation and the one site control only; contact links live in the footer. Every header target is 44px tall: nav links get side padding cancelled by a matching negative margin, and the toggle is a 44px square pulled right so its icon ends on the column edge.
 
 ### Site Footer
-The close of every page, and since most readers arrive on a single post, where they find how to reach Jasper or follow along. On the 680px column, left-aligned, above a 1px rule: a row of text links in Cobalt Ink (Inter 0.9rem / 500), GitHub ↗, LinkedIn ↗, Email, RSS, each 44px tall and 1.75rem apart, wrapping on narrow screens. Text, not icons, so a first-time visitor knows what each one is. Below them, "© Jasper Gabriel" in the muted label style.
+The close of every page, and since most readers arrive on a single post, where they find how to reach Jasper or follow along. On the 680px column, left-aligned, above a 1px rule: a row of text links in Cobalt Ink (Charter 0.9rem / 500), GitHub ↗, LinkedIn ↗, Email, RSS, each 44px tall and 1.75rem apart, wrapping on narrow screens. Text, not icons, so a first-time visitor knows what each one is. Below them, "© Jasper Gabriel" in the muted label style.
 
 ### Home
 The greeting, the name (Display), and the bio in full text color (max 560px), then a "More about me →" link (0.9rem) so the About page, which carries the experience and startup fit, is one click from the hero. Then a 1px rule.
 
-"Featured posts" (section label, with "All N posts →") lists the posts with a `featured` number in frontmatter, in that order (1 first), so the strongest piece leads rather than the newest. It's a flat list with no year rules: in a hand-picked five, year headings only announce how long ago the writing stopped. Each entry is the Post List pattern with the full date (year included, so dates stay honest) plus its `description` as a muted 0.95rem line, so a visitor knows what an entry is before opening it. Arrows in link text are `aria-hidden`, so screen readers don't read "right arrow".
+"Featured posts" (section label, with "All N posts →") lists the posts with a `featured` number in frontmatter, in that order (1 first), so the strongest piece leads rather than the newest. It's a flat list with no year rules: in a hand-picked three, year headings only announce how long ago the writing stopped. Keep it to three, so the home page stays about one scroll on a laptop; "All N posts" covers the rest. Each entry is the Post List pattern with the full date (year included, so dates stay honest) plus its `description` as a muted 0.95rem line, so a visitor knows what an entry is before opening it. Arrows in link text are `aria-hidden`, so screen readers don't read "right arrow".
 
 ### Page Lede
 The muted line under a page `h1` (the post count on the blog index, the 404 explanation): 0.75rem below the heading, 2.5rem above the content.
@@ -246,13 +246,13 @@ Unboxed entries stacked 1.75rem apart. Each entry is a muted 0.8rem meta line (d
 On the blog index, entries are grouped by year, like dated pages in a notebook. Each year is an `h2` (1.1rem / 600 / 0.06em, muted, tabular numerals) followed by a 1px rule running to the column edge, 3rem between years. Since the heading carries the year, entry dates there show only month and day.
 
 ### Post Header
-The post title (Headline) sits above the post's description as a muted 1.05rem Inter lede, then a wrapped meta line, closed off by a 1px bottom rule. There is no byline: the site name in the header already says whose notebook this is, and the sign-off at the end introduces him.
+The post title (Headline) sits above the post's description as a muted 1.05rem Charter lede, then a wrapped meta line, closed off by a 1px bottom rule. There is no byline: the site name in the header already says whose notebook this is, and the sign-off at the end introduces him.
 
 ### Contents List
-Posts with four or more `h2`/`h3` sections and at least a 6-minute read get an "On this page" disclosure under the post header, closed by default. The summary is Inter 600 in Chalk with a drawn chevron and a muted section count, 44px tall. Open, it's an ordered list on a 1px rule spine, `h3` entries indented, links in Pencil going to Chalk on hover, like the nav. Over twelve sections, it lists `h2`s only.
+Posts with four or more `h2`/`h3` sections and at least a 6-minute read get an "On this page" disclosure under the post header, closed by default. The summary is Charter 600 in Chalk with a drawn chevron and a muted section count, 44px tall. Open, it's an ordered list on a 1px rule spine, `h3` entries indented, links in Pencil going to Chalk on hover, like the nav. Over twelve sections, it lists `h2`s only.
 
 ### Post Footer and Keep Reading
-The end of each post is its front door for readers who arrived cold. It stays minimal, one line per job. Below a rule: the toast, then a one-sentence author sign-off in muted Inter (the name in Chalk 600, linking to About). It carries no contact links, because the site footer right below it does. Posts end on their own thank-you line in the prose style, with no comment invitation (there are no comments) and no contact links of their own. Below that, "Keep reading" (the section-label style) lists up to three related posts in the Post List pattern, and it's the last thing on the page. There's no older/newer pair: a chronological neighbour is rarely what a cold reader wants next, and two lists of posts competed. Related posts are ranked by shared tags, each tag weighted by how rare it is.
+The end of each post is its front door for readers who arrived cold. It stays minimal, one line per job. Below a rule: the toast, then a one-sentence author sign-off in muted Charter (the name in Chalk 600, linking to About). It carries no contact links, because the site footer right below it does. Posts end on their own thank-you line in the prose style, with no comment invitation (there are no comments) and no contact links of their own. Below that, "Keep reading" (the section-label style) lists up to three related posts in the Post List pattern, and it's the last thing on the page. There's no older/newer pair: a chronological neighbour is rarely what a cold reader wants next, and two lists of posts competed. Related posts are ranked by shared tags, each tag weighted by how rare it is.
 
 ### Heading Anchors
 A `#` appended to each prose heading, labelled "Link to section: <heading text>" so they're distinguishable in a screen reader's link list. It's muted and invisible until the heading is hovered or the anchor gets keyboard focus.
@@ -260,14 +260,14 @@ A `#` appended to each prose heading, labelled "Link to section: <heading text>"
 ### Code
 Inline code uses the mono stack at 0.875em on the rule-color background with a 4px radius, and wraps anywhere. It always takes the full text color, even inside a muted blockquote, because muted text on the code chip drops below 4.5:1. Fenced blocks sit on `code-block-bg` with a 1px rule, an 8px radius, 1.25rem padding, horizontal scroll, and 1.7 line-height. They take `tabindex="0"` (a Shiki transformer) so keyboard users can focus and scroll them.
 
-Each fenced block has a "Copy" button in the margin above its top-right corner, like a note beside the entry: unboxed Inter 0.8rem / 500 in Pencil, Chalk on hover, with a 32px hit area. It's rendered at build time by a Shiki `root` transformer (so it doesn't shift the page), wired up by a delegated script in the post layout, and hidden without JS. Copying swaps the text to "Copied" (or "Couldn't copy") for two seconds and announces it through one shared, visually hidden `role="status"` line. It isn't blue, because copying isn't a state that persists. Shiki emits both GitHub Default palettes as custom properties, and `global.css` picks one per site theme, through `light-dark()`, like the color tokens.
+Each fenced block has a "Copy" button in the margin above its top-right corner, like a note beside the entry: unboxed Charter 0.8rem / 500 in Pencil, Chalk on hover, with a 32px hit area. It's rendered at build time by a Shiki `root` transformer (so it doesn't shift the page), wired up by a delegated script in the post layout, and hidden without JS. Copying swaps the text to "Copied" (or "Couldn't copy") for two seconds and announces it through one shared, visually hidden `role="status"` line. It isn't blue, because copying isn't a state that persists. Shiki emits both GitHub Default palettes as custom properties, and `global.css` picks one per site theme, through `light-dark()`, like the color tokens.
 
 ### Image Zoom
 
 Post images whose original is wider than they render (full-window screenshots, mostly) get a zoom-in cursor and open full size in a native `<dialog>`, fitted inside the 16px gutter on a 94% Paper or Graphite scrim. A click or tap anywhere, Esc, or the 44px close button (an 18px ✕ in Pencil, Chalk on hover) closes it; pinch zoom works inside on phones. The view fades in over 0.15s, only without reduced motion. The script marks images zoomable (and focusable as buttons) at load and on resize, so images already shown at their real size, and every image without JS, stay plain.
 
 ### Toast Button (signature)
-The notebook's one marginal mark: a double up-chevron with the label "Raise a toast" (Inter 0.9rem / 500), and a muted count beside it ("7 toasts", or "8 toasts, including yours" once toasted). A count of zero shows nothing rather than "0 toasts". It's unboxed, 44px tall, and opens the post footer. At rest it's Pencil; hover goes to Chalk; once toasted it stays Cobalt Ink with `aria-pressed="true"`, so blue only ever means toasted. Pressing nudges the icon up 2px (0.1s), only without reduced motion. The count becomes an `aria-live="polite"` region only after the first count loads, so loading it isn't announced mid-read.
+The notebook's one marginal mark: a double up-chevron with the label "Raise a toast" (Charter 0.9rem / 500), and a muted count beside it ("7 toasts", or "8 toasts, including yours" once toasted). A count of zero shows nothing rather than "0 toasts". It's unboxed, 44px tall, and opens the post footer. At rest it's Pencil; hover goes to Chalk; once toasted it stays Cobalt Ink with `aria-pressed="true"`, so blue only ever means toasted. Pressing nudges the icon up 2px (0.1s), only without reduced motion. The count becomes an `aria-live="polite"` region only after the first count loads, so loading it isn't announced mid-read.
 The button ships `disabled` and is enabled by its script, so it never looks live without JS. Toggling updates immediately; clicks are ignored while a request is in flight. If the request fails, the toggle rolls back and a muted `role="status"` line explains it, telling a network failure ("Check your connection and try again.") apart from a server error ("something went wrong on the server. Try again in a bit."). A 0.5rem row gap keeps the button's focus ring clear of that line. If the count can't load, the button still works and simply shows no number.
 
 ### Theme Toggle
@@ -284,7 +284,7 @@ One ring for every control: a 2px solid Cobalt Ink outline with a 2px offset on 
 ### Do:
 - **Do** keep Cobalt Ink for links and the toasted state only (The One Pen Rule).
 - **Do** define every new color as a `light-dark()` pair on `:root` (The Mirror Rule).
-- **Do** keep everything in Inter; set reading text in `.prose` rather than reaching for a second typeface.
+- **Do** keep everything in Charter; set reading text in `.prose` rather than reaching for a second typeface.
 - **Do** separate sections with 1px rules and whitespace.
 - **Do** keep transitions to color and opacity at 0.1–0.15s, and gate anything larger (like smooth scrolling) behind `prefers-reduced-motion: no-preference`.
 - **Do** verify 4.5:1 text contrast in both themes before shipping a color change.

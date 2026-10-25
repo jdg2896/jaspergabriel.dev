@@ -1,6 +1,4 @@
 ---
-import { Font } from 'astro:assets';
-
 interface Props {
   title: string;
   description: string;
@@ -83,20 +81,6 @@ const imageURL = image && new URL(image, Astro.site);
     };
     requestAnimationFrame(land);
   }
-
-  // Inter is font-display: optional (astro.config.mjs), so a first visit too
-  // slow for it to arrive before first paint keeps the fallback rather than
-  // swapping under the reader. Chrome then never uses Inter for the rest of
-  // the document, which ClientRouter keeps across pages, so in that case the
-  // next navigation is a full load instead, where the now-cached font is
-  // there from the first paint. In use, Inter measures unlike the monospace
-  // it falls back to here.
-  document.addEventListener('astro:before-preparation', (event) => {
-    const family = getComputedStyle(document.documentElement).getPropertyValue('--font-inter').split(',')[0];
-    const ctx = document.createElement('canvas').getContext('2d');
-    const width = (font) => ((ctx.font = font), ctx.measureText('Hamburgefonstiv').width);
-    if (width(`16px ${family}, monospace`) === width('16px monospace')) event.preventDefault();
-  });
 </script>
 <!-- These controls need JS; without it, hide them rather than show dead ones -->
 <noscript><style>.theme-toggle, .code-block__bar { display: none !important; }</style></noscript>
@@ -105,8 +89,6 @@ const imageURL = image && new URL(image, Astro.site);
 <link rel="icon" href="/favicon.ico" sizes="48x48" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<!-- Inter is variable, so one upright file covers every weight -->
-<Font cssVariable="--font-inter" preload={[{ style: 'normal' }]} />
 <link rel="canonical" href={canonicalURL} />
 <link
   rel="alternate"

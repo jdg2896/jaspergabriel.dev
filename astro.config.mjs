@@ -1,4 +1,4 @@
-import { defineConfig, fontProviders } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -28,30 +28,6 @@ const textOf = (node) =>
 export default defineConfig({
   site: 'https://jaspergabriel.dev',
   integrations: [sitemap(), permanentSlashRedirects],
-  // Downloaded from Google at build time and served from this site, so a
-  // first visit doesn't wait on two more origins before it can paint
-  fonts: [
-    {
-      provider: fontProviders.google(),
-      name: 'Inter',
-      cssVariable: '--font-inter',
-      weights: [400, 500, 600],
-      // No italic file: the browser slants the upright one for <em> and
-      // blockquotes. A second file would split the bandwidth the preload
-      // needs to beat first paint, or arrive too late for optional (below)
-      // when italic text first needs it.
-      styles: ['normal'],
-      subsets: ['latin'],
-      // global.css defines a hand-tuned Arial fallback ('Inter Fallback')
-      fallbacks: ['Inter Fallback', 'system-ui', '-apple-system', 'sans-serif'],
-      optimizedFallbacks: false,
-      // With the preload in BaseHead, Chrome holds first paint briefly for
-      // Inter instead of painting Arial and swapping it out; on a connection
-      // too slow for that, the page keeps the fallback rather than changing
-      // under the reader.
-      display: 'optional',
-    },
-  ],
   markdown: {
     // Dual themes emit --shiki-light/--shiki-dark vars; global.css picks one
     // per site theme so code blocks follow the toggle.
