@@ -180,7 +180,7 @@ A near-monochrome palette of warm neutrals (warm graphite at night, cream paper 
 
 **Character:** A neutral grotesque drawn for screens. Serifs (Lora, then Literata) were tried for post bodies and dropped: on the dark default they rendered soft and crowded, and a second face made pages feel inconsistent. Reading text is told apart by its larger size and looser leading instead.
 
-**Loading:** Inter (400, 500, 600, and 400 italic) comes from Google Fonts with `display=swap`. Until it arrives, a metric-matched local fallback (`Inter Fallback`, built from Arial in `global.css`) holds the same line boxes, so the swap doesn't move text. If you change the face, re-measure those overrides. The share-card generator renders with the committed Inter files in `src/assets/fonts`.
+**Loading:** Inter (one variable upright file covering 400–600) is downloaded from Google Fonts at build time, served from this site, preloaded, and set to `font-display: optional`, so text never changes font in front of the reader. On a normal connection Inter is there from the first paint. On a first visit too slow for that, the page stays in a metric-matched local fallback (`Inter Fallback`, built from Arial in `global.css`), and a check in `BaseHead` makes the next navigation a full load so it gets the now-cached Inter. There is no italic file: `<em>` and blockquotes use the browser's slant of the upright, which is near-identical to Inter's italic and avoids a second download that would arrive too late for `optional`. If you change the face, re-measure those overrides. The share-card generator renders with the committed Inter files in `src/assets/fonts`.
 
 ### Hierarchy
 - **Display** (600, clamp(2rem, 5vw, 3rem), 1.2): the name on the home hero. Used once on the site.
