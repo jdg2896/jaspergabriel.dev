@@ -4,6 +4,7 @@ import BaseLayout from './BaseLayout.astro';
 import ToastButton from '../components/ToastButton.astro';
 import ExternalIcon from '../components/ExternalIcon.astro';
 import { getReadingTime } from '../utils/readingTime';
+import { blogPosting, toJsonLd } from '../utils/schema';
 
 interface RelatedPost {
   slug: string;
@@ -39,6 +40,18 @@ const {
 } = Astro.props;
 
 const readingTime = getReadingTime(rawContent);
+const image = `/og/${slug}.png`;
+const schema = toJsonLd(
+  blogPosting({
+    title,
+    description,
+    url: canonicalUrl ?? new URL(`/blog/${slug}/`, Astro.site).href,
+    image: new URL(image, Astro.site).href,
+    pubDate,
+    updatedDate,
+    tags,
+  }),
+);
 const canonicalHost = canonicalUrl && new URL(canonicalUrl).hostname.replace(/^www\./, '');
 
 // Contents list for posts long enough to need one. Deep posts drop to
@@ -60,8 +73,9 @@ const formatDate = (date: Date, month: 'long' | 'short' = 'long') =>
   title={`${title} — Jasper Gabriel`}
   description={description}
   canonicalUrl={canonicalUrl}
-  image={`/og/${slug}.png`}
+  image={image}
   article={{ publishedTime: pubDate, modifiedTime: updatedDate, tags }}
+  schema={schema}
 >
   <div class="container">
     <article>

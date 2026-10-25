@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getPosts } from "../utils/posts";
 import { getReadingTime } from "../utils/readingTime";
+import { person, toJsonLd, website } from "../utils/schema";
 
 const allPosts = await getPosts();
 // Hand-ordered by each post's `featured` position, best first
@@ -19,8 +20,9 @@ const formatDate = (date: Date) =>
 ---
 
 <BaseLayout
-  title="Jasper Gabriel"
-  description="Software engineer. I write about my experiences and the things I learn."
+  title="Jasper Gabriel — Software Engineer"
+  description="Jasper Gabriel is a software engineer specializing in backend systems and cloud infrastructure. I write about what I build and learn."
+  schema={toJsonLd(website, person)}
 >
   <div class="container">
     <section class="hero">

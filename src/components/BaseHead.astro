@@ -11,9 +11,12 @@ interface Props {
     modifiedTime?: Date;
     tags?: string[];
   };
+  // Serialized JSON-LD from utils/schema
+  schema?: string;
 }
 
-const { title, description, canonicalUrl, image, article } = Astro.props;
+// Pages without their own card share the site-wide one
+const { title, description, canonicalUrl, image = '/og/site.png', article, schema } = Astro.props;
 // Overridden only when a post's canonical home is another platform
 // (e.g. freeCodeCamp's terms require their copy to be canonical).
 const canonicalURL = canonicalUrl ?? new URL(Astro.url.pathname, Astro.site);
@@ -137,3 +140,5 @@ const imageURL = image && new URL(image, Astro.site);
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 {imageURL && <meta property="twitter:image" content={imageURL} />}
+
+{schema && <script is:inline type="application/ld+json" set:html={schema} />}

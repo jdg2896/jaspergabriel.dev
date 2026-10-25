@@ -4,7 +4,8 @@ import { readFileSync } from 'node:fs';
 import satori from 'satori';
 import sharp from 'sharp';
 
-// One share card per post, rendered at build time. Satori turns the text
+// One share card per post, plus one for the rest of the site, rendered at
+// build time. Satori turns the text
 // into SVG paths with the committed fonts, so the build needs no network
 // or system fonts; sharp (already bundled with Astro) rasterises it.
 
@@ -26,7 +27,27 @@ const colors = {
 
 export const getStaticPaths = (async () => {
   const posts = await getPosts();
-  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+  const cards = posts.map((post) => {
+    const { title, description, pubDate } = post.data;
+    const date = pubDate.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC',
+    });
+    return { params: { slug: post.id }, props: { eyebrow: date, title, description } };
+  });
+  // Shared by every page that isn't a post (BaseHead's default image)
+  cards.push({
+    params: { slug: 'site' },
+    props: {
+      eyebrow: 'Software Engineer',
+      title: 'Jasper Gabriel',
+      description:
+        'Backend systems and cloud infrastructure, with an interest in cryptography, zero-knowledge proofs, and cybersecurity.',
+    },
+  });
+  return cards;
 }) satisfies GetStaticPaths;
 
 const h = (type: string, style: Record<string, unknown>, children?: unknown) => ({
@@ -35,13 +56,7 @@ const h = (type: string, style: Record<string, unknown>, children?: unknown) => 
 });
 
 export const GET: APIRoute = async ({ props }) => {
-  const { title, description, pubDate } = props.post.data;
-  const date = pubDate.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    timeZone: 'UTC',
-  });
+  const { eyebrow, title, description } = props;
 
   const card = h(
     'div',
@@ -57,7 +72,7 @@ export const GET: APIRoute = async ({ props }) => {
     },
     [
       h('div', { display: 'flex', flexDirection: 'column', gap: '28px' }, [
-        h('div', { fontSize: 26, color: colors.muted }, date),
+        h('div', { fontSize: 26, color: colors.muted }, eyebrow),
         h(
           'div',
           { fontSize: title.length > 60 ? 56 : 66, fontWeight: 600, lineHeight: 1.15, color: colors.text },

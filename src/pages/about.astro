@@ -1,11 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ExternalIcon from "../components/ExternalIcon.astro";
+import { person, toJsonLd } from "../utils/schema";
 ---
 
 <BaseLayout
   title="About — Jasper Gabriel"
   description="A bit about me — who I am, what I do, and what I care about."
+  schema={toJsonLd({ '@type': 'ProfilePage', mainEntity: person })}
 >
   <div class="container">
     <h1>About</h1>

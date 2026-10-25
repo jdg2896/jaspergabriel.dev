@@ -15,15 +15,16 @@ interface Props {
     modifiedTime?: Date;
     tags?: string[];
   };
+  schema?: string;
 }
 
-const { title, description, canonicalUrl, image, article } = Astro.props;
+const { title, description, canonicalUrl, image, article, schema } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" transition:animate="none">
   <head>
-    <BaseHead title={title} description={description} canonicalUrl={canonicalUrl} image={image} article={article} />
+    <BaseHead title={title} description={description} canonicalUrl={canonicalUrl} image={image} article={article} schema={schema} />
     <ClientRouter />
   </head>
   <body>

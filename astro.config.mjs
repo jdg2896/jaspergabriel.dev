@@ -3,6 +3,23 @@ import sitemap from '@astrojs/sitemap';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePostImages from './src/plugins/rehype-post-images.mjs';
+import { writeFile } from 'node:fs/promises';
+
+// Cloudflare adds a page's trailing slash with a 307, which search engines
+// read as temporary. A _redirects rule for each built page makes it a 301,
+// so links missing the slash (some dev.to canonicals) pass on their credit.
+const permanentSlashRedirects = {
+  name: 'permanent-slash-redirects',
+  hooks: {
+    'astro:build:done': async ({ pages, dir }) => {
+      const rules = pages
+        .map(({ pathname }) => pathname)
+        .filter((path) => path.endsWith('/') && path !== '404/')
+        .map((path) => `/${path.slice(0, -1)} /${path} 301`);
+      await writeFile(new URL('_redirects', dir), rules.join('\n') + '\n');
+    },
+  },
+};
 
 // Plain text of a hast node, minus anything already appended (the anchor)
 const textOf = (node) =>
@@ -10,7 +27,7 @@ const textOf = (node) =>
 
 export default defineConfig({
   site: 'https://jaspergabriel.dev',
-  integrations: [sitemap()],
+  integrations: [sitemap(), permanentSlashRedirects],
   // Downloaded from Google at build time and served from this site, so a
   // first visit doesn't wait on two more origins before it can paint
   fonts: [
