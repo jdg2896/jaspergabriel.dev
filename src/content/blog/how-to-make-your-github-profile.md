@@ -4,7 +4,6 @@ description: "A comprehensive guide to building an impressive GitHub profile wit
 pubDate: 2024-01-07
 tags: ["tech", "github"]
 originalUrl: "https://dev.to/jdg2896/how-to-make-your-awesome-github-profile-hog"
-featured: 5
 ---
 
 If you're new to GitHub or have mostly worked with private GitHub repositories, chances are you don't have a GitHub profile yet.
