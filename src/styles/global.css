@@ -488,6 +488,13 @@ p {
 /* Set by script only on images shrunk below their original width */
 .prose img[data-zoomable] {
   cursor: zoom-in;
+}
+
+/* A quick second tap on or around an image, or in the open view, is a tap,
+   not iOS double-tap zoom (it zoomed the page instead of opening or closing
+   the image). Pinch zoom is unaffected. */
+.prose p:has(> img),
+.lightbox {
   touch-action: manipulation;
 }
 
