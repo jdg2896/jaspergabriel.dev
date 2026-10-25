@@ -98,6 +98,12 @@ const imageURL = image && new URL(image, Astro.site);
   title="Jasper Gabriel"
   href={new URL("rss.xml", Astro.site)}
 />
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jasper Gabriel"
+  href={new URL("atom.xml", Astro.site)}
+/>
 <link rel="sitemap" href="/sitemap-index.xml" />
 
 <title>{title}</title>
