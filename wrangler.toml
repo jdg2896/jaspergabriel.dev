@@ -22,3 +22,8 @@ database_id = "711c7434-7309-49c4-ab48-5e3b1e08d954"
 name = "TOAST_LIMITER"
 namespace_id = "1001"
 simple = { limit = 10, period = 60 }
+
+# Workers Logs, to spot abuse of the toast API (403s and 429s); set here
+# because a deploy resets dashboard settings to this file
+[observability.logs]
+enabled = true
