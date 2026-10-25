@@ -66,8 +66,11 @@ button {
   transition: none !important;
 }
 
+/* Smooth only while something has focus, i.e. after clicking an in-page
+   link. Opening a #heading URL has no focus yet, so it lands instantly
+   instead of scrolling down from the top. */
 @media (prefers-reduced-motion: no-preference) {
-  html {
+  html:focus-within {
     scroll-behavior: smooth;
   }
 }
