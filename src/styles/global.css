@@ -475,6 +475,12 @@ p {
   margin: 1.5rem 0;
 }
 
+/* A lazy image scrolled into view before it arrives shows as a soft panel,
+   not a gap. SVG diagrams are transparent, so they'd keep the panel. */
+.prose img:not([src$=".svg"]) {
+  background-color: var(--color-surface);
+}
+
 .prose hr {
   border: none;
   border-top: 1px solid var(--color-border);
