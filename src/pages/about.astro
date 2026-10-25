@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ExternalIcon from "../components/ExternalIcon.astro";
 import { person, toJsonLd } from "../utils/schema";
+import { Image } from "astro:assets";
+import photo from "../assets/jasper-gabriel.jpg";
 ---
 
 <BaseLayout
@@ -12,6 +14,14 @@ import { person, toJsonLd } from "../utils/schema";
   <div class="container">
     <h1>About</h1>
     <div class="about-content prose">
+      <Image
+        class="about-photo"
+        src={photo}
+        alt="Jasper Gabriel"
+        width={360}
+        height={360}
+        loading="eager"
+      />
       <p>
         Hello world, I'm Jasper Gabriel, a software engineer specializing in
         backend systems and cloud infrastructure. I've spent the last 4 years

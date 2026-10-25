@@ -898,6 +898,25 @@ a:has(> .external-icon) {
   margin-top: 2rem;
 }
 
+.about-content .about-photo {
+  float: right;
+  width: 11rem;
+  height: auto;
+  border-radius: 8px;
+  margin: 0.4rem 0 1rem 2rem;
+}
+
+/* Too narrow to wrap text beside it, so it sits above, kept small enough
+   that the first paragraph still starts on the first screen */
+@media (max-width: 640px) {
+  .about-content .about-photo {
+    float: none;
+    display: block;
+    width: 10rem;
+    margin: 0 0 1.5rem;
+  }
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 640px) {
   /* Two rows: the name, then nav with the theme toggle at the far end.
