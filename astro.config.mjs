@@ -36,11 +36,20 @@ export default defineConfig({
       name: 'Inter',
       cssVariable: '--font-inter',
       weights: [400, 500, 600],
-      styles: ['normal', 'italic'],
+      // No italic file: the browser slants the upright one for <em> and
+      // blockquotes. A second file would split the bandwidth the preload
+      // needs to beat first paint, or arrive too late for optional (below)
+      // when italic text first needs it.
+      styles: ['normal'],
       subsets: ['latin'],
       // global.css defines a hand-tuned Arial fallback ('Inter Fallback')
       fallbacks: ['Inter Fallback', 'system-ui', '-apple-system', 'sans-serif'],
       optimizedFallbacks: false,
+      // With the preload in BaseHead, Chrome holds first paint briefly for
+      // Inter instead of painting Arial and swapping it out; on a connection
+      // too slow for that, the page keeps the fallback rather than changing
+      // under the reader.
+      display: 'optional',
     },
   ],
   markdown: {
