@@ -63,6 +63,9 @@ export const GET: APIRoute = async ({ props }) => {
     {
       width: '100%',
       height: '100%',
+      // Keeps the padding inside 1200×630; without it the text runs off the
+      // right edge and the footer is pushed below the card
+      boxSizing: 'border-box',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
