@@ -285,6 +285,7 @@ One ring for every control: a 2px solid Cobalt Ink outline with a 2px offset on 
 - **Do** keep transitions to color and opacity at 0.1–0.15s, and gate anything larger (like smooth scrolling) behind `prefers-reduced-motion: no-preference`.
 - **Do** verify 4.5:1 text contrast in both themes before shipping a color change.
 - **Do** check new content at 320px (The 320 Rule).
+- **Do** put new `:hover` styles inside `@media (hover: hover)` and give the control a matching `:active` style. On touch screens a press emulates hover, and it sticks after a long press or a cancelled tap.
 - **Do** write internal links with a trailing slash (`/about/`, `/blog/<slug>/`). `trailingSlash: 'always'` matches how the built directories are served, so a click never bounces through a redirect.
 
 ### Don't:

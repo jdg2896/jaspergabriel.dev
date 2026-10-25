@@ -60,12 +60,19 @@ const { slug } = Astro.props;
   }
 
   /* Hover previews interactivity in the text color; blue is kept for "toasted" */
-  .toast-button:hover {
+  @media (hover: hover) {
+    .toast-button:hover {
+      color: var(--color-text);
+    }
+  }
+
+  .toast-button:active {
     color: var(--color-text);
   }
 
   .toast-button--active,
-  .toast-button--active:hover {
+  .toast-button--active:hover,
+  .toast-button--active:active {
     color: var(--color-accent);
   }
 
@@ -74,7 +81,8 @@ const { slug } = Astro.props;
     opacity: 0.6;
   }
 
-  .toast-button:disabled:hover {
+  .toast-button:disabled:hover,
+  .toast-button:disabled:active {
     color: var(--color-text-muted);
   }
 

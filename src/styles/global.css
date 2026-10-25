@@ -88,9 +88,18 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+/* Hover styles only where a pointer can actually hover. On touch screens a
+   press emulates hover, and it sticks after a long press or a cancelled
+   tap; :active gives the same feedback only while the finger is down. */
+@media (hover: hover) {
+  a:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+  }
+}
+
+a:active {
   color: var(--color-accent-hover);
-  text-decoration: underline;
 }
 
 /* ---- Layout ---- */
@@ -167,9 +176,15 @@ main:focus {
   text-decoration: none;
 }
 
-.site-logo:hover {
+@media (hover: hover) {
+  .site-logo:hover {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+}
+
+.site-logo:active {
   color: var(--color-text);
-  text-decoration: none;
 }
 
 .site-header__actions {
@@ -200,10 +215,16 @@ main:focus {
   transition: color 0.15s;
 }
 
-.site-nav a:hover,
-.site-nav a[aria-current="page"] {
+.site-nav a[aria-current="page"],
+.site-nav a:active {
   color: var(--color-text);
-  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .site-nav a:hover {
+    color: var(--color-text);
+    text-decoration: none;
+  }
 }
 
 /* ---- Theme toggle ---- */
@@ -223,7 +244,13 @@ main:focus {
   transition: color 0.15s;
 }
 
-.theme-toggle:hover {
+@media (hover: hover) {
+  .theme-toggle:hover {
+    color: var(--color-text);
+  }
+}
+
+.theme-toggle:active {
   color: var(--color-text);
 }
 
@@ -318,9 +345,15 @@ p {
   opacity: 1;
 }
 
-.heading-anchor:hover {
+@media (hover: hover) {
+  .heading-anchor:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+}
+
+.heading-anchor:active {
   color: var(--color-accent);
-  text-decoration: none;
 }
 
 .prose h2 { font-size: 1.5rem; }
@@ -394,9 +427,15 @@ p {
   transition: color 0.15s ease;
 }
 
-.code-copy:hover,
+.code-copy:active,
 .code-copy[data-state] {
   color: var(--color-text);
+}
+
+@media (hover: hover) {
+  .code-copy:hover {
+    color: var(--color-text);
+  }
 }
 
 .prose .code-block pre {
@@ -471,9 +510,15 @@ p {
   text-decoration: none;
 }
 
-.post-card__title a:hover {
+@media (hover: hover) {
+  .post-card__title a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+}
+
+.post-card__title a:active {
   color: var(--color-accent);
-  text-decoration: none;
 }
 
 /* ---- Blog index: posts grouped by year ---- */
@@ -622,9 +667,15 @@ a:has(> .external-icon) {
   text-wrap: pretty;
 }
 
-.post-toc a:hover {
+@media (hover: hover) {
+  .post-toc a:hover {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+}
+
+.post-toc a:active {
   color: var(--color-text);
-  text-decoration: none;
 }
 
 /* ---- Post footer: toast + author sign-off ---- */
