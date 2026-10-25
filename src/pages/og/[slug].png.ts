@@ -1,5 +1,5 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
-import { getCollection } from 'astro:content';
+import { getPosts } from '../../utils/posts';
 import { readFileSync } from 'node:fs';
 import satori from 'satori';
 import sharp from 'sharp';
@@ -25,7 +25,7 @@ const colors = {
 };
 
 export const getStaticPaths = (async () => {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const posts = await getPosts();
   return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
 }) satisfies GetStaticPaths;
 

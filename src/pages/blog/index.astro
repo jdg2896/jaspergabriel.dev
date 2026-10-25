@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getPosts } from "../../utils/posts";
 import { getReadingTime } from "../../utils/readingTime";
 
-const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+const allPosts = await getPosts();
 const posts = allPosts.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );

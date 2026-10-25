@@ -1,12 +1,13 @@
 ---
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
+import { getPosts } from "../../utils/posts";
 import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
 import { getReadingTime } from "../../utils/readingTime";
 
 export async function getStaticPaths() {
   // getStaticPaths is hoisted out of the frontmatter, so constants live here
   const RELATED_LIMIT = 3;
-  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  const posts = await getPosts();
   posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   // Rare tags say more about a post than "tech" does, so a shared tag

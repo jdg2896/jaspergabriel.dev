@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getPosts } from "../utils/posts";
 import { getReadingTime } from "../utils/readingTime";
 
-const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+const allPosts = await getPosts();
 // Hand-ordered by each post's `featured` position, best first
 const featured = allPosts
   .filter((post) => post.data.featured !== undefined)
