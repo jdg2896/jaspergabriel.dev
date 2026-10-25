@@ -1,4 +1,6 @@
 ---
+import { Font } from 'astro:assets';
+
 interface Props {
   title: string;
   description: string;
@@ -82,13 +84,9 @@ const imageURL = image && new URL(image, Astro.site);
 <!-- These controls need JS; without it, hide them rather than show dead ones -->
 <noscript><style>.theme-toggle, .code-block__bar { display: none !important; }</style></noscript>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<!-- Linked from the head (not @import-ed in CSS) so font loading starts in parallel -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap"
-/>
+<!-- Inter is variable, so one upright file covers every weight; italic is
+     rare enough to load on demand -->
+<Font cssVariable="--font-inter" preload={[{ style: 'normal' }]} />
 <link rel="canonical" href={canonicalURL} />
 <link
   rel="alternate"

@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -11,6 +11,21 @@ const textOf = (node) =>
 export default defineConfig({
   site: 'https://jaspergabriel.dev',
   integrations: [sitemap()],
+  // Downloaded from Google at build time and served from this site, so a
+  // first visit doesn't wait on two more origins before it can paint
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: 'Inter',
+      cssVariable: '--font-inter',
+      weights: [400, 500, 600],
+      styles: ['normal', 'italic'],
+      subsets: ['latin'],
+      // global.css defines a hand-tuned Arial fallback ('Inter Fallback')
+      fallbacks: ['Inter Fallback', 'system-ui', '-apple-system', 'sans-serif'],
+      optimizedFallbacks: false,
+    },
+  ],
   markdown: {
     // Dual themes emit --shiki-light/--shiki-dark vars; global.css picks one
     // per site theme so code blocks follow the toggle.
@@ -90,7 +105,9 @@ export default defineConfig({
   // bounce through a /about -> /about/ redirect
   trailingSlash: 'always',
   build: {
-    inlineStylesheets: 'auto',
+    // The whole stylesheet is a few KB, so a first visit paints without
+    // waiting on a separate request for it
+    inlineStylesheets: 'always',
   },
   prefetch: {
     prefetchAll: true,

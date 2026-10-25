@@ -31,7 +31,7 @@
   --color-code-bg: light-dark(#e8e2d4, #2a2824);
   --color-code-block-bg: light-dark(#faf7f0, #1b1a17);
 
-  --font-sans: 'Inter', 'Inter Fallback', system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-inter);
   --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 
   --max-w-content: 680px;
