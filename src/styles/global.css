@@ -53,6 +53,13 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* A quick second tap on a control is another tap, not iOS double-tap zoom
+   (toggling the theme twice zoomed the header). Pinch zoom is unaffected. */
+a,
+button {
+  touch-action: manipulation;
+}
+
 /* Set for one frame while the theme flips, so hover color fades don't lag
    behind the instant background change */
 .theme-switching * {
