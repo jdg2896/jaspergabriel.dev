@@ -8,6 +8,7 @@ export const profiles = {
   github: 'https://github.com/jdg2896',
   linkedin: 'https://www.linkedin.com/in/jaspergabriel/',
   devto: 'https://dev.to/jdg2896',
+  x: 'https://x.com/jdg2896',
 };
 
 export const person = {
@@ -15,6 +16,8 @@ export const person = {
   '@id': `${SITE}#person`,
   name: 'Jasper Gabriel',
   url: SITE,
+  // Same photo as the GitHub and LinkedIn profiles, so they read as one person
+  image: `${SITE}jasper-gabriel.jpg`,
   jobTitle: 'Software Engineer',
   description:
     'Software engineer specializing in backend systems and cloud infrastructure, with an interest in cryptography, zero-knowledge proofs, and cybersecurity.',
