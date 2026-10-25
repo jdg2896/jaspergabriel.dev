@@ -1,6 +1,10 @@
 name = "jaspergabriel-dev"
 main = "worker/index.ts"
 compatibility_date = "2025-01-01"
+# Served only at jaspergabriel.dev; a workers.dev copy would be a duplicate
+# site for search engines, and deploys re-enable it unless it's off here
+workers_dev = false
+preview_urls = false
 
 [assets]
 directory = "./dist"
