@@ -1,0 +1,22 @@
+# Dependency install scripts are blocked unless listed here. These three only
+# verify or fall back from the prebuilt binaries they ship as optional deps,
+# so the site builds and wrangler runs without them.
+allowBuilds:
+  esbuild: false
+  sharp: false
+  workerd: false
+
+# Fail the install when a new dependency wants to run a build script, instead
+# of skipping it silently, so each one gets a deliberate yes or no above
+strictDepBuilds: true
+
+# Most hijacked npm releases are caught and pulled within hours, so a version
+# isn't installed until it's 3 days old (Dependabot's cooldown matches)
+minimumReleaseAge: 4320
+
+# Transitive deps can only come from the registry, not git URLs or tarballs
+blockExoticSubdeps: true
+
+# Refuse a version published with weaker provenance than earlier ones, as
+# when a stolen token publishes past the project's trusted-publishing CI
+trustPolicy: no-downgrade

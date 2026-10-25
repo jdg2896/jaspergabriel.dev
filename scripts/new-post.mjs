@@ -1,9 +1,9 @@
-// Scaffolds a draft post: npm run new "Post title"
+// Scaffolds a draft post: pnpm run new "Post title"
 import { existsSync, writeFileSync } from 'node:fs';
 
 const title = process.argv.slice(2).join(' ').trim();
 if (!title) {
-  console.error('Usage: npm run new "Post title"');
+  console.error('Usage: pnpm run new "Post title"');
   process.exit(1);
 }
 
@@ -41,5 +41,5 @@ draft: true
 
 console.log(`Created ${path}`);
 console.log(`Images go in src/content/blog/${slug}/ and are linked as ![alt](./${slug}/image.png)`);
-console.log(`Preview with npm run dev, then npm run publish ${slug}`);
+console.log(`Preview with pnpm dev, then pnpm run publish ${slug}`);
 console.log(`Cross-posting? Publish here first, then set canonical_url: https://jaspergabriel.dev/blog/${slug}/`);
