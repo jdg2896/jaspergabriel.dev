@@ -18,7 +18,17 @@ const blog = defineCollection({
     // Set only when another platform's copy is canonical (e.g. freeCodeCamp
     // terms); drives both the canonical tag and the attribution line.
     canonicalUrl: z.url().optional(),
-  }),
+  })
+    // A draft can start bare, but a published post needs a description (its
+    // meta description and feed summary) and tags (for related posts)
+    .refine((post) => post.draft || post.description.trim() !== "", {
+      message: "Add a description before publishing",
+      path: ["description"],
+    })
+    .refine((post) => post.draft || post.tags.length > 0, {
+      message: "Add at least one tag before publishing",
+      path: ["tags"],
+    }),
 });
 
 export const collections = { blog };

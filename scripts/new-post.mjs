@@ -41,3 +41,4 @@ draft: true
 
 console.log(`Created ${path}`);
 console.log(`Images go in src/content/blog/${slug}/ and are linked as ![alt](./${slug}/image.png)`);
+console.log(`Preview with npm run dev, then npm run publish ${slug}`);
