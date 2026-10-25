@@ -904,6 +904,8 @@ a:has(> .external-icon) {
   height: auto;
   border-radius: 8px;
   margin: 0.4rem 0 1rem 2rem;
+  /* Stretches the inline blurred placeholder under the photo as it loads */
+  background-size: cover;
 }
 
 /* Too narrow to wrap text beside it, so it sits above, kept small enough
