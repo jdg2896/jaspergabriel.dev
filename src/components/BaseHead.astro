@@ -35,6 +35,39 @@ const imageURL = image && new URL(image, Astro.site);
   }
   applyTheme();
   document.addEventListener('astro:after-swap', applyTheme);
+
+  // A full page load otherwise paints the top of the page, then jumps at
+  // DOMContentLoaded: to the #heading on a fresh link, or, on reload and
+  // back/forward, to the position ClientRouter saved in history.state. Both
+  // land here before the first paint instead. rel=expect holds that paint
+  // until the element we need is parsed (Chrome; others ignore it), and the
+  // scroll runs in a frame callback, which comes before paint.
+  const saved = history.state;
+  const restoring = typeof saved?.scrollY === 'number';
+  if (restoring || location.hash.length > 1) {
+    let id = restoring ? 'site-footer' : location.hash.slice(1);
+    try {
+      id = decodeURIComponent(id);
+    } catch {}
+
+    const expect = document.createElement('link');
+    expect.rel = 'expect';
+    expect.href = '#' + encodeURIComponent(id);
+    expect.setAttribute('blocking', 'render');
+    document.head.append(expect);
+
+    const land = () => {
+      const target = document.getElementById(id);
+      if (!target && document.readyState === 'loading') {
+        requestAnimationFrame(land);
+      } else if (restoring) {
+        scrollTo(saved.scrollX ?? 0, saved.scrollY);
+      } else {
+        target?.scrollIntoView();
+      }
+    };
+    requestAnimationFrame(land);
+  }
 </script>
 <!-- These controls need JS; without it, hide them rather than show dead ones -->
 <noscript><style>.theme-toggle, .code-block__bar { display: none !important; }</style></noscript>
