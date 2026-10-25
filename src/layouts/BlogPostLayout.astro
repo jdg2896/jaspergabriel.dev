@@ -148,6 +148,16 @@ const formatDate = (date: Date, month: 'long' | 'short' = 'long') =>
 
   <!-- One shared live region, so a copy is announced without moving focus -->
   <p class="visually-hidden" role="status" id="code-copy-status"></p>
+
+  <!-- Screenshots shrunk to fit the column open here at full size -->
+  <dialog class="lightbox" aria-label="Full-size image" tabindex="-1">
+    <button type="button" class="lightbox__close" aria-label="Close image">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18 6 6 18M6 6l12 12" />
+      </svg>
+    </button>
+    <img class="lightbox__img" alt="" />
+  </dialog>
 </BaseLayout>
 
 <script>
@@ -185,5 +195,63 @@ const formatDate = (date: Date, month: 'long' | 'short' = 'long') =>
     } catch {
       flash(button, 'failed');
     }
+  });
+
+  // Images whose original is wider than they render can be opened full size.
+  // The width attribute is the original's (Astro sets it), and the plain src
+  // is the original-size file; srcset only serves column-sized copies.
+  const markZoomable = () => {
+    for (const img of document.querySelectorAll<HTMLImageElement>('.prose img')) {
+      const zoomable = img.width < Number(img.getAttribute('width'));
+      img.toggleAttribute('data-zoomable', zoomable);
+      if (zoomable) {
+        img.tabIndex = 0;
+        img.setAttribute('role', 'button');
+        img.setAttribute('aria-haspopup', 'dialog');
+      } else {
+        img.removeAttribute('tabindex');
+        img.removeAttribute('role');
+        img.removeAttribute('aria-haspopup');
+      }
+    }
+  };
+
+  const openImage = (img: HTMLImageElement) => {
+    const dialog = document.querySelector<HTMLDialogElement>('.lightbox');
+    const view = dialog?.querySelector<HTMLImageElement>('.lightbox__img');
+    if (!dialog || !view) return;
+    // Cleared first, so the last image doesn't flash before this one loads
+    view.removeAttribute('src');
+    view.width = Number(img.getAttribute('width'));
+    view.height = Number(img.getAttribute('height'));
+    view.alt = img.alt;
+    view.src = img.getAttribute('src') ?? '';
+    dialog.showModal();
+    // showModal focuses the close button, which then opens ringed; the
+    // dialog itself takes focus instead, and Tab still reaches the button
+    dialog.focus();
+  };
+
+  document.addEventListener('astro:page-load', markZoomable);
+  window.addEventListener('resize', markZoomable);
+
+  document.addEventListener('click', (event) => {
+    const target = event.target as Element;
+    // Anywhere in the open view closes it: the image, the backdrop, or the button
+    const dialog = target.closest<HTMLDialogElement>('.lightbox');
+    if (dialog) {
+      dialog.close();
+      return;
+    }
+    const img = target.closest<HTMLImageElement>('.prose img[data-zoomable]');
+    if (img) openImage(img);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    const img = (event.target as Element).closest<HTMLImageElement>('.prose img[data-zoomable]');
+    if (!img) return;
+    event.preventDefault();
+    openImage(img);
   });
 </script>

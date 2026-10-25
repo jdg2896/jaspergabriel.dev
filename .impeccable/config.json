@@ -26,6 +26,15 @@
         ],
         "createdAt": "2026-10-24T14:13:35.089Z",
         "reason": "User confirmed: keep the 'Hello world, I'm' hero greeting; it's the site's voice, recorded in PRODUCT.md"
+      },
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/layouts/BlogPostLayout.astro"
+        ],
+        "createdAt": "2026-10-25T03:46:35.598Z",
+        "reason": "Claude: lightbox <img> sits in a closed <dialog>; script sets src before showModal(), so it never renders empty"
       }
     ]
   }
