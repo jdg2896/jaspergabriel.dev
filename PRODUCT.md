@@ -31,7 +31,7 @@ A working engineer's own notebook: first-hand write-ups of real things built, at
 
 ## Capabilities and Constraints
 
-- **Stack:** Astro 6 static site, served from a Cloudflare Worker (`worker/index.ts`) with static assets; `/api/*` routes run on the worker first.
+- **Stack:** Astro 7 static site, served from a Cloudflare Worker (`worker/index.ts`) with static assets; `/api/*` routes run on the worker first.
 - **Toast reactions:** a per-post "toast" counter backed by Cloudflare D1 (`toasts` table: slug, count). Readers can add or remove a toast. This is a signature feature and must be kept.
 - Existing features: blog index, post pages with reading time, prev/next post navigation, heading anchors, RSS feed, sitemap, static 404, light/dark theme toggle, prefetching.
 - **Stay lightweight:** keep the site static-first with minimal client JS and fast loads. Don't add heavy frameworks or runtime dependencies.
