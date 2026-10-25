@@ -137,12 +137,12 @@ components:
 
 The site is a working engineer's notebook: dated entries, plain margins, and a single pen color. Calm, plain, technical. Everything is set in Inter, one screen-first typeface for the interface and the writing alike. The interface (header, meta lines, lists, navigation) stays quiet in graphite neutrals so the entries themselves carry the page; reading text steps up in size and leading rather than switching typeface.
 
-Density is low and single-column. Content sits in a 680px reading column; only the header and footer chrome stretch to 900px. Structure comes from 1px rules and whitespace, never from cards, fills, or shadows. Color is nearly absent. Cobalt Ink is the one pen, used for links and the toasted state, so that anything blue means "you can act on this."
+Density is low and single-column. Everything sits in one 680px column, header and footer included, so the site name lines up with every page's heading. Structure comes from 1px rules and whitespace, never from cards, fills, or shadows. Color is nearly absent. Cobalt Ink is the one pen, used for links and the toasted state, so that anything blue means "you can act on this."
 
 Dark is the default world: warm graphite, a brown-black page with off-white text, like the same notebook read at night rather than a blue-black screen. Light mirrors it token for token as warm paper: a cream page with warm brown-black ink, deliberately dimmer than pure white so long reads don't glare. It follows the OS until the reader picks a theme with the toggle.
 
 **Key Characteristics:**
-- Single 680px reading column; 900px chrome.
+- One 680px column for content and chrome alike.
 - One typeface, Inter, with size, weight and leading doing the work a second face would.
 - One accent (Cobalt Ink); everything else is graphite neutrals.
 - Flat: 1px hairline rules and whitespace instead of elevation.
@@ -160,7 +160,7 @@ A near-monochrome palette of warm neutrals (warm graphite at night, cream paper 
 ### Neutral
 - **Graphite Night / Paper** (`graphite-night` / `paper-bg`): page background.
 - **Graphite Surface / Paper Surface** (`graphite-surface` / `paper-surface`): the header (sticky above 640px) and the footer. It's a barely-there step that marks the chrome off from the page: lighter than the page in dark, a shade deeper in light, so the chrome never outshines the paper.
-- **Graphite Rule / Paper Rule** (`graphite-rule` / `paper-rule`): every 1px divider (header, footer, hero, post header, post footer, contents-list spine, `hr`, social-cluster separator). Dark mode also uses it as the inline-code background; light uses `paper-code`.
+- **Graphite Rule / Paper Rule** (`graphite-rule` / `paper-rule`): every 1px divider (header, footer, hero, post header, post footer, contents-list spine, `hr`). Dark mode also uses it as the inline-code background; light uses `paper-code`.
 - **Chalk / Ink** (`chalk-text` / `ink-text`): body text, headings, the site name, active nav, post titles in lists.
 - **Pencil / Paper Pencil** (`pencil-muted` / `paper-pencil`): meta lines (dates, reading time), inactive nav, icons, section labels, the home greeting, entry descriptions, and the resting toast button.
 - **Code Block** (`code-block-bg` / `code-block-bg-light`): fenced code blocks, highlighted by Shiki's GitHub Dark Default / GitHub Light Default pair. They follow the theme toggle, sit on the surface color with a 1px rule, and every token clears 4.5:1 in both themes.
@@ -188,7 +188,7 @@ A near-monochrome palette of warm neutrals (warm graphite at night, cream paper 
 - **Title** (600, 1.15rem, 1.3): post-list titles. The rest of the heading scale steps from there: global `h2` 1.5rem and `h3` 1.2rem; inside prose, `h2` 1.5rem, `h3` 1.25rem and `h4` 1rem (just under body size, read as a run-in label within a section), all Inter.
 - **Body** (400, 16px, 1.6): interface text, the home bio (1.05rem / 1.7).
 - **Prose** (400, 1.0625rem, 1.75): post bodies and the About page. Paragraph spacing is 1.4rem, inside the 680px column (~70ch).
-- **Label** (400, 0.8rem): meta lines with middot separators, footer.
+- **Label** (400, 0.8rem): meta lines with middot separators, the footer copyright.
 - **Greeting** (500, 0.95rem, muted, sentence case): "Hello world, I'm" on the home hero, written as said rather than shouted as an uppercase label.
 - **Section label** (600, 0.85rem, 0.06em, uppercase, muted): section headers like "Featured posts" and "Keep reading". Deliberately smaller than the titles below it, a margin label rather than a headline.
 
@@ -199,11 +199,11 @@ A near-monochrome palette of warm neutrals (warm graphite at night, cream paper 
 
 ## Layout
 
-A centered single column. `.container` is 680px max with a 1.25rem side gutter; `.container--wide` and the header/footer containers are 900px. `main` gets 3rem vertical padding (2rem under 640px). The body is a flex column so the footer sits at the bottom on short pages.
+A centered single column. `.container` is 680px max with a 1.25rem side gutter, and the header and footer use it too: there is no wider chrome width, so nothing on the page has a second left edge. `main` gets 3rem vertical padding (2rem under 640px). The body is a flex column so the footer sits at the bottom on short pages.
 
 The spacing rhythm is rem-based and loose: 0.25rem for meta to title, 0.75rem for meta gaps, 1.75rem between list items and nav links, 2.5–3rem between major blocks, and 4rem above the hero. The header is sticky above 640px; anchored headings use `scroll-margin-top: 5rem` to clear it.
 
-One breakpoint, at 640px. Below it the header stacks (name above nav and social links) and stops being sticky, since at ~105px it would cover too much of a phone screen (anchored headings drop to a 1.5rem offset), the footer centers, and the hero tightens to 2.5rem/2rem.
+One breakpoint, at 640px. Below it the header becomes two left-aligned rows (the name, then the nav with the theme toggle at the far end) and stops being sticky, since at ~88px it would cover too much of a phone screen (anchored headings drop to a 1.5rem offset), and the hero tightens to 2.5rem/2rem. Nav wraps rather than scrolling at large text sizes.
 
 Every page reflows at 320px with no horizontal scroll. Prose wraps long words (`overflow-wrap: break-word`) and inline code breaks anywhere, since addresses, URLs, and file paths have no natural break points. Only fenced code blocks scroll sideways.
 
@@ -219,7 +219,7 @@ None. The system is flat: no `box-shadow` anywhere. Depth comes only from the sl
 
 ## Shapes
 
-Mostly square. Corners appear only on code and images: 4px on inline code, 8px on code blocks and post images. Links, buttons, and list items have no boxes at all. Icons are 18px Lucide-style strokes (2px, round caps and joins) in the header and 24px in the toast button. The GitHub and LinkedIn marks are filled. Links outside the header that open a new tab carry a 12px arrow-up-right and visually hidden "(opens in a new tab)" text.
+Mostly square. Corners appear only on code and images: 4px on inline code, 8px on code blocks and post images. Links, buttons, and list items have no boxes at all. Icons are 18px Lucide-style strokes (2px, round caps and joins) in the theme toggle and 24px in the toast button. Links that open a new tab carry a 12px arrow-up-right and visually hidden "(opens in a new tab)" text, and don't wrap, so the arrow never lands on a line by itself.
 
 ## Components
 
@@ -227,7 +227,10 @@ Mostly square. Corners appear only on code and images: 4px on inline code, 8px o
 Plain Cobalt Ink with no underline in the interface. Hover shifts to the hover shade and adds an underline. Inside prose, links are always underlined with a 3px offset so they're findable when reading.
 
 ### Navigation
-Inter 0.9rem / 500 in Pencil. Hover and `aria-current="page"` both switch to Chalk with no underline. Nav links sit 1.75rem apart. A 1px vertical rule separates them from an icon cluster (the GitHub, LinkedIn and Email list, then the theme toggle outside it, so screen readers don't announce the toggle as a social link), which is muted and goes to Chalk on hover with a 0.15s color transition. Icon hit areas are padded to about 30px with a matching negative margin, so they grow without moving.
+Inter 0.9rem / 500 in Pencil. Hover and `aria-current="page"` both switch to Chalk with no underline. Nav links sit 1.75rem apart (1.5rem on phones), followed by the theme toggle, muted and going to Chalk on hover with a 0.15s color transition. The header carries navigation and the one site control only; contact links live in the footer. Every header target is 44px tall: nav links get side padding cancelled by a matching negative margin, and the toggle is a 44px square pulled right so its icon ends on the column edge.
+
+### Site Footer
+The close of every page, and since most readers arrive on a single post, where they find how to reach Jasper or follow along. On the 680px column, left-aligned, above a 1px rule: a row of text links in Cobalt Ink (Inter 0.9rem / 500), GitHub ↗, LinkedIn ↗, Email, RSS, each 44px tall and 1.75rem apart, wrapping on narrow screens. Text, not icons, so a first-time visitor knows what each one is. Below them, "© Jasper Gabriel" in the muted label style.
 
 ### Home
 The greeting, the name (Display), and the bio in full text color (max 560px), then a "More about me →" link (0.9rem) so the About page, which carries the experience and startup fit, is one click from the hero. Then a 1px rule.
@@ -249,7 +252,7 @@ The post title (Headline) sits above the post's description as a muted 1.05rem I
 Posts with four or more `h2`/`h3` sections and at least a 6-minute read get an "On this page" disclosure under the post header, closed by default. The summary is Inter 600 in Chalk with a drawn chevron and a muted section count, 44px tall. Open, it's an ordered list on a 1px rule spine, `h3` entries indented, links in Pencil going to Chalk on hover, like the nav. Over twelve sections, it lists `h2`s only.
 
 ### Post Footer and Keep Reading
-The end of each post is its front door for readers who arrived cold. It stays minimal, one line per job. Below a rule: the toast, then a one-sentence author sign-off in muted Inter (the name in Chalk 600, linking to About). It carries no contact links, because the header's icon cluster already does. Posts end on their own thank-you line in the prose style, with no comment invitation (there are no comments) and no contact links of their own. Below that, "Keep reading" (the section-label style) lists up to three related posts in the Post List pattern, and it's the last thing on the page. There's no older/newer pair: a chronological neighbour is rarely what a cold reader wants next, and two lists of posts competed. Related posts are ranked by shared tags, each tag weighted by how rare it is.
+The end of each post is its front door for readers who arrived cold. It stays minimal, one line per job. Below a rule: the toast, then a one-sentence author sign-off in muted Inter (the name in Chalk 600, linking to About). It carries no contact links, because the site footer right below it does. Posts end on their own thank-you line in the prose style, with no comment invitation (there are no comments) and no contact links of their own. Below that, "Keep reading" (the section-label style) lists up to three related posts in the Post List pattern, and it's the last thing on the page. There's no older/newer pair: a chronological neighbour is rarely what a cold reader wants next, and two lists of posts competed. Related posts are ranked by shared tags, each tag weighted by how rare it is.
 
 ### Heading Anchors
 A `#` appended to each prose heading, labelled "Link to section: <heading text>" so they're distinguishable in a screen reader's link list. It's muted and invisible until the heading is hovered or the anchor gets keyboard focus.
@@ -264,7 +267,7 @@ The notebook's one marginal mark: a double up-chevron with the label "Raise a to
 The button ships `disabled` and is enabled by its script, so it never looks live without JS. Toggling updates immediately; clicks are ignored while a request is in flight. If the request fails, the toggle rolls back and a muted `role="status"` line explains it, telling a network failure ("Check your connection and try again.") apart from a server error ("something went wrong on the server. Try again in a bit."). A 0.5rem row gap keeps the button's focus ring clear of that line. If the count can't load, the button still works and simply shows no number.
 
 ### Theme Toggle
-An unboxed icon button in the header's icon cluster, labelled "Dark mode" with `aria-pressed` reflecting the current theme. It shows the icon of the theme a click switches *to* (moon in light, sun in dark). An inline script applies the stored or OS theme before first paint. Without JS, a `<noscript>` style hides the toggle instead of showing a control that does nothing.
+An unboxed icon button at the end of the header's nav row, labelled "Dark mode" with `aria-pressed` reflecting the current theme. It shows the icon of the theme a click switches *to* (moon in light, sun in dark). An inline script applies the stored or OS theme before first paint. Without JS, a `<noscript>` style hides the toggle instead of showing a control that does nothing.
 
 ### Focus
 One ring for every control: a 2px solid Cobalt Ink outline with a 2px offset on `:focus-visible`. It's square like the rest of the interface. `<main>` suppresses it when it receives focus from the skip link.
@@ -287,6 +290,6 @@ One ring for every control: a 2px solid Cobalt Ink outline with a 2px offset on 
 ### Don't:
 - **Don't** add box-shadows, cards, or filled panels to group content.
 - **Don't** introduce a second accent hue.
-- **Don't** widen the reading column past 680px; only chrome uses 900px.
+- **Don't** widen anything past the 680px column, chrome included.
 - **Don't** round buttons, links, or list items; corners are for code and images.
 - **Don't** hard-code syntax colors; code blocks take their palette from Shiki's per-theme custom properties.

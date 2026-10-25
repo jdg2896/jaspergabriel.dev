@@ -1,7 +1,25 @@
+---
+import ExternalIcon from './ExternalIcon.astro';
+---
+
+<!-- Closes every page, and most readers arrive on a single post, so this
+     is where they find how to reach me or follow along -->
 <footer class="site-footer">
   <div class="container">
-    <p class="footer-copy">
-      &copy; Jasper Gabriel &middot; <a href="/rss.xml">RSS</a>
-    </p>
+    <ul class="footer-links" aria-label="Elsewhere">
+      <li>
+        <a href="https://github.com/jdg2896" target="_blank" rel="noopener noreferrer"
+          >GitHub<ExternalIcon /></a
+        >
+      </li>
+      <li>
+        <a href="https://linkedin.com/in/jaspergabriel" target="_blank" rel="noopener noreferrer"
+          >LinkedIn<ExternalIcon /></a
+        >
+      </li>
+      <li><a href="mailto:jasper.d.gabriel@gmail.com">Email</a></li>
+      <li><a href="/rss.xml">RSS</a></li>
+    </ul>
+    <p class="footer-copy">&copy; Jasper Gabriel</p>
   </div>
 </footer>
