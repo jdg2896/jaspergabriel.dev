@@ -41,7 +41,7 @@ Then support for code interpreters allows GPTs to generate and run Python code a
 
 The next announcement was about "GPTs", where users can create their own GPT versions for different use cases without having to write code. Sam Altman demoed this functionality by creating a "Startup Mentor" GPT since he usually gets similar questions from early-stage startup founders during [YC office hours](https://www.ycombinator.com/blog/open-office-hours-sign-up-for-office-hours-with-yc-partners).
 
-![OpenAI DevDay - Sam Altman's Demo](https://res.cloudinary.com/dlieqpdfd/image/upload/v1699801523/OpenAI%20DevDay%20and%20GitHub%20Universe%202023/openai-devday-2_nzh2tq.png)
+![OpenAI DevDay - Sam Altman's Demo](./openai-devday-github-universe-2023/openai-devday-2.png)
 > *Screenshot from [OpenAI's DevDay video](https://www.youtube.com/watch?v=U9mJuUkhUzk&ab_channel=OpenAI) on OpenAI's YouTube channel.*
 
 A GPT store will also be rolled out later this month allowing users to share their work with the public and possibly earn money depending on their GPTs' usage and popularity.
@@ -52,7 +52,7 @@ After that, they showed the new Assistants API. With similar capabilities to GPT
 
 The demo shown using this feature was on a sample travel website, where users can use an AI assistant to plan their travels. 
 
-![OpenAI DevDay - Assistants API Demo](https://res.cloudinary.com/dlieqpdfd/image/upload/v1699801522/OpenAI%20DevDay%20and%20GitHub%20Universe%202023/openai-devday-1_viqzfr.png)
+![OpenAI DevDay - Assistants API Demo](./openai-devday-github-universe-2023/openai-devday-1.png)
 > *Screenshot from [OpenAI's DevDay video](https://www.youtube.com/watch?v=U9mJuUkhUzk&ab_channel=OpenAI) on OpenAI's YouTube channel.*
 
 ## GitHub Universe 2023
@@ -63,7 +63,7 @@ After a few days, GitHub Universe 2023 opened up with some exciting announcement
 
 The first announcement made was with [Copilot Chat](https://docs.github.com/en/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide), which is coming in December. 
 
-![GitHub Universe 2023 - Copilot Chat Demo](https://res.cloudinary.com/dlieqpdfd/image/upload/v1699801522/OpenAI%20DevDay%20and%20GitHub%20Universe%202023/github-universe-2023-1_iqqvkz.png)
+![GitHub Universe 2023 - Copilot Chat Demo](./openai-devday-github-universe-2023/github-universe-2023-1.png)
 > *Screenshot from [GitHub Universe 2023 video](https://www.youtube.com/watch?v=NrQkdDVupQE&ab_channel=GitHub) on GitHub's YouTube channel.*
 
 This brings different features such as:

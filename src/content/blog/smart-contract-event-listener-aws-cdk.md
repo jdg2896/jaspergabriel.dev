@@ -393,7 +393,7 @@ The `SmartContractEventListenerStack` will deploy the following resources:
   - [Fargate Service](https://aws.amazon.com/fargate/)
   - [Fargate Task Definition](https://docs.aws.amazon.com/AmazonECS/latest/userguide/task_definitions.html)
 
-![SmartContractEventListenerStack Diagram](https://res.cloudinary.com/dlieqpdfd/image/upload/v1700360758/Smart%20Contract%20Event%20Listener/ecs_kr5yio.svg)
+![SmartContractEventListenerStack Diagram](./smart-contract-event-listener-aws-cdk/ecs.svg)
 
 [lib/smart-contract-event-listener-stack.ts](https://github.com/jdg2896/smart-contract-event-listener/blob/main/lib/smart-contract-event-listener-stack.ts)
 ```ts
@@ -456,12 +456,12 @@ To deploy your smart contract event listener:
 3. Review the changes, then when prompted with `Do you wish to deploy these changes (y/n)?`, enter `y`.
 
 You should see a progress bar of the AWS resources that are being deployed. 
-![AWS CDK deployment progress bar](https://res.cloudinary.com/dlieqpdfd/image/upload/v1700360759/Smart%20Contract%20Event%20Listener/deployment-progress_tvludh.png)
+![AWS CDK deployment progress bar](./smart-contract-event-listener-aws-cdk/deployment-progress.png)
 
 The deployment should take around 5 minutes to complete, so in the meantime, you can take a quick break. 
 
 Once the deployment completes, you should see the deployment time and the CloudFormation stack ARN. 
-![AWS CDK deployment complete](https://res.cloudinary.com/dlieqpdfd/image/upload/v1700360758/Smart%20Contract%20Event%20Listener/deployment-complete_bzsss7.png)
+![AWS CDK deployment complete](./smart-contract-event-listener-aws-cdk/deployment-complete.png)
 
 > **Note:** If your deployment takes longer than 5 minutes and seems to be stuck, then you can check the ECS service logs, as shown in [this section](###Check-the-smart-contract-event-listener-logs-in-AWS). 
 >
@@ -477,13 +477,13 @@ Now that you've successfully deployed a smart contract event listener, it's time
 Here are the steps to check the logs from your smart contract event listener:
 
 1. In the AWS console, go to the **ECS**, then click on **SmartContractEventListenerCluster**.
-![AWS Console ECS Dashboard](https://res.cloudinary.com/dlieqpdfd/image/upload/v1700360759/Smart%20Contract%20Event%20Listener/ecs-dashboard_kc8ekw.png)
+![AWS Console ECS Dashboard](./smart-contract-event-listener-aws-cdk/ecs-dashboard.png)
 
 1. Then, go to **Services**, and click **FargateService**.
-![AWS Console ECS Services](https://res.cloudinary.com/dlieqpdfd/image/upload/v1700360759/Smart%20Contract%20Event%20Listener/ecs-services_lxslxj.png)
+![AWS Console ECS Services](./smart-contract-event-listener-aws-cdk/ecs-services.png)
 
 1. Finally, click **Logs**.
-![AWS Console ECS Logs](https://res.cloudinary.com/dlieqpdfd/image/upload/v1700360759/Smart%20Contract%20Event%20Listener/ecs-logs_msvy83.png)
+![AWS Console ECS Logs](./smart-contract-event-listener-aws-cdk/ecs-logs.png)
 
 You should now be seeing the logging of events from the Ethereum USDT contract or the smart contract you specified. 
 
@@ -516,7 +516,7 @@ A high-level implementation of the app's crypto-to-fiat use case is shown below.
 - **CloudWatch log** triggers the **Fiat Disbursement Lambda function**.
 - **Customer** receives **fiat** in their **bank account** or **e-wallet**. 
 
-![RAILS](https://res.cloudinary.com/dlieqpdfd/image/upload/v1700309954/Smart%20Contract%20Event%20Listener/RAILS_High_Level.drawio_rwiyga.svg)
+![RAILS](./smart-contract-event-listener-aws-cdk/rails-high-level-drawio.svg)
 
 This is an example implementation that you can reference for your own use cases. 
 

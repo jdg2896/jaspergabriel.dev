@@ -21,7 +21,7 @@ Before I share my AWS certification journey, it would be helpful to share my pro
 
 Back in 2019, I passed my [Google Cloud Certified Associate Cloud Engineer](https://www.credential.net/947b6933-cf14-4a79-b094-37381ca4d4c3) exam. 
 
-![Google Cloud Certified Associate Cloud Engineer certificate](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702176027/AWS%20Certified%20Cloud%20Practitioner/google-cloud-certified-associate-cloud-engineer-certificate_ovwyws.png)
+![Google Cloud Certified Associate Cloud Engineer certificate](./aws-certified-cloud-practitioner/google-cloud-certified-associate-cloud-engineer-certificate.png)
 
 This was my first experience taking a certification exam at a testing center near my previous workplace. Then for my exam preparation, I mostly did hands-on labs in [Qwiklabs](https://go.qwiklabs.com/). These hands-on activities helped me retain cloud concepts since Google Cloud (GCP) was my first experience with cloud computing.
 
@@ -62,11 +62,11 @@ With that out of the way, let's continue with my journey.
 
 Back in September, I saw a Facebook ad for the **Get AWS Certified: Associate Challenge** where you can get a **50% discount** on the exam fee. The fee costs **150 USD** at the time of writing, so you only need to pay **75 USD**. 
 
-![Get AWS Certified: Associate Challenge ad](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702176027/AWS%20Certified%20Cloud%20Practitioner/get-aws-certified-associate-challenge-ad_wvvpm3.png)
+![Get AWS Certified: Associate Challenge ad](./aws-certified-cloud-practitioner/get-aws-certified-associate-challenge-ad.png)
 
 I signed up for the challenge and received an email with the voucher code.
 
-![Get AWS Certified: Associate Challenge email with voucher code](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702176028/AWS%20Certified%20Cloud%20Practitioner/get-aws-certified-associate-challenge-email_ex6bni.png)
+![Get AWS Certified: Associate Challenge email with voucher code](./aws-certified-cloud-practitioner/get-aws-certified-associate-challenge-email.png)
 
 Then I scheduled my exam in October and reviewed the [landing page](https://aws.amazon.com/certification/certified-solutions-architect-associate/) and [resource hub](https://training.resources.awscloud.com/get-certified-solutions-architect-associate) to learn more about the AWS Certified Solutions Architect - Associate certification.
 
@@ -82,13 +82,13 @@ For my preparation, I did the following:
 
 For the [official practice question set](https://explore.skillbuilder.aws/learn/course/external/view/elearning/13266/aws-certified-solutions-architect-associate-official-practice-question-set-saa-c03-english), I scored **50%**.
 
-![AWS Certified Solutions Architect - Associate Official Practice Question Set (SAA-C03) results](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702176027/AWS%20Certified%20Cloud%20Practitioner/aws-certified-solutions-architect-associate-practice-exam-result_pc1llq.png)
+![AWS Certified Solutions Architect - Associate Official Practice Question Set (SAA-C03) results](./aws-certified-cloud-practitioner/aws-certified-solutions-architect-associate-practice-exam-result.png)
 
 Then for the [Solutions Architect Knowledge Badge Assessment](https://explore.skillbuilder.aws/learn/public/learning_plan/view/1044/solutions-architect-learning-plan), I didn't pass. My score was **62.3%** and the passing score was **80% out of 50 questions**. 
 
 If you didn't pass, you can always retake this assessment after 24 hours.
 
-![Solutions Architect Knowledge Badge Assessment results](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702176027/AWS%20Certified%20Cloud%20Practitioner/solutions-architect-knowledge-badge-result_anwrzg.png)
+![Solutions Architect Knowledge Badge Assessment results](./aws-certified-cloud-practitioner/solutions-architect-knowledge-badge-result.png)
 
 Given the results of the assessments above and my exam schedule getting nearer, I didn't feel confident enough to proceed with the certification exam. 
 
@@ -98,11 +98,11 @@ Then I decided to reschedule my exam to a later date. When I still felt that I l
 
 After the Get AWS Certified: Associate Challenge ended in October, I saw another ad for the **Get AWS Certified: Cloud Practitioner Challenge** where you can get a **25% discount** on the exam fee. The fee for the AWS Certified Cloud Practitioner exam costs **100 USD** at the time of writing, so you only need to pay **75 USD**, which was the same price I paid for the AWS Certified Solutions Architect - Associate exam.
 
-![Get AWS Certified: Cloud Practitioner Challenge ad](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702176027/AWS%20Certified%20Cloud%20Practitioner/get-aws-certified-cloud-practitioner-challenge_jetxzl.png)
+![Get AWS Certified: Cloud Practitioner Challenge ad](./aws-certified-cloud-practitioner/get-aws-certified-cloud-practitioner-challenge.png)
 
 I signed up for the new challenge and received an email with another voucher code.
 
-![Get AWS Certified: Cloud Practitioner Challenge email with voucher code](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702176028/AWS%20Certified%20Cloud%20Practitioner/get-aws-certified-cloud-practitioner-email_alrvfk.png)
+![Get AWS Certified: Cloud Practitioner Challenge email with voucher code](./aws-certified-cloud-practitioner/get-aws-certified-cloud-practitioner-email.png)
 
 ## Preparing for my AWS Certified Cloud Practitioner exam
 
@@ -116,9 +116,9 @@ For my short preparation, I reviewed the [AWS Certified Cloud Practitioner page]
 
 And here are my results on the assessment tests. 
 
-![AWS Certified Cloud Practitioner Official Practice Question Set results](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702176026/AWS%20Certified%20Cloud%20Practitioner/aws-certified-cloud-practitioner-practice-exam-result_b5hnkd.png)
+![AWS Certified Cloud Practitioner Official Practice Question Set results](./aws-certified-cloud-practitioner/aws-certified-cloud-practitioner-practice-exam-result.png)
 
-![AWS Cloud Practitioner Essentials assessment results](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702176026/AWS%20Certified%20Cloud%20Practitioner/aws-cloud-practitioner-essentials-result_paqqha.png)
+![AWS Cloud Practitioner Essentials assessment results](./aws-certified-cloud-practitioner/aws-cloud-practitioner-essentials-result.png)
 
 For the [AWS Cloud Practitioner Essentials course](https://explore.skillbuilder.aws/learn/course/external/view/elearning/134/aws-cloud-practitioner-essentials), I skimmed through the transcripts, finishing the course in three hours. 
 
@@ -172,19 +172,19 @@ This is a simple example. In actual exams, you might find it harder to eliminate
 
 When I got home, I received an email for my [digital badge](https://www.credly.com/badges/bfdf4f0d-3e2f-4b00-8827-3954e00afc54/public_url) on Credly.
 
-![AWS Certified Cloud Practitioner Digital Badge](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702176027/AWS%20Certified%20Cloud%20Practitioner/aws-certified-cloud-practitioner-badge_aloknw.png)
+![AWS Certified Cloud Practitioner Digital Badge](./aws-certified-cloud-practitioner/aws-certified-cloud-practitioner-badge.png)
 
 I also checked my [AWS Certification account](https://www.aws.training/certification) and saw the results along with the perks for passing a certification exam, which includes a **50% discount voucher** for my next certification exam. 
 
 Here are my exam results, where I scored **739/1000**, which is just a little above the passing score of **700**. 
 
-![AWS Certified Cloud Practitioner exam result](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702176026/AWS%20Certified%20Cloud%20Practitioner/aws-certified-cloud-practitioner-exam-results_xg3gqx.png)
+![AWS Certified Cloud Practitioner exam result](./aws-certified-cloud-practitioner/aws-certified-cloud-practitioner-exam-results.png)
 
 The exam results showed me that my one-day preparation was good enough to pass the exam, while also realizing that I need to have better preparation for my future certification attempts. Ideally, I'd like to pass my future certification exams with a higher buffer from the passing score, scoring at least 800 and above.
 
 And finally here's my digital certificate.
 
-![AWS Certified Cloud Practitioner Digital Certificate](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702176026/AWS%20Certified%20Cloud%20Practitioner/aws-certified-cloud-practitioner-certificate_ljoopk.png)
+![AWS Certified Cloud Practitioner Digital Certificate](./aws-certified-cloud-practitioner/aws-certified-cloud-practitioner-certificate.png)
 
 ## What's next for me?
 

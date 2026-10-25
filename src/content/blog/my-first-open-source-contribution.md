@@ -46,7 +46,7 @@ Ethereum scaling solutions and **zero knowledge (ZK)** are two areas I'm interes
 
 Reviewing Taiko's [monorepo](https://github.com/taikoxyz/taiko-mono) tech stack, I saw that they use TypeScript. Their documentations use [MDX](https://mdxjs.com/), which is an improved version of [markdown](https://www.markdownguide.org/). I've used markdown before so contributing to their docs in MDX is doable.
 
-![Tech stack](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474895/First%20Open%20Source/tech-stack_ld4fcs.png)
+![Tech stack](./my-first-open-source-contribution/tech-stack.png)
 
 With that, I started preparing to make my first open source contribution with Taiko. 
 
@@ -60,7 +60,7 @@ Before anything else, I first looked at Taiko's [CONTRIBUTING.md](https://github
 -  documentation standards
 -  helpful tips
 
-![Contributing manual](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691484641/contributing-manual_zkdqv1.png)
+![Contributing manual](./my-first-open-source-contribution/contributing-manual.png)
 
 Then I saw two ways to contribute in the **Make a contribution** section:
 -  Opening a new issue
@@ -68,21 +68,21 @@ Then I saw two ways to contribute in the **Make a contribution** section:
   
 I've chosen to work on an existing issue.
 
-![Make a contribution](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691484642/make-a-contribution_mu7mt3.png)
+![Make a contribution](./my-first-open-source-contribution/make-a-contribution.png)
 
 For coding standards, I looked at the standards and conventions used in the project. I saw that they are using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) for pull request titles and commits. 
 
-![Coding standards](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474892/First%20Open%20Source/coding-standards_uu5nsu.png)
+![Coding standards](./my-first-open-source-contribution/coding-standards.png)
 
 Then for branch naming, I saw that there was no particular convention, so a short branch name describing what it is for should be enough.
 
-![Branches](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474892/First%20Open%20Source/branches_rnq9pt.png)
+![Branches](./my-first-open-source-contribution/branches.png)
 
 ### Finding an existing issue to work on
 
 I've tried to look at some **good first issues**, since these are usually not difficult issues, and are meant to help onboard first time contributors. 
 
-![Good first issues](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474893/First%20Open%20Source/good-first-issues_woykwt.png)
+![Good first issues](./my-first-open-source-contribution/good-first-issues.png)
 
 I ended up choosing the issue to **improve their "Node running guide for setting RPC endpoints"**.
 
@@ -90,54 +90,54 @@ Then I reviewed the issue, and looked at the description and comments. I also re
 
 I made sure I understood what was needed. 
 
-![Issue](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474893/First%20Open%20Source/issue_o0wkvg.png) 
+![Issue](./my-first-open-source-contribution/issue.png) 
 
 ### Forking, cloning, and working on the changes
 
 After reviewing the issue, I forked and cloned Taiko's [monorepo](https://github.com/taikoxyz/taiko-mono/tree/main). Then I started working on a proof of concept.
 
-![Fork](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474892/First%20Open%20Source/fork_sppfm3.png)
+![Fork](./my-first-open-source-contribution/fork.png)
 
 Locating the code that needs improvement was pretty straight-forward, since the project is structured as a monorepo. The **website** package contains Taiko's guides, so I worked on that.
 
-![Monorepo packages](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474894/First%20Open%20Source/monorepo-packages_boastr.png)
+![Monorepo packages](./my-first-open-source-contribution/monorepo-packages.png)
 
 After I was able to run my local setup and test the changes, I made some comments on the [issue](https://github.com/taikoxyz/taiko-mono/issues/13986) and asked for a review to verify if the changes would solve the issue.
 
-![Issue comment 1](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474893/First%20Open%20Source/issue-comment-1_ldkopl.png)
-![Issue comment 2](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474893/First%20Open%20Source/issue-comment-2_zsax0a.png)
+![Issue comment 1](./my-first-open-source-contribution/issue-comment-1.png)
+![Issue comment 2](./my-first-open-source-contribution/issue-comment-2.png)
 
 After getting approval from Dave (d1onys1us), I proceeded to open a [pull request](https://github.com/taikoxyz/taiko-mono/pull/14029). 
 
-![Issue comment 3](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474893/First%20Open%20Source/issue-comment-3_e0lj36.png)
-![PR](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474895/First%20Open%20Source/pr_hemgln.png)
+![Issue comment 3](./my-first-open-source-contribution/issue-comment-3.png)
+![PR](./my-first-open-source-contribution/pr.png)
 
 ### Going through the pull request review process
 
 The review process was interesting. While waiting for reviews, I've noticed that there were changes on the main branch that was merged to my feature branch. 
 
-![Merged main](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474894/First%20Open%20Source/merged-main_r8jk2y.png)
+![Merged main](./my-first-open-source-contribution/merged-main.png)
 
 Then I reviewed the changes, and it affected my changes, which didn't make sense when combined with the changes from the main branch. So I decided to take the initiative to improve the section and propose the changes on my ongoing pull request review. 
 
-![PR comment](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474894/First%20Open%20Source/pr-comment_pu2hbl.png)
+![PR comment](./my-first-open-source-contribution/pr-comment.png)
 
 The team liked the change, so I proceeded to commit the changes. 
 
-![Reviewer comment 1](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474894/First%20Open%20Source/reviewer-comment-1_sxm6l1.png)
+![Reviewer comment 1](./my-first-open-source-contribution/reviewer-comment-1.png)
 
 Then another reviewer commented that I had API keys exposed on the guide images, so I quickly fixed these to resolve the review comment.
 
-![Reviewer comment 2](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474894/First%20Open%20Source/reviewer-comment-2_vmcnmu.png)
+![Reviewer comment 2](./my-first-open-source-contribution/reviewer-comment-2.png)
 
 After all of that, my pull request was finally approved and merged!
 
-![PR approved 1](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474894/First%20Open%20Source/pr-approved-1_aym6sy.png)
-![PR approved 2 and merged](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474894/First%20Open%20Source/pr-approved-2-merged_rjd0zj.png)
+![PR approved 1](./my-first-open-source-contribution/pr-approved-1.png)
+![PR approved 2 and merged](./my-first-open-source-contribution/pr-approved-2-merged.png)
 
 Finally, I can say that I've contributed to open source! Got a cool [GitPOAP](https://www.gitpoap.io/) to prove it too! 🙂
 
-![Git POAP](https://res.cloudinary.com/dlieqpdfd/image/upload/v1691474892/First%20Open%20Source/git-poap_xfmpis.png)
+![Git POAP](./my-first-open-source-contribution/git-poap.png)
 
 ## My Takeaways (Conclusion)
 

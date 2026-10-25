@@ -26,7 +26,7 @@ But all you need to do is to:
 
 For example, my GitHub username is [jdg2896](https://github.com/jdg2896). To create my profile, I need to create a repository also named [jdg2896](https://github.com/jdg2896/jdg2896), then add a `README.md` file.
 
-![Example GitHub profile repository](https://res.cloudinary.com/dlieqpdfd/image/upload/v1704616186/GitHub%20Profile/github-profile-repository-example_veplgh.png)
+![Example GitHub profile repository](./how-to-make-your-github-profile/github-profile-repository-example.png)
 
 After setting up your `repository` and `README.md` file, verify that your profile is visible by going to your GitHub profile at https://github.com/YOUR-USERNAME.
 
@@ -82,7 +82,7 @@ For adding badges to your profile, you can check out [markdown-badges](https://g
 If you can't find what you're looking for or want to create custom badges, you can go to [shields.io](https://shields.io/), which is what [markdown-badges](https://github.com/Ileriayo/markdown-badges) use.
 
 Here's an example where I used [markdown-badges](https://github.com/Ileriayo/markdown-badges) on my profile.
-![Markdown badges example](https://res.cloudinary.com/dlieqpdfd/image/upload/v1704616185/GitHub%20Profile/badges-example_t6jyr6.png)
+![Markdown badges example](./how-to-make-your-github-profile/badges-example.png)
 
 ### Adding Icons
 
@@ -91,7 +91,7 @@ For adding a `skills` or `tech stack` section to your profile, I recommend using
 If your icon is not supported, you can go to [simpleicons](https://simpleicons.org/), which has over 2900 SVG icons for popular brands.
 
 Here's an example where I used [skill-icons](https://github.com/tandpfun/skill-icons) for my profile's tech stack section.
-![Icons example](https://res.cloudinary.com/dlieqpdfd/image/upload/v1704616185/GitHub%20Profile/icons-example_nyo1sn.png)
+![Icons example](./how-to-make-your-github-profile/icons-example.png)
 
 ### Using Emojis
 
@@ -116,7 +116,7 @@ Going to https://api.github.com/emojis on your browser should show a JSON respon
 
 Here's an example where I used emojis for my profile.
 
-![Emojis example](https://res.cloudinary.com/dlieqpdfd/image/upload/v1704616185/GitHub%20Profile/emojis-example_yfzhef.png)
+![Emojis example](./how-to-make-your-github-profile/emojis-example.png)
 
 ### Adding GitHub Stats
 
@@ -124,14 +124,14 @@ For adding cards and stats for your GitHub activity, I recommend using [github-r
 
 Here's an example where I added GitHub stats to my profile.
 
-![GitHub stats example](https://res.cloudinary.com/dlieqpdfd/image/upload/v1704616186/GitHub%20Profile/github-stats-example_ndhxk3.png)
+![GitHub stats example](./how-to-make-your-github-profile/github-stats-example.png)
 
 ### Adding Quotes
 
 Adding random quotes to your profile can add a nice touch for visitors. I found [github-readme-quotes](https://github.com/PiyushSuthar/github-readme-quotes) to be useful for doing just that.
 
 Here's what it looks like on my profile. I personally like to add quotes to provide some value to my profile visitors.
-![Quotes example](https://res.cloudinary.com/dlieqpdfd/image/upload/v1704616185/GitHub%20Profile/quote-example_dfvjrh.png)
+![Quotes example](./how-to-make-your-github-profile/quote-example.png)
 
 ### Improving Accessibility
 
@@ -151,7 +151,7 @@ One way you can improve the [accessibility](https://developer.mozilla.org/en-US/
 Then to test your profile's accessibility, you can try to disable image loading on your web browser. Here's a [guide](https://www.wikihow.com/Disable-Images-in-Google-Chrome) on how to disable image loading for Google Chrome.
 
 Here's what my profile looks like with image loading disabled on Google Chrome.
-![GitHub profile accessibility example](https://res.cloudinary.com/dlieqpdfd/image/upload/v1704717170/GitHub%20Profile/github-profile-accessibility_vixcg8.png)
+![GitHub profile accessibility example](./how-to-make-your-github-profile/github-profile-accessibility.png)
 
 ### More Ideas
 
@@ -169,7 +169,7 @@ While this is not related to customizing your GitHub profile's `README.md`, I fe
 
 If you go to your GitHub profile, you'll notice an `Achievements` section on the left sidebar.
 
-![GitHub profile achievements](https://res.cloudinary.com/dlieqpdfd/image/upload/v1704632356/GitHub%20Profile/github-profile-achievements_tlqp3p.png)
+![GitHub profile achievements](./how-to-make-your-github-profile/github-profile-achievements.png)
 
 These achievements are fun to collect and can improve your overall GitHub profile.
 

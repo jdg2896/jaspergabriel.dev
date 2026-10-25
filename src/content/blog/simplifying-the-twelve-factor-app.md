@@ -45,7 +45,7 @@ To make our applications compliant with the definition of Twelve-Factor Apps, th
     - Staging
     - Local development
 
-![Twelve-Factor App Codebase](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701611347/Twelve-Factor%20App/codebase-1_twhsl2.png)
+![Twelve-Factor App Codebase](./simplifying-the-twelve-factor-app/codebase-1.png)
 
 #### A Twelve-Factor App **does not**:
 - have **multiple codebases**.
@@ -54,7 +54,7 @@ To make our applications compliant with the definition of Twelve-Factor Apps, th
 - share the **same code** with **different apps**.
     - Use shared libraries for sharing code to multiple apps.
 
-![Twelve-Factor App Distributed System](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701611347/Twelve-Factor%20App/codebase-2_dnrdkl.png)
+![Twelve-Factor App Distributed System](./simplifying-the-twelve-factor-app/codebase-2.png)
 
 ## 2. Dependencies
 
@@ -73,7 +73,7 @@ To make our applications compliant with the definition of Twelve-Factor Apps, th
 
 By following the guidelines on app dependencies, developers can run the app locally with only the language runtime and dependency manager (JavaScript and npm, Python and pip).
 
-![Twelve-Factor App Dependencies](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701611347/Twelve-Factor%20App/dependencies_lonrj8.png)
+![Twelve-Factor App Dependencies](./simplifying-the-twelve-factor-app/dependencies.png)
 
 ## 3. Config
 
@@ -85,7 +85,7 @@ By following the guidelines on app dependencies, developers can run the app loca
 - has **no hard-coded configs** in the codebase.
   - A codebase doesn't have hard-coded configs if you can **open-source** it without leaking credentials.
 
-![Twelve-Factor App Config](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701611347/Twelve-Factor%20App/config_fnvchg.png)
+![Twelve-Factor App Config](./simplifying-the-twelve-factor-app/config.png)
 
 ## 4. Backing services
 
@@ -106,7 +106,7 @@ Backing services are used by the app over the network.
 - **SMTP** ([Amazon SES](https://aws.amazon.com/ses/))
 - **Caching Systems** ([Amazon ElastiCache](https://aws.amazon.com/elasticache/), [Memcached](https://memcached.org/), [Redis](https://redis.io/))
 
-![Twelve-Factor App Backing Services](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701611346/Twelve-Factor%20App/backing-services_xw0yy6.png)
+![Twelve-Factor App Backing Services](./simplifying-the-twelve-factor-app/backing-services.png)
 
 ## 5. Build, release, run
 
@@ -122,7 +122,7 @@ The **Release stage** combines the build with deployment configs.
 
 The **Runtime stage** runs the app in the execution environment.
 
-![Twelve-Factor App Build, Release, Run](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701611347/Twelve-Factor%20App/build-release-run_vxjhht.png)
+![Twelve-Factor App Build, Release, Run](./simplifying-the-twelve-factor-app/build-release-run.png)
 
 ## 6. Processes
 
@@ -136,7 +136,7 @@ The **Runtime stage** runs the app in the execution environment.
 
 > The memory or filesystem can be used as cache for a single transaction. 
 
-![Twelve-Factor App Processes](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701611346/Twelve-Factor%20App/processes_fvfvzh.png)
+![Twelve-Factor App Processes](./simplifying-the-twelve-factor-app/processes.png)
 
 ## 7. Port binding
 
@@ -148,7 +148,7 @@ The **Runtime stage** runs the app in the execution environment.
 
 With port binding, an app can be the backing service for another app by providing the backing service URL. For example, a frontend app using a backend app. 
 
-![Twelve-Factor App Port Binding](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701611346/Twelve-Factor%20App/port-binding_vxdlrk.png)
+![Twelve-Factor App Port Binding](./simplifying-the-twelve-factor-app/port-binding.png)
 
 ## 8. Concurrency
 
@@ -166,7 +166,7 @@ With port binding, an app can be the backing service for another app by providin
 
 When building scalable applications, a **mix of scaling up and scaling out** is ideal. 
 
-![Twelve-Factor App Concurrency](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701611348/Twelve-Factor%20App/concurrency_pxpo5u.png)
+![Twelve-Factor App Concurrency](./simplifying-the-twelve-factor-app/concurrency.png)
 
 ## 9. Disposability
 
@@ -183,7 +183,7 @@ For shutting down gracefully:
   - worker process should return unprocessed jobs to the queue.
   - jobs should be [reentrant](https://en.wikipedia.org/wiki/Reentrancy_(computing)) and workers should be [idempotent](https://en.wikipedia.org/wiki/Idempotence).
 
-![Twelve-Factor App Disposability](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701611348/Twelve-Factor%20App/disposability_wwmk6w.png)
+![Twelve-Factor App Disposability](./simplifying-the-twelve-factor-app/disposability.png)
 
 ## 10. Dev/prod parity
 
@@ -209,7 +209,7 @@ For shutting down gracefully:
 
 > Tools like [Docker](https://www.docker.com/) and [Vagrant](https://www.vagrantup.com/) can be used to allow local environments to mimic production environments.
 
-![Twelve-Factor App Dev/Prod Parity](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701611348/Twelve-Factor%20App/dev-prod-parity_r7gwow.png)
+![Twelve-Factor App Dev/Prod Parity](./simplifying-the-twelve-factor-app/dev-prod-parity.png)
 
 ## 11. Logs
 
@@ -220,7 +220,7 @@ For shutting down gracefully:
 - doesn't write or manage log files.
 - **stream** logs to different services for **analysis** and **monitoring**.
 
-![Twelve-Factor App Logs](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701611348/Twelve-Factor%20App/logs_htc9r8.png)
+![Twelve-Factor App Logs](./simplifying-the-twelve-factor-app/logs.png)
 
 ## 12. Admin processes
 
@@ -235,7 +235,7 @@ For shutting down gracefully:
 - running console commands via SSH.
 - running one-time scripts (like fixing bad records).
 
-![Twelve-Factor App Admin Processes](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701611346/Twelve-Factor%20App/admin-processes_finn2c.png)
+![Twelve-Factor App Admin Processes](./simplifying-the-twelve-factor-app/admin-processes.png)
 
 ## Conclusion
 

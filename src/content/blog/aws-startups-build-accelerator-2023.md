@@ -104,7 +104,7 @@ Just remember, [every code you write becomes technical debt](https://www.tokyode
 
 ### Become a Great Buyer
 
-![AWS Well-Architected for Vendors](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702811772/AWS%20Startups%20Build%20Accelerator%202023/AWS_Well-Architected_rkxgx9.png)
+![AWS Well-Architected for Vendors](./aws-startups-build-accelerator-2023/aws-well-architected.png)
 
 For guidelines on selecting 3rd-party vendors, the [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) can be applied here.
 
@@ -134,7 +134,7 @@ Here is an example of leveraging existing solutions in the startup I'm currently
 
 We have a service that allows customers to **sell their crypto** and **receive fiat** in their **bank accounts or e-wallets**. 
 
-![Rails by P33R Finance High-Level Architecture](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702811773/AWS%20Startups%20Build%20Accelerator%202023/Rails_Architecture_uosozm.png)
+![Rails by P33R Finance High-Level Architecture](./aws-startups-build-accelerator-2023/rails-architecture.png)
 
 There are two things in this flow where we opted to use a 3rd-party vendor:
 - Transaction gas fee computation
@@ -156,7 +156,7 @@ In hindsight, we should've done this from the start, but that's what happens whe
 
 > [Iterate towards an MLP (Minimum Lovable Product).](https://www.aha.io/roadmapping/guide/plans/what-is-a-minimum-lovable-product)
 
-![Build, Test, Iterate](https://res.cloudinary.com/dlieqpdfd/image/upload/v1702811772/AWS%20Startups%20Build%20Accelerator%202023/Build_Test_Iterate_hfkx9r.png)
+![Build, Test, Iterate](./aws-startups-build-accelerator-2023/build-test-iterate.png)
 
 After launching your MVP, you might think the journey is over and you can just wait to gain new customers. Well, not quite.
 

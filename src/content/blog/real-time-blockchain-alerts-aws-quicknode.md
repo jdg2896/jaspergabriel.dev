@@ -23,7 +23,7 @@ Once both are deployed, you will receive an email whenever there are transfers o
 
 Here's a high-level diagram on how QuickAlert notifications work.
 
-![QuickAlerts high-level diagram](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243018/QuickAlerts/quickalerts-high-level-diagram_bcejb1.png)
+![QuickAlerts high-level diagram](./real-time-blockchain-alerts-aws-quicknode/quickalerts-high-level-diagram.png)
 
 > **Note:** QuickNode only support webhooks as of writing. In the future, they will support email alerts which will make this solution unnecessary.
 >
@@ -70,7 +70,7 @@ The application uses [AWS SAM](https://docs.aws.amazon.com/serverless-applicatio
 - [AWS Lambda](https://aws.amazon.com/lambda/)
 - [Amazon SNS](https://aws.amazon.com/sns/)
 
-![AWS high-level diagram](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243017/QuickAlerts/aws-high-level-diagram_zyof1l.png)
+![AWS high-level diagram](./real-time-blockchain-alerts-aws-quicknode/aws-high-level-diagram.png)
 
 Then to setup the project:
 
@@ -128,7 +128,7 @@ Once you have an account, here are the steps for creating your QuickAlert notifi
 
 1. Select **QuickAlerts** on the left sidebar, then click **Create QuickAlert**.
 
-    ![QuickNode QuickAlerts Dashboard](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243017/QuickAlerts/1-quickalerts-dashboard_u8ig5r.png)
+    ![QuickNode QuickAlerts Dashboard](./real-time-blockchain-alerts-aws-quicknode/1-quickalerts-dashboard.png)
 
 2. Configure the following:
     - Name your notification to **My QuickAlert** or any name you like.
@@ -137,23 +137,23 @@ Once you have an account, here are the steps for creating your QuickAlert notifi
 
     Then click **Next** to proceed.
 
-    ![Configuring the QuickAlert notification name, chain, network, and template](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243017/QuickAlerts/2-create-quickalert_an6qoa.png)
+    ![Configuring the QuickAlert notification name, chain, network, and template](./real-time-blockchain-alerts-aws-quicknode/2-create-quickalert.png)
 
 3. Before continuing, you need to get a **block number** to test your QuickAlert expression.
 
     Go to [Etherscan](https://etherscan.io/advanced-filter?tkn=0xdac17f958d2ee523a2206206994597c13d831ec7&txntype=2&amt=1000000%7e100000000) and choose any transaction you'd like to test.
 
-    ![Finding 1 million USDT and above transfer transactions on Etherscan](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243019/QuickAlerts/3-select-transaction_dv6u9h.png)
+    ![Finding 1 million USDT and above transfer transactions on Etherscan](./real-time-blockchain-alerts-aws-quicknode/3-select-transaction.png)
 
 4. Once you've chosen a transaction, copy the **block number**.
 
-    ![USDT transfer transaction details on Etherscan](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243019/QuickAlerts/4-get-block-number_ykhc65.png)
+    ![USDT transfer transaction details on Etherscan](./real-time-blockchain-alerts-aws-quicknode/4-get-block-number.png)
 
 5. After you've copied the block number:
     - Paste it on the **Target Block**.
     - Then click **Get Data**.
 
-    ![Create QuickAlert expression](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243019/QuickAlerts/5-update-target-block_kbstul.png)
+    ![Create QuickAlert expression](./real-time-blockchain-alerts-aws-quicknode/5-update-target-block.png)
 
 6. I've created a [sample expression](https://github.com/quiknode-labs/quickalerts-examples/pull/5) to filter out transfers of at least 1 million USDT or USDC.
 
@@ -179,15 +179,15 @@ Once you have an account, here are the steps for creating your QuickAlert notifi
 
     After testing the expression, click **Next** to proceed.
 
-    ![Test QuickAlert expression](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243019/QuickAlerts/6-test-expression_zdfdkt.png)
+    ![Test QuickAlert expression](./real-time-blockchain-alerts-aws-quicknode/6-test-expression.png)
 
 7. Now to create a Destination, click **Create Destination**.
 
-    ![Create QuickAlert Destination](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243019/QuickAlerts/7-create-destination_ajwsjb.png)
+    ![Create QuickAlert Destination](./real-time-blockchain-alerts-aws-quicknode/7-create-destination.png)
 
 8. Select **Webhook**, then click **Continue**.
 
-    ![Select Webhook as destination type](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243019/QuickAlerts/8-select-webhook_ar8tnq.png)
+    ![Select Webhook as destination type](./real-time-blockchain-alerts-aws-quicknode/8-select-webhook.png)
 
 9. Configure the following for your webhook:
       - Webhook name to **My Webhook** or any name you prefer.
@@ -197,13 +197,13 @@ Once you have an account, here are the steps for creating your QuickAlert notifi
 
     Then Click **Create Webhook**.
 
-    ![Configure webhook name, URL, request type, and payload type](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243019/QuickAlerts/9-create-webhook_kbi3yu.png)
+    ![Configure webhook name, URL, request type, and payload type](./real-time-blockchain-alerts-aws-quicknode/9-create-webhook.png)
 
 10.  Click the **slider** on the right to enable your webhook.
 
     Then click **Deploy Notification**.
 
-    ![Deploy QuickAlert notification](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243019/QuickAlerts/10-deploy-notification_livdj2.png)
+    ![Deploy QuickAlert notification](./real-time-blockchain-alerts-aws-quicknode/10-deploy-notification.png)
 
 ## Testing the QuickAlert Notification
 
@@ -215,7 +215,7 @@ You should see changes to the **Last delivery**, which shows the time since the 
 
 Then **click anywhere** on your QuickAlert notification to view the settings.
 
-![Select created QuickAlert](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243020/QuickAlerts/11-view-notification_eezrdz.png)
+![Select created QuickAlert](./real-time-blockchain-alerts-aws-quicknode/11-view-notification.png)
 
 Here, you can edit the following:
 
@@ -225,13 +225,13 @@ Here, you can edit the following:
 
 **Scroll down** to the bottom of the page to see the events.
 
-![QuickAlert notification settings](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243020/QuickAlerts/12-notification-settings_zojvdy.png)
+![QuickAlert notification settings](./real-time-blockchain-alerts-aws-quicknode/12-notification-settings.png)
 
 Once you're at the bottom of the page, you should see the **Events** section.
 
 This shows all the blockchain events sent by your QuickAlert notification to your webhook.
 
-![QuickAlert notification sent events](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243020/QuickAlerts/13-view-events_ro8fbh.png)
+![QuickAlert notification sent events](./real-time-blockchain-alerts-aws-quicknode/13-view-events.png)
 
 ### Checking your email for alerts
 
@@ -239,17 +239,17 @@ Now, check the email you've configured earlier to see if you've received any ema
 
 You should see something similar.
 
-![Email alert from SNS](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243020/QuickAlerts/14-view-email_yuhfjq.png)
+![Email alert from SNS](./real-time-blockchain-alerts-aws-quicknode/14-view-email.png)
 
 Then click the **Etherscan link** to view the transaction.
 
 You should see **at least 1 million USDT or USDC** was transferred.
 
-![Transaction details from email alert](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243018/QuickAlerts/15-view-transaction_tyabnl.png)
+![Transaction details from email alert](./real-time-blockchain-alerts-aws-quicknode/15-view-transaction.png)
 
 After you're done testing, don't forget to **disable** or **delete** your QuickAlert notification to avoid wasting your credits.
 
-![Disable or delete QuickAlert notification](https://res.cloudinary.com/dlieqpdfd/image/upload/v1703243017/QuickAlerts/16-disable-or-delete-notification_rzaode.png)
+![Disable or delete QuickAlert notification](./real-time-blockchain-alerts-aws-quicknode/16-disable-or-delete-notification.png)
 
 ## Conclusion
 

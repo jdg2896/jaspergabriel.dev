@@ -39,7 +39,7 @@ I went through the tutorials during my free time. The first part was pretty stra
 
 Once I got to the second part, in the [slots section](https://learn.svelte.dev/tutorial/slots), I noticed a difference between the docs on the left, and the code on the right. 
 
-![Learning Svelte interactive tutorial website, slots section difference between docs and code](https://res.cloudinary.com/dlieqpdfd/image/upload/v1705810062/svelte-open-source/1-learn-svelte-dev-slots-page_cyvg32.png)
+![Learning Svelte interactive tutorial website, slots section difference between docs and code](./contributing-to-open-source-while-learning-svelte/1-learn-svelte-dev-slots-page.png)
 
 In the left part, the docs show `<div class="card ">`, while the code snippet on the right shows `<div class="card">`. The difference is that there's an **extra whitespace on the class value**.
 
@@ -57,7 +57,7 @@ Fortunately, the maintainers at Svelte also make it easy to edit the interactive
 
 While still on the slots tutorial page, I clicked the **Edit this page** link at the bottom.
 
-![Learning Svelte interactive tutorial website, click the "Edit this Page" button at the bottom of the slots section page.](https://res.cloudinary.com/dlieqpdfd/image/upload/v1705810061/svelte-open-source/2-learn-svelte-dev-slots-edit-this-page_jwepnc.png)
+![Learning Svelte interactive tutorial website, click the "Edit this Page" button at the bottom of the slots section page.](./contributing-to-open-source-while-learning-svelte/2-learn-svelte-dev-slots-edit-this-page.png)
 
 Clicking the **Edit this page** button brought me to the [GitHub repository](https://github.com/sveltejs/learn.svelte.dev/tree/main/content/tutorial/02-advanced-svelte/07-composition/01-slots) of Svelte's interactive tutorial.
 
@@ -78,22 +78,22 @@ Now, I'll show you the steps on how I contributed my changes through the GitHub 
 > I won't create an actual pull request adding a random white space. 😉
 
 1. While still on the slots page `README.md` file, I clicked the **edit button** to edit the file directly on GitHub.
-![learn.svelte.dev on GitHub website, slots section README.md, click "Edit file" button](https://res.cloudinary.com/dlieqpdfd/image/upload/v1705810062/svelte-open-source/3-github-slots-readme_qjkg1v.png)
+![learn.svelte.dev on GitHub website, slots section README.md, click "Edit file" button](./contributing-to-open-source-while-learning-svelte/3-github-slots-readme.png)
 
 1. Since it was my first time contributing to [Svelte's tutorial](https://github.com/sveltejs/learn.svelte.dev), I was prompted to **fork the repository**.
-![learn.svelte.dev on the GitHub website, prompt to fork the repository.](https://res.cloudinary.com/dlieqpdfd/image/upload/v1705810060/svelte-open-source/4-github-fork-repository_mfood5.png)
+![learn.svelte.dev on the GitHub website, prompt to fork the repository.](./contributing-to-open-source-while-learning-svelte/4-github-fork-repository.png)
 
 1. Once I forked the repository, I edited the file with the improvements. Then I clicked **Commit changes**. 
-![learn.svelte.dev on the GitHub website, click "Commit changes..." after editing the README.md file.](https://res.cloudinary.com/dlieqpdfd/image/upload/v1705810063/svelte-open-source/5-github-edit-file_ntmznm.png)
+![learn.svelte.dev on the GitHub website, click "Commit changes..." after editing the README.md file.](./contributing-to-open-source-while-learning-svelte/5-github-edit-file.png)
 
 1. I was prompted to enter my **commit message**, along with the optional description and commit email. Then I clicked **Propose changes**.
-![learn.svelte.dev on the GitHub website, prompt to enter commit message, optional description, and commit email. Then click "Propose changes".](https://res.cloudinary.com/dlieqpdfd/image/upload/v1705810063/svelte-open-source/6-github-propose-changes_qbnngr.png)
+![learn.svelte.dev on the GitHub website, prompt to enter commit message, optional description, and commit email. Then click "Propose changes".](./contributing-to-open-source-while-learning-svelte/6-github-propose-changes.png)
 
 1. After making a commit, GitHub will automatically create a **new branch** with `patch-<number>` for the branch name. My branch name is `patch-3`. Then I reviewed the changes before clicking **Create pull request**.
-![learn.svelte.dev on the GitHub website, create a new branch "patch-3" for the commit. Then compare changes with the main repository and prompt to create a pull request.](https://res.cloudinary.com/dlieqpdfd/image/upload/v1705810063/svelte-open-source/7-github-compare-changes_khkdgh.png)
+![learn.svelte.dev on the GitHub website, create a new branch "patch-3" for the commit. Then compare changes with the main repository and prompt to create a pull request.](./contributing-to-open-source-while-learning-svelte/7-github-compare-changes.png)
 
 1. Finally, I was prompted to enter a pull request title and description. Then I clicked **Create pull request**.
-![learn.svelte.dev on the GitHub website, prompt to enter pull request title and description. Then click "Create pull request".](https://res.cloudinary.com/dlieqpdfd/image/upload/v1705810063/svelte-open-source/7-github-compare-changes_khkdgh.png)
+![learn.svelte.dev on the GitHub website, prompt to enter pull request title and description. Then click "Create pull request".](./contributing-to-open-source-while-learning-svelte/7-github-compare-changes.png)
 
 Making changes on the GitHub website works for small commits, but I'd still recommend **cloning the project to your local machine to test your changes**. 
 
@@ -109,7 +109,7 @@ After creating my pull request, it's up to the maintainers if and when they'll a
 
 After a few days, one of my [pull requests](https://github.com/sveltejs/learn.svelte.dev/pull/550) was merged.
 
-![My GitHub pull request on learn.svelte.dev repository merged.](https://res.cloudinary.com/dlieqpdfd/image/upload/v1705809187/svelte-open-source/9-github-pull-request-merged_fybjkd.png)
+![My GitHub pull request on learn.svelte.dev repository merged.](./contributing-to-open-source-while-learning-svelte/9-github-pull-request-merged.png)
 
 Making pull requests that **introduce small changes and have good descriptions** increases your chances of having your pull request approved.
 

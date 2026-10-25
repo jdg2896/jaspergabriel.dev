@@ -38,11 +38,11 @@ After choosing Ethereum.org as a potential repository where I could contribute, 
 
 While browsing through the different [ways to contribute](https://ethereum.org/en/contributing/) to Ethereum.org, I saw their [translation program](https://ethereum.org/en/contributing/translation-program/) and checked if I could contribute by translating their documentation. As I was reading through the [translation program resources page](https://ethereum.org/en/contributing/translation-program/resources), I noticed a broken Discord link in the [Office hours for translators section](https://ethereum.org/en/contributing/translation-program/resources/#office-hours). 
 
-![Ethereum translation program resources: Office hours for translators](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701007417/ethereum.org%20open-source/translation-program-resources_n8ta5d.png)
+![Ethereum translation program resources: Office hours for translators](./contributed-one-line-to-ethereum/translation-program-resources.png)
 
 The Discord link should redirect to [Ethereum.org's Discord server](https://discord.com/invite/rZz26QWfCg). Instead, I got an `Invite Invalid` error message.
 
-![Ethereum.org Discord "Invite Invalid" error](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701007416/ethereum.org%20open-source/discord-invite-invalid_oj8nna.png)
+![Ethereum.org Discord "Invite Invalid" error](./contributed-one-line-to-ethereum/discord-invite-invalid.png)
 
 ## Reviewing Ethereum.org's open-source contribution guidelines
 
@@ -50,7 +50,7 @@ Before proceeding to fix the invalid Discord invite link, I reviewed Ethereum.or
 
 The guide pointed to the contributing sections in Ethereum.org's [website](https://ethereum.org/en/contributing/) and [README.md](https://github.com/ethereum/ethereum-org-website/tree/dev#-welcome-to-ethereumorg).
 
-![Ethereum.org CONTRIBUTING.md](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701007414/ethereum.org%20open-source/contributing-md_lfiwid.png)
+![Ethereum.org CONTRIBUTING.md](./contributed-one-line-to-ethereum/contributing-md.png)
 
 ## Creating an issue on Ethereum.org's GitHub repository
 
@@ -58,12 +58,12 @@ After reviewing the contributing guidelines, I looked at existing [issues](https
 
 Once I verified that no one else reported the issue, I created an [issue](https://github.com/ethereum/ethereum-org-website/issues/10530) on Ethereum.org's GitHub repository. 
 
-![Invalid Discord invite GitHub issue](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701007416/ethereum.org%20open-source/github-issue_ug6lst.png)
+![Invalid Discord invite GitHub issue](./contributed-one-line-to-ethereum/github-issue.png)
 
 Creating an issue was easy since there are templates for different types of issues. In my case, I needed to create a **Bug report issue**. 
 
-![Creating a bug report issue on Ethereum.org's GitHub repository](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701007415/ethereum.org%20open-source/create-issue-1_fz7yyf.png)
-![Creating a bug report issue using a template](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701007415/ethereum.org%20open-source/create-issue-2_joxdyu.png)
+![Creating a bug report issue on Ethereum.org's GitHub repository](./contributed-one-line-to-ethereum/create-issue-1.png)
+![Creating a bug report issue using a template](./contributed-one-line-to-ethereum/create-issue-2.png)
 
 ## Forking Ethereum.org's repository and testing the fix
 
@@ -71,7 +71,7 @@ After creating the issue, I [forked Ethereum.org's GitHub repository](https://gi
 
 The fix was easy since I only needed to replace the Discord invite link with a working one. 
 
-![Commit that fixes the invalid Ethereum.org Discord invite link](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701007413/ethereum.org%20open-source/code-commit_kpepwf.png)
+![Commit that fixes the invalid Ethereum.org Discord invite link](./contributed-one-line-to-ethereum/code-commit.png)
 
 I tested the fix locally to verify that the translation page is still working and that my commit fixed the issue. 
 
@@ -79,7 +79,7 @@ I tested the fix locally to verify that the translation page is still working an
 
 After verifying that my commit fixed the [issue](https://github.com/ethereum/ethereum-org-website/issues/10530), I created a [pull request](https://github.com/ethereum/ethereum-org-website/pull/10531) to Ethereum.org's repository with the fix for the invalid Discord invite link.
 
-![Pull request with the fix for the invalid Ethereum.org Discord invite link](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701007417/ethereum.org%20open-source/pull-request_yems8s.png)
+![Pull request with the fix for the invalid Ethereum.org Discord invite link](./contributed-one-line-to-ethereum/pull-request.png)
 
 ## Pull request reviewed and merged!
 
@@ -87,15 +87,15 @@ After creating the pull request, I waited for the code owners and maintainers to
 
 A few days later, [corwintines](https://github.com/corwintines) reviewed my [pull request](https://github.com/ethereum/ethereum-org-website/pull/10531). In his code review, he gave valuable feedback and updated my code changes by replacing the Discord invite link with the official Ethereum.org Discord invite link.
 
-![Code owner reviews the pull request](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701007414/ethereum.org%20open-source/code-review_jvmmxp.png)
+![Code owner reviews the pull request](./contributed-one-line-to-ethereum/code-review.png)
 
 Then, he approved and merged my pull request. He also thanked me for my contribution, which left a warm feeling even though I only contributed one line of code (less than that if you consider that he updated my code changes).
 
-![Approving and merging the pull request](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701007413/ethereum.org%20open-source/approve-and-merge-pr_f5gupb.png)
+![Approving and merging the pull request](./contributed-one-line-to-ethereum/approve-and-merge-pr.png)
 
 After the pull request was merged, I also got a [GitPOAP](https://www.gitpoap.io/), as recognition for my contribution to Ethereum.org in 2023.
 
-![Ethereum.org GitPOAP](https://res.cloudinary.com/dlieqpdfd/image/upload/v1701007416/ethereum.org%20open-source/gitpoap_abl710.png)
+![Ethereum.org GitPOAP](./contributed-one-line-to-ethereum/gitpoap.png)
 
 ## Conclusion
 
