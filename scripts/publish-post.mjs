@@ -1,4 +1,4 @@
-// Publishes a draft post: npm run publish [slug]
+// Publishes a draft post: pnpm run publish [slug]
 // Dates it today, checks the site builds, then commits and pushes the post
 // and its images (a push to main deploys). With no slug, the only draft is used.
 import { execFileSync, spawnSync } from 'node:child_process';
@@ -20,7 +20,7 @@ if (!slug) {
     .filter((name) => isDraft(readFileSync(`${dir}/${name}`, 'utf8')))
     .map((name) => name.replace(/\.md$/, ''));
   if (drafts.length !== 1) {
-    fail(drafts.length ? `Which draft? npm run publish <slug>\n  ${drafts.join('\n  ')}` : 'No drafts to publish');
+    fail(drafts.length ? `Which draft? pnpm run publish <slug>\n  ${drafts.join('\n  ')}` : 'No drafts to publish');
   }
   slug = drafts[0];
 }
@@ -52,7 +52,7 @@ writeFileSync(
 // The schema requires a description and tags once a post isn't a draft, so a
 // half-filled post fails here instead of going live. A post that fails to
 // render is only logged as an error, so the log is checked too.
-const build = spawnSync('npx', ['astro', 'build'], { encoding: 'utf8' });
+const build = spawnSync('pnpm', ['exec', 'astro', 'build'], { encoding: 'utf8' });
 const log = build.stdout + build.stderr;
 process.stdout.write(log);
 if (build.status !== 0 || /\[ERROR\]/.test(log)) {

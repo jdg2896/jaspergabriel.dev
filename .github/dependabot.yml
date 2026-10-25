@@ -1,0 +1,16 @@
+version: 2
+updates:
+  # The npm ecosystem also covers pnpm-lock.yaml
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    # Matches minimumReleaseAge in pnpm-workspace.yaml; a PR for a younger
+    # version would fail pnpm's install policy anyway
+    cooldown:
+      default-days: 3
+    # One PR a week for routine bumps; majors (e.g. Astro 7) stay separate
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+    open-pull-requests-limit: 5

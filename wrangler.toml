@@ -16,3 +16,9 @@ run_worker_first = ["/api/*"]
 binding = "DB"
 database_name = "toasts"
 database_id = "711c7434-7309-49c4-ab48-5e3b1e08d954"
+
+# Caps toast writes per IP; a reader toggles a few times, a script thousands
+[[ratelimits]]
+name = "TOAST_LIMITER"
+namespace_id = "1001"
+simple = { limit = 10, period = 60 }
