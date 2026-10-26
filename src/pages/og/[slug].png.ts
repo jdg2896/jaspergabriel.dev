@@ -13,8 +13,8 @@ import sharp from 'sharp';
 // prerender chunk at build time, not at this source file.
 const font = (file: string) => readFileSync(`./src/assets/fonts/${file}`);
 const fonts = [
-  { name: 'Inter', data: font('inter-latin-400-normal.woff'), weight: 400 as const, style: 'normal' as const },
-  { name: 'Inter', data: font('inter-latin-600-normal.woff'), weight: 600 as const, style: 'normal' as const },
+  { name: 'Charter', data: font('XCharter-Roman.otf'), weight: 400 as const, style: 'normal' as const },
+  { name: 'Charter', data: font('XCharter-Bold.otf'), weight: 700 as const, style: 'normal' as const },
 ];
 
 // Dark theme tokens from global.css
@@ -71,19 +71,19 @@ export const GET: APIRoute = async ({ props }) => {
       justifyContent: 'space-between',
       padding: '72px 80px',
       backgroundColor: colors.bg,
-      fontFamily: 'Inter',
+      fontFamily: 'Charter',
     },
     [
       h('div', { display: 'flex', flexDirection: 'column', gap: '28px' }, [
         h('div', { fontSize: 26, color: colors.muted }, eyebrow),
         h(
           'div',
-          { fontSize: title.length > 60 ? 56 : 66, fontWeight: 600, lineHeight: 1.15, color: colors.text },
+          { fontSize: title.length > 60 ? 56 : 66, fontWeight: 700, lineHeight: 1.15, color: colors.text },
           title,
         ),
         h(
           'div',
-          { display: 'block', fontFamily: 'Inter', fontSize: 30, lineHeight: 1.5, color: colors.muted, lineClamp: 2 },
+          { display: 'block', fontFamily: 'Charter', fontSize: 30, lineHeight: 1.5, color: colors.muted, lineClamp: 2 },
           description,
         ),
       ]),
@@ -97,7 +97,7 @@ export const GET: APIRoute = async ({ props }) => {
           fontSize: 26,
         },
         [
-          h('div', { fontWeight: 600, color: colors.text }, 'Jasper Gabriel'),
+          h('div', { fontWeight: 700, color: colors.text }, 'Jasper Gabriel'),
           h('div', { color: colors.muted }, 'jaspergabriel.dev'),
         ],
       ),
