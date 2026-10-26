@@ -25,3 +25,8 @@ A push to `main` deploys the site.
 
 Each post has a toast button. Counts are stored in Cloudflare D1 and served by
 `worker/index.ts` at `/api/toast/:slug`.
+
+## License
+
+The code is [MIT](LICENSE). My posts, About page text, and photos are not:
+they're all rights reserved. See [LICENSE](LICENSE) for the details.
