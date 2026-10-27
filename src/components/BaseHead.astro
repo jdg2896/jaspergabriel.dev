@@ -39,14 +39,39 @@ const imageURL = image && new URL(image, Astro.site);
   applyTheme();
   document.addEventListener('astro:after-swap', applyTheme);
 
-  // A full page load to a #heading link otherwise paints the top of the
-  // page, then jumps at DOMContentLoaded; this lands there before the first
-  // paint instead. rel=expect holds that paint until the page is parsed up
-  // to the footer (Chrome; others ignore it), and the scroll runs in a frame
-  // callback, which comes before paint. Reload and back/forward positions
-  // are left to ClientRouter: restoring them here too made two scrolls race
-  // in in-app browsers, which reload the page when you return to them.
-  if (location.hash.length > 1) {
+  // A full page load otherwise paints the top of the page, then jumps at
+  // DOMContentLoaded: to the #heading on a fresh link, or, on reload and
+  // back/forward, to the position ClientRouter saved in history.state. Both
+  // land here before the first paint instead. rel=expect holds that paint
+  // until the page is parsed up to the footer (Chrome; others ignore it),
+  // and the scroll runs in a frame callback, which comes before paint.
+  const saved = history.state;
+  const restoring = typeof saved?.scrollY === 'number';
+  // ClientRouter restores the same position when its script runs at the end
+  // of parsing. In-app browsers reload slowly when you return to them, so a
+  // reader may already be scrolling by then, and either restore would snap
+  // them back. Their input wins: both are skipped for the rest of the load.
+  // readyState excludes reruns after a ClientRouter navigation.
+  if (restoring && document.readyState === 'loading') {
+    const nativeScrollTo = window.scrollTo;
+    const inputs = ['wheel', 'touchstart', 'keydown'];
+    const stopListening = () =>
+      inputs.forEach((type) => removeEventListener(type, yieldToReader, true));
+    const yieldToReader = () => {
+      window.scrollTo = () => {};
+      stopListening();
+    };
+    inputs.forEach((type) => addEventListener(type, yieldToReader, { capture: true, passive: true }));
+    document.addEventListener(
+      'DOMContentLoaded',
+      () => {
+        window.scrollTo = nativeScrollTo;
+        stopListening();
+      },
+      { once: true },
+    );
+  }
+  if (restoring || location.hash.length > 1) {
     const expect = document.createElement('link');
     expect.rel = 'expect';
     expect.href = '#site-footer';
@@ -58,11 +83,15 @@ const imageURL = image && new URL(image, Astro.site);
         requestAnimationFrame(land);
         return;
       }
-      let id = location.hash.slice(1);
-      try {
-        id = decodeURIComponent(id);
-      } catch {}
-      document.getElementById(id)?.scrollIntoView();
+      if (restoring) {
+        scrollTo(saved.scrollX ?? 0, saved.scrollY);
+      } else {
+        let id = location.hash.slice(1);
+        try {
+          id = decodeURIComponent(id);
+        } catch {}
+        document.getElementById(id)?.scrollIntoView();
+      }
       // Images are lazy and decode async, so the first paint would show
       // their loading panels for a frame or two. Those now in view load at
       // once and decode in that paint; on a reload they're in cache.
