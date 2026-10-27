@@ -47,6 +47,30 @@ const imageURL = image && new URL(image, Astro.site);
   // and the scroll runs in a frame callback, which comes before paint.
   const saved = history.state;
   const restoring = typeof saved?.scrollY === 'number';
+  // ClientRouter restores the same position when its script runs at the end
+  // of parsing. In-app browsers reload slowly when you return to them, so a
+  // reader may already be scrolling by then, and either restore would snap
+  // them back. Their input wins: both are skipped for the rest of the load.
+  // readyState excludes reruns after a ClientRouter navigation.
+  if (restoring && document.readyState === 'loading') {
+    const nativeScrollTo = window.scrollTo;
+    const inputs = ['wheel', 'touchstart', 'keydown'];
+    const stopListening = () =>
+      inputs.forEach((type) => removeEventListener(type, yieldToReader, true));
+    const yieldToReader = () => {
+      window.scrollTo = () => {};
+      stopListening();
+    };
+    inputs.forEach((type) => addEventListener(type, yieldToReader, { capture: true, passive: true }));
+    document.addEventListener(
+      'DOMContentLoaded',
+      () => {
+        window.scrollTo = nativeScrollTo;
+        stopListening();
+      },
+      { once: true },
+    );
+  }
   if (restoring || location.hash.length > 1) {
     const expect = document.createElement('link');
     expect.rel = 'expect';
