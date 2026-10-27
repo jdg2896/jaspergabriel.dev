@@ -353,7 +353,7 @@
       "name": "Toast Button",
       "kind": "button",
       "refersTo": "toast-button",
-      "description": "Signature reaction: unboxed double chevron with live count; Cobalt Ink when toasted.",
+      "description": "Signature reaction: unboxed clinking glasses with live count; Cobalt Ink when toasted.",
       "html": "<button class=\"ds-toast\" aria-pressed=\"false\" aria-label=\"Toast this post\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m17 11-5-5-5 5\"></path><path d=\"m17 18-5-5-5 5\"></path></svg><span class=\"ds-toast__count\">12</span></button>",
       "css": ".ds-toast { display: inline-flex; flex-direction: column; align-items: center; padding: 0; border: none; background: none; color: var(--color-text-muted); font-family: var(--font-sans); font-size: 0.9rem; cursor: pointer; transition: color 0.15s ease; } .ds-toast:hover { color: var(--color-accent-hover); } .ds-toast[aria-pressed=\"true\"] { color: var(--color-accent); } .ds-toast svg { transition: transform 0.1s ease; } .ds-toast:active svg { transform: translateY(-2px); } .ds-toast:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; } .ds-toast__count { min-height: 1.3em; }"
     },
