@@ -15,21 +15,21 @@
     "publish": "node scripts/publish-post.mjs"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^7.3.4",
+    "@astrojs/markdown-remark": "^7.3.5",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.4.2",
+    "astro": "^7.4.4",
     "hast-util-from-html": "^2.0.3",
-    "hast-util-to-html": "^9.0.5",
+    "hast-util-to-html": "^9.0.6",
     "rehype-autolink-headings": "^7.1.0",
     "satori": "0.63.2",
     "sharp": "^0.35.5",
-    "unist-util-visit": "^5.1.0"
+    "unist-util-visit": "^5.2.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
     "@types/hast": "^3.0.5",
     "typescript": "^6.0.3",
-    "wrangler": "^4.152.0"
+    "wrangler": "^4.156.0"
   }
 }
