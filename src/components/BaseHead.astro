@@ -39,45 +39,6 @@ const imageURL = image && new URL(image, Astro.site);
   applyTheme();
   document.addEventListener('astro:after-swap', applyTheme);
 
-  // ClientRouter saves the scroll position into history.state with
-  // replaceState every time scrolling stops. Some in-app browsers treat each
-  // call as a navigation: they bring their toolbar back and scroll the page
-  // to the top. The position only matters once the reader leaves, so hold
-  // the latest one and write it when the page is hidden, or just before
-  // ClientRouter pushes the next entry. Wrapped once; this can rerun.
-  if (!history.replaceState.deferring) {
-    const replace = history.replaceState.bind(history);
-    const push = history.pushState.bind(history);
-    let pending = null;
-    const flush = () => {
-      if (pending) replace(pending, '');
-      pending = null;
-    };
-    const deferred = (state, unused, url) => {
-      // A scroll save keeps the URL and the entry's index; anything else
-      // (a new URL, the first state on load) goes through now.
-      if (url === undefined && state && history.state && state.index === history.state.index) {
-        pending = state;
-        return;
-      }
-      pending = null;
-      replace(state, unused, url);
-    };
-    deferred.deferring = true;
-    history.replaceState = deferred;
-    history.pushState = (...args) => {
-      flush();
-      push(...args);
-    };
-    // By popstate the entry has already changed, so the held position
-    // belongs to one we've left; writing it now would mark the wrong page.
-    addEventListener('popstate', () => (pending = null), true);
-    addEventListener('pagehide', flush);
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'hidden') flush();
-    });
-  }
-
   // A full page load otherwise paints the top of the page, then jumps at
   // DOMContentLoaded: to the #heading on a fresh link, or, on reload and
   // back/forward, to the position ClientRouter saved in history.state. Both
