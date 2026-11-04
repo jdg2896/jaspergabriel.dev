@@ -30,32 +30,12 @@ const { title, description, canonicalUrl, image, article, schema } = Astro.props
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <Header />
-    <main id="main">
+    <main id="main" tabindex="-1">
       <slot />
     </main>
     <Footer />
   </body>
 </html>
-
-<script>
-  // <main> is focusable only while the skip link has sent focus there. Left
-  // focusable, a tap on the page focuses it, and LinkedIn's in-app browser
-  // then scrolls it into view, back to the top, whenever its toolbar resizes
-  // the page. Capture runs before ClientRouter, which skips prevented clicks.
-  document.addEventListener(
-    'click',
-    (event) => {
-      const link = (event.target as Element).closest?.('.skip-link');
-      const main = document.getElementById('main');
-      if (!link || !main) return;
-      event.preventDefault();
-      main.tabIndex = -1;
-      main.addEventListener('blur', () => main.removeAttribute('tabindex'), { once: true });
-      main.focus();
-    },
-    true,
-  );
-</script>
 
 <style is:global>
   /* Disable default view transition animations for instant nav */
