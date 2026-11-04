@@ -39,6 +39,78 @@ const imageURL = image && new URL(image, Astro.site);
   applyTheme();
   document.addEventListener('astro:after-swap', applyTheme);
 
+  // TEMPORARY: on-screen log for the LinkedIn in-app browser scroll jump,
+  // only with ?scrolldebug in the URL. Remove once the cause is found.
+  if (location.search.includes('scrolldebug') && !window.__scrollDebug) {
+    window.__scrollDebug = true;
+    const t0 = performance.now();
+    let lines = [];
+    try {
+      lines = JSON.parse(sessionStorage.getItem('scrolldebug') || '[]');
+    } catch {}
+    let box;
+    const log = (msg) => {
+      const focus = document.activeElement;
+      const f = focus ? focus.tagName + (focus.id ? '#' + focus.id : '') : '-';
+      const vv = window.visualViewport;
+      lines.push(
+        `${Math.round(performance.now() - t0)} ${msg} | y=${Math.round(scrollY)} ih=${innerHeight}` +
+          ` vv=${vv ? Math.round(vv.height) + '@' + Math.round(vv.offsetTop) : '-'}` +
+          ` dh=${document.documentElement.scrollHeight} f=${f}`,
+      );
+      lines = lines.slice(-40);
+      try {
+        sessionStorage.setItem('scrolldebug', JSON.stringify(lines));
+      } catch {}
+      if (box) box.textContent = lines.slice(-14).join('\n');
+    };
+    const caller = () =>
+      (new Error().stack || '').split('\n').slice(2, 4).map((s) => s.trim().slice(-60)).join(' < ');
+    const nav = performance.getEntriesByType('navigation')[0];
+    log(`LOAD ${nav ? nav.type : '?'} state=${JSON.stringify(history.state)}`);
+
+    const wrap = (obj, name) => {
+      const orig = obj[name];
+      obj[name] = function (...args) {
+        log(`${name}(${JSON.stringify(args[0])?.slice(0, 40)}) from ${caller()}`);
+        return orig.apply(this, args);
+      };
+    };
+    wrap(window, 'scrollTo');
+    wrap(window, 'scroll');
+    wrap(Element.prototype, 'scrollIntoView');
+    wrap(HTMLElement.prototype, 'focus');
+    wrap(history, 'replaceState');
+    wrap(history, 'pushState');
+
+    let lastY = scrollY;
+    addEventListener(
+      'scroll',
+      () => {
+        if (Math.abs(scrollY - lastY) > 150) log(`JUMP from ${Math.round(lastY)}`);
+        lastY = scrollY;
+      },
+      { passive: true },
+    );
+    for (const type of ['resize', 'pageshow', 'pagehide', 'popstate', 'hashchange', 'orientationchange']) {
+      addEventListener(type, (e) => log(type + (e.persisted ? ' persisted' : '')));
+    }
+    window.visualViewport?.addEventListener('resize', () => log('vv-resize'));
+    document.addEventListener('visibilitychange', () => log('visibility ' + document.visibilityState));
+    document.addEventListener('focusin', () => log('focusin'));
+    addEventListener('touchend', () => log('touchend'), { passive: true });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      box = document.createElement('pre');
+      box.style.cssText =
+        'position:fixed;left:4px;right:4px;top:40%;z-index:9999;margin:0;padding:4px;' +
+        'font:10px/1.3 ui-monospace,monospace;white-space:pre-wrap;word-break:break-all;' +
+        'background:rgba(0,0,0,.75);color:#7f7;pointer-events:none;max-height:45vh;overflow:hidden';
+      document.body.append(box);
+      log('DOMContentLoaded');
+    });
+  }
+
   // A full page load otherwise paints the top of the page, then jumps at
   // DOMContentLoaded: to the #heading on a fresh link, or, on reload and
   // back/forward, to the position ClientRouter saved in history.state. Both
